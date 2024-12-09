@@ -1,0 +1,20 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="{{ pathto(master_doc) }}">
+            Home
+        </a>
+    </li>
+    {%- for parent in parents %}
+    <li class="breadcrumb-item">
+        <a href="{{ parent.link|e }}"
+           {% if loop.last %}
+               {{ accesskey("U") }}
+               class="active"
+           {% endif %}>
+           {{ parent.title }}
+        </a>
+    </li>
+    {%- endfor %}
+    <li class="breadcrumb-item active">{{ title }}</li>
+</ol>
+

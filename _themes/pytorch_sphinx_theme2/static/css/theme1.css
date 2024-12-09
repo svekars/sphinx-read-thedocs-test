@@ -1,0 +1,124 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* default page length */
+.bodywrapper {
+    flex-grow: 1;
+}
+
+.primary-sidebar {
+  background-color: #fff;
+  padding: 15px;
+  border-right: 2px solid #f3f4f7; /* Add a right border */
+}
+
+#table-of-contents h3 {
+  margin-top: 0;
+}
+
+.top-navigation-bar {
+  background-color: #812CE5;
+  color: white;
+  padding: 0px 0;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.top-navigation-bar ul {
+  list-style: none;
+  padding-top: 5px;
+}
+
+.top-navigation-bar li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.top-navigation-bar a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none; /* Removes bullet points from list */
+    overflow: hidden;
+}
+
+.nav-links li {
+    float: left; 
+}
+
+.nav-links li a {
+    padding-top: 8px;
+    padding-left: 14px;
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.breadcrumbs {
+  background-color: #fff;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    padding: 0.75rem 1rem;
+    list-style: none;
+    border-radius: 0.25rem;
+}
+
+.breadcrumb-item {
+  font-size: small;
+}
+
+/* right sidebar styles */
+
+.right-sidebar {
+    margin-top: 10px;
+}
+
+.rightsidebar-toc > ul > li > a[href="#"] {
+    display: none;
+}
+
+.right-sidebar .rightsidebar-toc {
+    margin-left: -5rem !important;
+}
+
+.rightsidebar-toc nav a {
+    display: block;
+    padding: .125rem 0 .125rem .75rem;
+    color: inherit;
+    text-decoration: none;
+    border-left: .125rem solid transparent;
+}
+
+/* remove marker in the sidebars:*/
+
+.primary-sidebar nav.primarysidebar-toc ul li::marker,
+.right-sidebar nav.rightsidebar-toc ul li::marker {
+    content: "";  /* Ensures no markers or bullets in Chrome */
+}
+
+.primary-sidebar nav.primarysidebar-toc ul,
+.right-sidebar nav.rightsidebar-toc ul {
+    list-style-type: none !important; /* Ensures no markers or bullets in Safari */
+}

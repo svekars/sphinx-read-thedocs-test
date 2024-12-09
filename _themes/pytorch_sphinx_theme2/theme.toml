@@ -1,0 +1,19 @@
+[theme]
+
+inherit = "basic"
+stylesheet = [
+    "css/bootstrap.min.css",
+    "css/theme.css",
+]
+
+[options]
+
+theme_navigation_depth = 3
+nosidebar = true
+navigation_links = true
+rightsidebar = true
+sticky_navigation = true
+display_version = true
+prev_next_buttons_location = "bottom"
+style_external_links = false
+

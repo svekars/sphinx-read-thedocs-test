@@ -1,0 +1,4 @@
+{% extends "!basic/globaltoc.html" %}
+
+<h5><a href="{{ pathto(root_doc)|e }}">{{ _('Contents') }}</a></h5>
+{{ toctree(includehidden=theme_globaltoc_includehidden, collapse=theme_globaltoc_collapse, maxdepth=theme_globaltoc_maxdepth) }}

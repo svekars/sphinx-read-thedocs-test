@@ -1,0 +1,62 @@
+// _variables.scss
+// Light theme colors
+$color-bg-light: #ffffff;
+$color-text-light: #333333;
+// Dark theme colors
+$color-bg-dark: #121212;
+$color-text-dark: #e0e0e0;
+
+$custom-font-size: 16px;
+$black: #000000;
+$white: #ffffff;
+$dark_grey: #6c6c6d;
+$light_grey: #f3f4f7;
+$orange: #ee4c2c;
+$medium_grey: #f3f4f7;
+$not_quite_black: #262626;
+$slate: #262626;
+$very_light_grey: #f3f4f7;
+$very_dark_grey: #CCCDD1;
+$content_text_color: #6c6c6d;
+$code_background_color: #f3f4f7;
+$dark_blue: #3d5a97;
+$quick_start_grey: #6c6c6d;
+$command_block_black: #6c6c6d;
+$smoky_grey: #CCCDD1;
+$medium_smoky_grey: #CCCDD1;
+$code_link_color: #4974D1;
+$purple: #812CE5;
+$light_white: #e2e2e2;
+$mid_gray: #797676;
+
+$desktop_header_height: 90px;
+$mobile_header_height: 68px;
+$desktop_footer_height: 620px;
+$site_horizontal_padding: 30px;
+
+@mixin desktop {
+  @media screen and (min-width: 768px) { @content; }
+}
+
+@mixin animated_border_hover_state {
+  @include desktop {
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $orange;
+      transition: width .250s ease-in-out;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+    &:hover {
+      color: $not_quite_black;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+// _dark-mode.scss
+@import "variables";
+body[data-theme="dark"] {
+    background-color: $color-bg-dark;
+    color: $color-text-dark;
+}

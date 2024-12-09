@@ -1,0 +1,31 @@
+<nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+   <div class="pytorch-side-scroll">
+      <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+         <div class="pytorch-left-menu-search">
+          {% block sidebartitle %}
+
+          {% if theme_display_version %}
+             {%- set nav_version = version %}
+             {% if current_version %}
+                {%- set nav_version = current_version %}
+              {% endif %}
+              {% if nav_version %}
+                <div class="version">
+                  {{ nav_version }}
+                </div>
+              {% endif %}
+            {% endif %}
+
+            {% include "searchbox.html" %}
+
+            {% endblock %}
+          </div>
+
+          {% block menu %}
+             <div class="toctree-wrapper">
+               {{ toctree(titles_only=true, collapse=true, includehidden=true) }}
+             </div>
+          {% endblock %}
+      </div>
+   </div>
+</nav>
