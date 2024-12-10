@@ -51,7 +51,7 @@ jobs:
           REF_NAME=$(echo "${{ github.ref }}")
           echo "Ref name: ${REF_NAME}"
           if [[ "${{ github.ref }}" == 'refs/heads/main' ]]; then
-            find . -name "*.html" -print0 | xargs -0 sed -i '/<head>/a \ \ <meta name="robots" content="noindex">';
+            find build -name "*.html" -print0 | xargs -0 sed -i '/<head>/a \ \ <meta name="robots" content="noindex">';
           fi
       - name: Move and commit changes
         run: |
@@ -72,7 +72,7 @@ jobs:
 
           mkdir -p "${TARGET_FOLDER}"
           rm -rf "${TARGET_FOLDER}"/*
-          mv docs/* "${TARGET_FOLDER}"
+          mv build/html/* "${TARGET_FOLDER}"
 
           git config user.name 'svekars'
           git config user.email 'svekars@meta.com'
