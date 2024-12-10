@@ -1,0 +1,4342 @@
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  /* --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+  --font-family-sans-serif: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace ;
+}
+
+/*Github syntax highlighting theme via Rouge*/
+.highlight table td {
+  padding: 5px;
+}
+
+.highlight table pre {
+  margin: 0;
+}
+
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.highlight .c, .highlight .cd {
+  color: #999988;
+  font-style: italic;
+}
+
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+
+.highlight .gr {
+  color: #aa0000;
+}
+
+.highlight .gh {
+  color: #999999;
+}
+
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+
+.highlight .go {
+  color: #888888;
+}
+
+.highlight .gp {
+  color: #555555;
+}
+
+.highlight .gs {
+  font-weight: bold;
+}
+
+.highlight .gu {
+  color: #aaaaaa;
+}
+
+.highlight .gt {
+  color: #aa0000;
+}
+
+.highlight .kc {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .kd {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .kn {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .kp {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .kr {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+
+.highlight .k, .highlight .kv {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .mf {
+  color: #009999;
+}
+
+.highlight .mh {
+  color: #009999;
+}
+
+.highlight .il {
+  color: #009999;
+}
+
+.highlight .mi {
+  color: #009999;
+}
+
+.highlight .mo {
+  color: #009999;
+}
+
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #009999;
+}
+
+.highlight .sb {
+  color: #d14;
+}
+
+.highlight .sc {
+  color: #d14;
+}
+
+.highlight .sd {
+  color: #d14;
+}
+
+.highlight .s2 {
+  color: #d14;
+}
+
+.highlight .se {
+  color: #d14;
+}
+
+.highlight .sh {
+  color: #d14;
+}
+
+.highlight .si {
+  color: #d14;
+}
+
+.highlight .sx {
+  color: #d14;
+}
+
+.highlight .sr {
+  color: #009926;
+}
+
+.highlight .s1 {
+  color: #d14;
+}
+
+.highlight .ss {
+  color: #990073;
+}
+
+.highlight .s {
+  color: #d14;
+}
+
+.highlight .na {
+  color: #008080;
+}
+
+.highlight .bp {
+  color: #525252;
+}
+
+.highlight .nb {
+  color: #0086B3;
+}
+
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+
+.highlight .no {
+  color: #008080;
+}
+
+.highlight .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+
+.highlight .ni {
+  color: #800080;
+}
+
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+
+.highlight .nl {
+  color: #990000;
+  font-weight: bold;
+}
+
+.highlight .nn {
+  color: #555555;
+}
+
+.highlight .nt {
+  color: #000080;
+}
+
+.highlight .vc {
+  color: #008080;
+}
+
+.highlight .vg {
+  color: #008080;
+}
+
+.highlight .vi {
+  color: #008080;
+}
+
+.highlight .nv {
+  color: #008080;
+}
+
+.highlight .ow {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .o {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .n {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .p {
+  color: #000000;
+  font-weight: bold;
+}
+
+.highlight .w {
+  color: #bbbbbb;
+}
+
+.highlight {
+  background-color: #f8f8f8;
+}
+
+/* Fonts */
+@font-face {
+  font-family: FreightSans;
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/FreightSans/freight-sans-bold.woff2") format("woff2"), url("../fonts/FreightSans/freight-sans-bold.woff") format("woff");
+}
+@font-face {
+  font-family: FreightSans;
+  font-weight: 700;
+  font-style: italic;
+  src: url("../fonts/FreightSans/freight-sans-bold-italic.woff2") format("woff2"), url("../fonts/FreightSans/freight-sans-bold-italic.woff") format("woff");
+}
+@font-face {
+  font-family: FreightSans;
+  font-weight: 500;
+  font-style: normal;
+  src: url("../fonts/FreightSans/freight-sans-medium.woff2") format("woff2"), url("../fonts/FreightSans/freight-sans-medium.woff") format("woff");
+}
+@font-face {
+  font-family: FreightSans;
+  font-weight: 500;
+  font-style: italic;
+  src: url("../fonts/FreightSans/freight-sans-medium-italic.woff2") format("woff2"), url("../fonts/FreightSans/freight-sans-medium-italic.woff") format("woff");
+}
+@font-face {
+  font-family: FreightSans;
+  font-weight: 100;
+  font-style: normal;
+  src: url("../fonts/FreightSans/freight-sans-light.woff2") format("woff2"), url("../fonts/FreightSans/freight-sans-light.woff") format("woff");
+}
+@font-face {
+  font-family: FreightSans;
+  font-weight: 100;
+  font-style: italic;
+  src: url("../fonts/FreightSans/freight-sans-light-italic.woff2") format("woff2"), url("../fonts/FreightSans/freight-sans-light-italic.woff") format("woff");
+}
+@font-face {
+  font-family: FreightSans;
+  font-weight: 400;
+  font-style: italic;
+  src: url("../fonts/FreightSans/freight-sans-book-italic.woff2") format("woff2"), url("../fonts/FreightSans/freight-sans-book-italic.woff") format("woff");
+}
+@font-face {
+  font-family: FreightSans;
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/FreightSans/freight-sans-book.woff2") format("woff2"), url("../fonts/FreightSans/freight-sans-book.woff") format("woff");
+}
+@font-face {
+  font-family: IBMPlexMono;
+  font-weight: 600;
+  font-style: normal;
+  unicode-range: u+0020-007f;
+  src: local("IBMPlexMono-SemiBold"), url("../fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff2") format("woff2"), url("../fonts/IBMPlexMono/IBMPlexMono-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: IBMPlexMono;
+  font-weight: 500;
+  font-style: normal;
+  unicode-range: u+0020-007f;
+  src: local("IBMPlexMono-Medium"), url("../fonts/IBMPlexMono/IBMPlexMono-Medium.woff2") format("woff2"), url("../fonts/IBMPlexMono/IBMPlexMono-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: IBMPlexMono;
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: u+0020-007f;
+  src: local("IBMPlexMono-Regular"), url("../fonts/IBMPlexMono/IBMPlexMono-Regular.woff2") format("woff2"), url("../fonts/IBMPlexMono/IBMPlexMono-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: IBMPlexMono;
+  font-weight: 300;
+  font-style: normal;
+  unicode-range: u+0020-007f;
+  src: local("IBMPlexMono-Light"), url("../fonts/IBMPlexMono/IBMPlexMono-Light.woff2") format("woff2"), url("../fonts/IBMPlexMono/IBMPlexMono-Light.woff") format("woff");
+}
+/* FontAwesome Solid */
+@font-face {
+  font-family: "FontAwesomeSolid";
+  src: local("FontAwesomeSolid"), url("../fonts/webfonts/fa-solid-900.woff2") format("woff2"), url("../fonts/webfonts/fa-solid-900.woff") format("woff"), url("../fonts/webfonts/fa-solid-900.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* FontAwesome Regular */
+@font-face {
+  font-family: "FontAwesomeRegular";
+  src: local("FontAwesomeRegular"), url("../fonts/webfonts/fa-regular-400.woff2") format("woff2"), url("../fonts/webfonts/fa-regular-400.woff") format("woff"), url("../fonts/webfonts/fa-regular-400.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* FontAwesome Brands */
+@font-face {
+  font-family: "FontAwesomeBrands";
+  src: local("FontAwesomeBrands"), url("../fonts/webfonts/fa-brands-400.woff2") format("woff2"), url("../fonts/webfonts/fa-brands-400.woff") format("woff"), url("../fonts/webfonts/fa-brands-400.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* FontAwesome v4 Compatibility */
+@font-face {
+  font-family: "FontAwesomeV4Compatibility";
+  src: local("FontAwesomeV4Compatibility"), url("../fonts/webfonts/fa-v4compatibility.woff2") format("woff2"), url("../fonts/webfonts/fa-v4compatibility.woff") format("woff"), url("../fonts/webfonts/fa-v4compatibility.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.fas {
+  font-family: "FontAwesomeSolid" !important;
+}
+
+.fab {
+  font-family: "FontAwesomeBrands" !important;
+}
+
+/* Main PyTorch CSS */
+html {
+  height: 100%;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-weight: 400;
+  height: 100%;
+  margin: 0;
+  padding-top: 140px;
+}
+
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: #e44c2c;
+}
+
+.email-subscribe-form input.email {
+  color: #e44c2c;
+  border: none;
+  border-bottom: 1px solid #939393;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  font-size: 1.125rem;
+  letter-spacing: 0.25px;
+  line-height: 2.25rem;
+}
+
+.email-subscribe-form input[type=submit] {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  height: 15px;
+  width: 15px;
+  background-image: url("../images/arrow-right-with-tail.svg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  background-position: center center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+}
+
+.email-subscribe-form-fields-wrapper {
+  position: relative;
+}
+
+.anchorjs-link {
+  color: #6c6c6d !important;
+}
+
+@media screen and (min-width: 768px) {
+  .anchorjs-link:hover {
+    color: inherit;
+    text-decoration: none !important;
+  }
+}
+.pytorch-article #table-of-contents {
+  display: none;
+}
+
+code, kbd, pre, samp {
+  font-family: IBMPlexMono, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+code span, kbd span, pre span, samp span {
+  font-family: IBMPlexMono, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+pre {
+  padding: 1.125rem;
+}
+
+pre code {
+  font-size: 0.875rem;
+}
+
+pre.highlight {
+  background-color: #f3f4f7;
+  line-height: 1.3125rem;
+}
+
+code.highlighter-rouge {
+  color: #6c6c6d;
+  background-color: #f3f4f7;
+  padding: 2px 6px;
+}
+
+a:link code.highlighter-rouge,
+a:visited code.highlighter-rouge,
+a:hover code.highlighter-rouge {
+  color: #4974D1;
+}
+
+a:link.has-code,
+a:visited.has-code,
+a:hover.has-code {
+  color: #4974D1;
+}
+
+p code,
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  font-size: 78.5%;
+}
+
+pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.primary-sidebar-border {
+  border-right: 2px solid #F6F6F6; /* Border for the left nav */
+}
+
+@media screen and (max-width: 1200px) {
+  .col-md-3 .primary-sidebar-border {
+    display: none ;
+  }
+}
+
+.primary-sidebar-flex-container {
+  display: flex;
+  justify-content: flex-start;
+  position: sticky;
+}
+
+@media screen and (min-width: 768px) {
+  .primary-sidebar-flex-container {
+    display: block
+  }
+}
+
+.right-sidebar-border {
+  border-left: 2px solid #F6F6F6; /* Border for the right nav bar */
+}
+
+@media (min-width: 1200px) {
+  .col-md-2 .right-sidebar-border {
+      flex: 0 0 auto;
+      width: 16.66666667%;
+  }
+}
+
+@media screen and (max-width: 1200px){
+  .col-md-2 .right-sidebar-border {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container .row > div:first-child { /* Targeting the first child, which is the left column */
+    padding-right: 5px; /* Reduce the right padding to bring it closer to the middle column */
+  }
+  .container .row > div:nth-child(2) { /* Targeting the second child, which is the middle column */
+    padding-left: 5px; /* Reduce the left padding */
+  }
+}
+
+
+.header-holder {
+  height: 68px;
+  align-items: center;
+  display: flex;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-holder {
+    height: 90px;
+  }
+}
+
+.header-container {
+  position: relative;
+  display: flex;
+}
+
+.header-container:before, .header-container:after {
+  content: "";
+  display: table;
+}
+
+.header-container:after {
+  clear: both;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-container {
+    display: block;
+  }
+}
+
+.header-logo-container {
+   display: block;
+   padding: 4px;
+}
+
+.header-logo {
+  height: 23px;
+  width: 93px;
+  background-image: url("../images/logo.svg");
+  background-repeat: no-repeat;
+  background-size: 93px 23px;
+  display: block;
+  float: left;
+  z-index: 10;
+  top: 35px;
+  padding-right: 40px;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-logo {
+    background-size: 108px 27px;
+    position: absolute;
+    height: 27px;
+    width: 108px;
+    top: 40px;
+    float: none;
+  }
+}
+.main-menu-open-button {
+  background-image: url("../images/icon-menu-dots.svg");
+  background-position: center center;
+  background-size: 25px 7px;
+  background-repeat: no-repeat;
+  width: 25px;
+  height: 17px;
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+
+@media screen and (min-width: 1200px) {
+  .main-menu-open-button {
+    display: none;
+  }
+}
+.header-holder .main-menu {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-holder .main-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+.header-holder .main-menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0;
+}
+
+.header-holder .main-menu ul li {
+  display: inline-block;
+  margin-right: 34px;
+  position: relative;
+  color: #262626;
+  white-space: nowrap;
+}
+
+.header-holder .main-menu ul li a:hover {
+  color: #262626;
+}
+
+.header-holder .main-menu ul li.active:after {
+  content: "•";
+  bottom: -24px;
+  color: #262626;
+  font-size: 1.375rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+.header-holder .main-menu ul li.active a {
+  color: #262626;
+}
+
+.header-holder .main-menu ul li.docs-active:after {
+  content: "•";
+  bottom: -24px;
+  color: #e44c2c;
+  font-size: 1.375rem;
+  left: -24px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+.header-holder .main-menu ul li:last-of-type {
+  margin-right: 0;
+}
+
+.header-holder .main-menu ul li a {
+  color: #ffffff;
+  font-size: 1.2rem;
+  letter-spacing: 0;
+  line-height: 2.125rem;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+@media screen and (min-width: 1200px) {
+  .header-holder .main-menu ul li a:hover {
+    color: #e44c2c;
+  }
+}
+/* Top navigation bar */
+.nav-container i {
+  color: #fff; /* Set the color of all icons */
+  margin-right: 10px; /* Adjust right margin to control spacing */
+}
+
+.top-navigation-bar .nav-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.nav-left {
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.nav-right-left, .nav-right-right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-right-right {
+  /*position: absolute;
+  right: 0;*/
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.top-navigation-bar .nav-links li:last-child {
+  margin-right: 0; /* Remove margin for the last item */
+}
+
+.top-navigation-bar .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.top-navigation-bar .nav-links li {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .top-navigation-bar .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-left, .nav-right {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .nav-right-right {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .top-navigation-bar .nav-links {
+    justify-content: center;
+    flex-direction: column;
+  }
+  .top-navigation-bar .nav-links li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .nav-right {
+    flex-direction: column;
+    align-items: center;
+  }
+  .version-dropdown,
+  .btn,
+  .github-icon-link {
+    margin-bottom: 10px;
+  }
+}
+#dark-mode-toggle {
+  padding: 5px 5px;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  margin-left: auto;
+  margin-right: 20px;
+  border-radius: 25px;
+}
+
+#dark-mode-toggle:focus, #dark-mode-toggle:active {
+  outline: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#dark-mode-toggle:hover {
+  background-color: rgba(136, 136, 136, 0.2);
+}
+
+.top-navigation-bar {
+  background-color: #F2765D;
+  color: #fff;
+  padding: 0px 0;
+  margin-top: 0px;
+  top: 90px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 50px;
+  /* border-bottom: 2px solid #e2e2e2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.top-navigation-bar ul {
+  list-style: none;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.top-navigation-bar li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.top-navigation-bar a {
+  color: #fff; /* Changed link color to dark grey */
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.nav-links li a {
+  padding-top: 8px;
+  padding-left: 14px;
+  display: block;
+  color: #fff; /* Changed link color to dark grey */
+  text-align: center;
+  text-decoration: none;
+}
+
+.version-dropdown {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.github-icon-link, #dark-mode-toggle {
+  padding-left: 5px;
+  font-size: 1.5em;
+  margin: 5px 5px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.github-icon-link:hover {
+  color: rgba(136, 136, 136, 0.2);
+}
+
+@media (max-width: 768px) {
+  .top-navigation-bar li .nav-container .nav-links li {
+    display: none; /* Hide all list items initially */
+  }
+  .main-menu-open-button {
+    display: block; /* Show three-dot menu button */
+    font-size: 24px;
+    cursor: pointer;
+    text-align: right;
+    padding-right: 10px;
+  }
+  .top-navigation-bar .nav-container .menu-content {
+    display: none;
+    position: absolute;
+    background-color: #812CE5;
+    width: 100%;
+    top: 100%;
+    right: 0;
+    z-index: 1001;
+  }
+  .top-navigation-bar .nav-container .menu-content a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+  }
+  .top-navigation-bar .nav-container .menu-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+}
+.top-navigation-bar .menu-content {
+  display: none;
+  position: absolute;
+  background-color: #812CE5;
+  width: 100%;
+  top: 100%;
+  right: 0;
+  z-index: 1001;
+}
+
+.top-navigation-bar .menu-content a {
+  display: block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.top-navigation-bar .menu-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.mobile-main-menu {
+  display: none;
+}
+
+.mobile-main-menu.open {
+  background-color: #262626;
+  display: block;
+  height: 100%;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+}
+
+.mobile-main-menu .container-fluid {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 68px;
+  position: relative;
+}
+
+.mobile-main-menu .container-fluid:before, .mobile-main-menu .container-fluid:after {
+  content: "";
+  display: table;
+}
+
+.mobile-main-menu .container-fluid:after {
+  clear: both;
+}
+
+.mobile-main-menu .container-fluid {
+  *zoom: 1;
+}
+
+.mobile-main-menu.open ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mobile-main-menu.open ul li a, .mobile-main-menu.open .resources-mobile-menu-title {
+  font-size: 2rem;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 4rem;
+  text-decoration: none;
+}
+
+.mobile-main-menu.open ul li.active a {
+  color: #e44c2c;
+}
+
+.main-menu-close-button {
+  background-image: url("../images/icon-close.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  width: 24px;
+  top: -4px;
+}
+
+.mobile-main-menu-header-container {
+  position: relative;
+  padding-right: 50px;
+}
+
+.mobile-main-menu-links-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-left: 4rem;
+  height: 90vh;
+  margin-top: -25px;
+  padding-top: 50%;
+  overflow-y: scroll;
+}
+
+.mobile-main-menu-links-container .main-menu {
+  height: 100vh;
+}
+
+.mobile-main-menu-links-container ul.resources-mobile-menu-items li {
+  padding-left: 15px;
+}
+
+.mobile-main-menu-links-container ul.resources-mobile-menu-items li a {
+  font-size: 18px;
+  line-height: 34px;
+}
+
+.site-footer {
+  padding: 2.5rem 0;
+  width: 100%;
+  background: #000000;
+  background-size: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  z-index: 201;
+}
+
+@media screen and (min-width: 768px) {
+  .site-footer {
+    padding: 5rem 0;
+  }
+}
+.site-footer p {
+  color: #ffffff;
+}
+
+.site-footer ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.site-footer ul li {
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: #A0A0A1;
+  padding-bottom: 0.375rem;
+}
+
+.site-footer ul li.list-title {
+  padding-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.site-footer a:link,
+.site-footer a:visited {
+  color: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  .site-footer a:hover {
+    color: #e44c2c;
+  }
+}
+.site-footer .privacy-policy {
+  background: #000000;
+  display: flex;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
+
+.site-footer .privacy-policy-links {
+  background: #000000;
+  display: flex;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  display: inline-flex;
+  color: white;
+}
+
+.site-footer .footer-links-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid white;
+  padding-bottom: 1rem;
+}
+
+.site-footer .copyright {
+  padding-top: 1rem;
+  padding-right: 1rem;
+  display: inline-flex;
+  color: white;
+}
+
+.site-footer .copyright p {
+  color: white;
+}
+
+.site-footer .copyright a {
+  color: red;
+}
+
+.docs-tutorials-resources {
+  background-color: #262626;
+  color: #ffffff;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  position: relative;
+  z-index: 201;
+}
+
+@media screen and (min-width: 768px) {
+  .docs-tutorials-resources {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+.docs-tutorials-resources p {
+  color: #929292;
+  font-size: 1.125rem;
+}
+
+.docs-tutorials-resources h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.25px;
+  text-transform: none;
+  margin-bottom: 0.25rem;
+}
+
+@media screen and (min-width: 768px) {
+  .docs-tutorials-resources h2 {
+    margin-bottom: 1.25rem;
+  }
+}
+.docs-tutorials-resources .col-md-4 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .docs-tutorials-resources .col-md-4 {
+    margin-bottom: 0;
+  }
+}
+.docs-tutorials-resources .with-right-arrow {
+  margin-left: 12px;
+}
+
+.docs-tutorials-resources .with-right-arrow:hover {
+  background-image: url("../images/chevron-right-white.svg");
+}
+
+.docs-tutorials-resources p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.22px;
+  color: #939393;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .docs-tutorials-resources p {
+    margin-bottom: 1.25rem;
+  }
+}
+.docs-tutorials-resources a {
+  font-size: 1.125rem;
+  color: #e44c2c;
+}
+
+.docs-tutorials-resources a:hover {
+  color: #ffffff;
+}
+
+.footer-container {
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-logo-wrapper {
+    position: absolute;
+    top: 0;
+    left: 30px;
+  }
+}
+.footer-logo {
+  background-image: url("../images/logo-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 24px;
+  display: block;
+  height: 24px;
+  margin-bottom: 2.8125rem;
+  width: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-logo {
+    background-size: 29px 36px;
+    height: 36px;
+    margin-bottom: 0;
+    margin-bottom: 0;
+    width: 29px;
+  }
+}
+.footer-links-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-links-wrapper {
+    -ms-flex-wrap: initial;
+    flex-wrap: initial;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+.footer-links-col {
+  margin-bottom: 3.75rem;
+  width: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-links-col {
+    margin-bottom: 0;
+    width: 14%;
+    margin-right: 23px;
+  }
+  .footer-links-col.follow-us-col {
+    width: 18%;
+    margin-right: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  .footer-links-col {
+    width: 18%;
+    margin-right: 30px;
+  }
+}
+.footer-social-icons {
+  margin: 8.5625rem 0 2.5rem 0;
+}
+
+.footer-social-icons a {
+  height: 32px;
+  width: 32px;
+  display: inline-block;
+  background-color: #CCCDD1;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.footer-social-icons a.facebook {
+  background-image: url("../images/logo-facebook-dark.svg");
+  background-position: center center;
+  background-size: 9px 18px;
+  background-repeat: no-repeat;
+}
+
+.footer-social-icons a.twitter {
+  background-image: url("../images/logo-twitter-dark.svg");
+  background-position: center center;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+}
+
+.footer-social-icons a.youtube {
+  background-image: url("../images/logo-youtube-dark.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.site-footer .mc-field-group {
+  margin-top: -2px;
+}
+
+:target {
+  scroll-margin-top: 180px;
+}
+
+article.pytorch-article {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1200px) {
+  .middle-pytorch-content {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+}
+article.pytorch-article h2,
+article.pytorch-article h3,
+article.pytorch-article h4,
+article.pytorch-article h5,
+article.pytorch-article h6 {
+  margin: 1.375rem 0;
+  color: #262626;
+}
+
+article.pytorch-article h2 {
+  font-size: 1.625rem;
+  letter-spacing: 1.33px;
+  line-height: 2rem;
+  text-transform: none;
+}
+
+article.pytorch-article h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.25px;
+  line-height: 1.875rem;
+  text-transform: none;
+}
+
+article.pytorch-article h4,
+article.pytorch-article h5,
+article.pytorch-article h6 {
+  font-size: 1.125rem;
+  letter-spacing: -0.19px;
+  line-height: 1.875rem;
+}
+
+article.pytorch-article p {
+  margin-bottom: 1.125rem;
+}
+
+article.pytorch-article p,
+article.pytorch-article ul li,
+article.pytorch-article ol li,
+article.pytorch-article dl dt,
+article.pytorch-article dl dd,
+article.pytorch-article blockquote {
+  font-size: 1rem;
+  color: #262626;
+  letter-spacing: 0.01px;
+  font-weight: 500;
+}
+
+article.pytorch-article table {
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+article.pytorch-article table thead {
+  border-bottom: 1px solid #cacaca;
+}
+
+article.pytorch-article table th {
+  padding: 0.625rem;
+  color: #262626;
+}
+
+article.pytorch-article table td {
+  padding: 0.3125rem;
+}
+
+article.pytorch-article table tr th:first-of-type,
+article.pytorch-article table tr td:first-of-type {
+  padding-left: 0;
+}
+
+article.pytorch-article table.docutils.field-list th.field-name {
+  padding: 0.3125rem;
+  padding-left: 0;
+}
+
+article.pytorch-article table.docutils.field-list td.field-body {
+  padding: 0.3125rem;
+}
+
+article.pytorch-article table.docutils.field-list td.field-body p:last-of-type {
+  margin-bottom: 0;
+}
+
+.autosummary td {
+  vertical-align: middle;
+}
+
+article.pytorch-article ul,
+article.pytorch-article ol {
+  margin: 1.5rem 0 3.125rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  article.pytorch-article ul,
+  article.pytorch-article ol {
+    padding-left: 6.25rem;
+  }
+}
+article.pytorch-article ul li,
+article.pytorch-article ol li {
+  margin-bottom: 0.625rem;
+}
+
+article.pytorch-article dl {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+article.pytorch-article dl dt {
+  margin-bottom: 0.75rem;
+}
+
+article.pytorch-article pre {
+  margin-bottom: 2.5rem;
+}
+
+article.pytorch-article hr {
+  margin-top: 4.6875rem;
+  margin-bottom: 4.6875rem;
+}
+
+article.pytorch-article blockquote {
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+  width: 65%;
+}
+
+article.pytorch-article img {
+  width: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+.document {
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
+body {
+  background: #ffffff;
+  height: 100%;
+  margin: 0;
+}
+
+body.no-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.125rem;
+}
+
+p a:link,
+p a:visited,
+p a:hover {
+  color: #e44c2c;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  p a:hover {
+    text-decoration: underline;
+  }
+}
+p a:link,
+p a:visited,
+p a:hover {
+  color: #ee4c2c;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.breadcrumbs {
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.breadcrumb-item {
+  font-size: 12px;
+}
+
+li.breadcrumb-item a:link {
+  color: #6c6c6d;
+}
+
+li.breadcrumb-item a:visited {
+  color: #6c6c6d;
+}
+
+li.breadcrumb-item.active {
+  color: #ee4c2c;
+}
+
+.table-of-contents-link-wrapper {
+  display: block;
+  margin-top: 0;
+  padding: 1.25rem 1.875rem;
+  background-color: #f3f4f7;
+  position: relative;
+  color: #262626;
+  font-size: 1.25rem;
+}
+
+.table-of-contents-link-wrapper.is-open .toggle-table-of-contents {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+@media screen and (min-width: 1200px) {
+  .table-of-contents-link-wrapper {
+    display: none;
+  }
+}
+.toggle-table-of-contents {
+  background-image: url("../images/chevron-down-grey.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  height: 100%;
+  position: absolute;
+  right: 21px;
+  width: 30px;
+  top: 0;
+}
+
+.tutorials-header .header-logo {
+  background-image: url("../images/logo-dark.svg");
+}
+
+.tutorials-header .main-menu ul li a {
+  color: #262626;
+}
+
+.tutorials-header .main-menu ul li a:hover {
+  color: #262626;
+}
+
+.tutorials-header .main-menu .no-dropdown {
+  display: block;
+}
+
+.tutorials-header .main-menu .no-dropdown a {
+  color: #262626;
+}
+
+.tutorials-header .main-menu .no-dropdown a:hover {
+  color: #262626 !important;
+  border-bottom: 2px solid #262626;
+}
+
+.tutorials-header .main-menu-open-button {
+  background-image: url("../images/icon-menu-dots-dark.svg");
+}
+
+.rating-container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 12px;
+  padding-top: 20px;
+  justify-content: flex-end;
+}
+
+.rating-flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rating-container .was-helpful-thank-you {
+  display: none;
+}
+
+.rating-container .rating-prompt.yes-link, .rating-container .rating-prompt.no-link {
+  color: #e44c2c;
+  cursor: pointer;
+}
+
+.rating-container .rating-prompt.yes-link:hover, .rating-container .rating-prompt.no-link:hover {
+  background-color: #e44c2c;
+  color: #ffffff;
+}
+
+.stars-outer {
+  font-family: FontAwesomeRegular;
+  padding: 0 1.25rem 0.625rem 0.5rem;
+}
+
+.stars-outer i {
+  font-family: FontAwesomeRegular;
+  cursor: pointer;
+}
+
+.stars-outer .star-fill {
+  color: #ee4c2c;
+}
+
+.rst-content footer div[role=contentinfo] {
+  padding-top: 3rem;
+}
+
+.rst-content footer div[role=contentinfo] p {
+  margin-bottom: 3rem;
+}
+
+.contentinfo-container {
+  font-size: small;
+  padding-top: 10px;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: 1.78px;
+  line-height: 2.5rem;
+  margin: 1.375rem 0;
+}
+
+span.pre {
+  color: #6c6c6d;
+  background-color: #f3f4f7;
+  padding: 2px 0px;
+}
+
+pre {
+  padding: 1.375rem;
+}
+
+.highlight .c1 {
+  color: #6c6c6d;
+}
+
+.headerlink {
+  display: none !important;
+}
+
+.api-doc-container:target {
+  scroll-margin-top: 140px;
+}
+
+a:link.has-code,
+a:hover.has-code,
+a:visited.has-code {
+  color: #4974D1;
+}
+
+a:link.has-code span,
+a:hover.has-code span,
+a:visited.has-code span {
+  color: #4974D1;
+}
+
+article.pytorch-article ul,
+article.pytorch-article ol {
+  padding-left: 1.875rem;
+  margin: 0;
+}
+
+article.pytorch-article ul li,
+article.pytorch-article ol li {
+  margin: 0;
+  line-height: 1.75rem;
+}
+
+article.pytorch-article ul p,
+article.pytorch-article ol p {
+  line-height: 1.75rem;
+  margin-bottom: 0;
+}
+
+article.pytorch-article ul ul,
+article.pytorch-article ul ol,
+article.pytorch-article ol ul,
+article.pytorch-article ol ol {
+  margin: 0;
+}
+
+article.pytorch-article h1 {
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+article.pytorch-article h2,
+article.pytorch-article h3,
+article.pytorch-article h4,
+article.pytorch-article h5,
+article.pytorch-article h6 {
+  font-weight: normal;
+}
+
+article.pytorch-article h1 a,
+article.pytorch-article h2 a,
+article.pytorch-article h3 a,
+article.pytorch-article h4 a,
+article.pytorch-article h5 a,
+article.pytorch-article h6 a {
+  color: #262626;
+}
+
+article.pytorch-article p.caption {
+  margin-top: 0.5rem;
+}
+
+article.pytorch-article .section:first-of-type h1:first-of-type {
+  margin-top: 0;
+}
+
+article.pytorch-article .sphx-glr-thumbcontainer {
+  margin: 0;
+  border: 1px solid #d6d7d8;
+  border-radius: 0;
+  width: 45%;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 1200px) {
+  article.pytorch-article .sphx-glr-thumbcontainer:nth-child(odd) {
+    margin-left: 0;
+    margin-right: 2.5%;
+  }
+  article.pytorch-article .sphx-glr-thumbcontainer:nth-child(even) {
+    margin-right: 0;
+    margin-left: 2.5%;
+  }
+  article.pytorch-article .sphx-glr-thumbcontainer .figure {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1201px) {
+  article.pytorch-article .sphx-glr-thumbcontainer {
+    margin-right: 3%;
+    margin-bottom: 3%;
+    width: 30%;
+  }
+}
+article.pytorch-article .sphx-glr-thumbcontainer .caption-text a {
+  font-size: 1rem;
+  color: #262626;
+  letter-spacing: 0;
+  line-height: 1.5rem;
+  text-decoration: none;
+}
+
+article.pytorch-article .sphx-glr-thumbcontainer:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-bottom-color: #ffffff;
+}
+
+article.pytorch-article .sphx-glr-thumbcontainer:hover .figure:before {
+  bottom: 100%;
+}
+
+article.pytorch-article .sphx-glr-thumbcontainer .figure {
+  width: 80%;
+}
+
+article.pytorch-article .sphx-glr-thumbcontainer .figure:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 35%;
+  left: 0;
+  right: 0;
+  background: #8A94B3;
+  opacity: 0.1;
+}
+
+article.pytorch-article .sphx-glr-thumbcontainer .figure a.reference.internal {
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  article.pytorch-article .sphx-glr-thumbcontainer:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #e44c2c;
+    -webkit-transition: width 0.25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+  }
+  article.pytorch-article .sphx-glr-thumbcontainer:hover:after {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  article.pytorch-article .sphx-glr-thumbcontainer:after {
+    background-color: #ee4c2c;
+  }
+}
+article.pytorch-article .section :not(dt) > code {
+  color: #262626;
+  border-top: solid 2px #ffffff;
+  background-color: #ffffff;
+  border-bottom: solid 2px #ffffff;
+  padding: 0px 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+article.pytorch-article .section :not(dt) > code .pre {
+  outline: 0px;
+  padding: 0px;
+}
+
+article.pytorch-article .function dt, article.pytorch-article .attribute dt, article.pytorch-article .class .attribute dt, article.pytorch-article .class dt {
+  position: relative;
+  background: #f3f4f7;
+  padding: 0.5rem;
+  border-left: 3px solid #ee4c2c;
+  word-wrap: break-word;
+  padding-right: 100px;
+}
+
+article.pytorch-article .class dt.field-odd, article.pytorch-article .class dt.field-even,
+article.pytorch-article .function dt.field-odd, article.pytorch-article .function dt.field-even,
+article.pytorch-article .attribute dt.field-odd, article.pytorch-article .attribute dt.field-even,
+article.pytorch-article .class .attribute dt.field-odd, article.pytorch-article .class .attribute dt.field-even,
+article.pytorch-article .class .method dt.field-odd, article.pytorch-article .class .staticmethod dt.field-odd,
+article.pytorch-article .class .method dt.field-even, article.pytorch-article .class .staticmethod dt.field-even {
+  background: none;
+  padding-right: -20px;
+  border-top: none;
+  border-left: none;
+  padding-left: 0rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  font-weight: 700;
+}
+
+article.pytorch-article .function dt.sig {
+  position: relative;
+  background: #fff;
+  padding: 0.8rem;
+  border-left: 3px solid #ee4c2c;
+  word-wrap: break-word;
+  padding-right: 100px;
+  font-weight: 500;
+}
+
+article.pytorch-article .function dt {
+  background: #ffffff;
+  padding-right: -20px;
+  border-left: none;
+  border-top: none;
+  padding-left: 0.2rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  font-weight: 700;
+}
+
+article.pytorch-article .class dl.py.property dt.sig {
+  border-left: 3px solid #ee4c2c;
+  border-top: none;
+  padding-left: 0.4rem;
+}
+
+article.pytorch-article .function dt em.property, article.pytorch-article .attribute dt em.property, article.pytorch-article .class dt em.property {
+  font-family: inherit;
+}
+
+article.pytorch-article .function dt em, article.pytorch-article .attribute dt em, article.pytorch-article .class .attribute dt em, article.pytorch-article .class dt em, article.pytorch-article .function dt .sig-paren, article.pytorch-article .attribute dt .sig-paren, article.pytorch-article .class dt .sig-paren {
+  font-family: IBMPlexMono, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 87.5%;
+}
+
+article.pytorch-article .function dt a, article.pytorch-article .attribute dt a, article.pytorch-article .class .attribute dt a, article.pytorch-article .class dt a {
+  right: 30px;
+  padding-right: 0;
+  top: 50%;
+  -webkit-transform: perspective(1px) translateY(-50%);
+  transform: perspective(1px) translateY(-50%);
+}
+
+article.pytorch-article .function dt:hover .viewcode-link, article.pytorch-article .attribute dt:hover .viewcode-link, article.pytorch-article .class dt:hover .viewcode-link {
+  color: #ee4c2c;
+}
+
+article.pytorch-article .function .anchorjs-link, article.pytorch-article .attribute .anchorjs-link, article.pytorch-article .class .anchorjs-link {
+  display: inline;
+  position: relative;
+  right: 8px;
+  font-size: 1.5625rem !important;
+  padding-left: 0;
+}
+
+article.pytorch-article .function dt > code, article.pytorch-article .attribute dt > code, article.pytorch-article .class .attribute dt > code, article.pytorch-article .class dt > code {
+  color: #262626;
+  border-top: solid 2px #f3f4f7;
+  background-color: #f3f4f7;
+  border-bottom: solid 2px #f3f4f7;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+article.pytorch-article .function .viewcode-link, article.pytorch-article .attribute .viewcode-link, article.pytorch-article .class .viewcode-link {
+  padding-left: 0.6rem;
+  position: relative;
+  font-size: 0.875rem;
+  color: #979797;
+  letter-spacing: 0;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+}
+
+article.pytorch-article .function dd, article.pytorch-article .attribute dd, article.pytorch-article .class .attribute dd, article.pytorch-article .class dd {
+  padding-left: 3.75rem;
+}
+
+article.pytorch-article .function dd p, article.pytorch-article .attribute dd p, article.pytorch-article .class .attribute dd p, article.pytorch-article .class dd p {
+  color: #262626;
+}
+
+article.pytorch-article .function table tbody tr th.field-name, article.pytorch-article .attribute table tbody tr th.field-name, article.pytorch-article .class table tbody tr th.field-name {
+  white-space: nowrap;
+  color: #262626;
+  width: 20%;
+}
+
+@media screen and (min-width: 768px) {
+  article.pytorch-article .function table tbody tr th.field-name, article.pytorch-article .attribute table tbody tr th.field-name, article.pytorch-article .class table tbody tr th.field-name {
+    width: 15%;
+  }
+}
+article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+  padding: 0.625rem;
+  width: 80%;
+  color: #262626;
+}
+
+@media screen and (min-width: 768px) {
+  article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+    width: 85%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  article.pytorch-article .function table tbody tr td.field-body, article.pytorch-article .attribute table tbody tr td.field-body, article.pytorch-article .class table tbody tr td.field-body {
+    padding-left: 1.25rem;
+  }
+}
+article.pytorch-article .function table tbody tr td.field-body p, article.pytorch-article .attribute table tbody tr td.field-body p, article.pytorch-article .class table tbody tr td.field-body p {
+  padding-left: 0px;
+}
+
+article.pytorch-article .function table tbody tr td.field-body p:last-of-type, article.pytorch-article .attribute table tbody tr td.field-body p:last-of-type, article.pytorch-article .class table tbody tr td.field-body p:last-of-type {
+  margin-bottom: 0;
+}
+
+article.pytorch-article .function table tbody tr td.field-body ol, article.pytorch-article .attribute table tbody tr td.field-body ol, article.pytorch-article .class table tbody tr td.field-body ol, article.pytorch-article .function table tbody tr td.field-body ul, article.pytorch-article .attribute table tbody tr td.field-body ul, article.pytorch-article .class table tbody tr td.field-body ul {
+  padding-left: 1rem;
+  padding-bottom: 0;
+}
+
+article.pytorch-article .function table.docutils.field-list, article.pytorch-article .attribute table.docutils.field-list, article.pytorch-article .class table.docutils.field-list {
+  margin-bottom: 0.75rem;
+}
+
+article.pytorch-article .attribute .has-code {
+  float: none;
+}
+
+article.pytorch-article .class dt {
+  border-left: none;
+  border-top: 3px solid #ee4c2c;
+  padding-left: 4em;
+}
+
+article.pytorch-article .class dt em.property {
+  position: absolute;
+  left: 0.5rem;
+}
+
+article.pytorch-article .class dd .docutils dt {
+  padding-left: 0.5rem;
+}
+
+article.pytorch-article .class em.property {
+  text-transform: uppercase;
+  font-style: normal;
+  color: #ee4c2c;
+  font-size: 1rem;
+  letter-spacing: 0;
+  padding-right: 0.75rem;
+}
+
+article.pytorch-article .class dl dt em.property {
+  position: static;
+  left: 0;
+  padding-right: 0;
+}
+
+article.pytorch-article .class .method dt,
+article.pytorch-article .class .staticmethod dt {
+  border-left: 3px solid #ee4c2c;
+  border-top: none;
+}
+
+article.pytorch-article .class .method dt,
+article.pytorch-article .class .staticmethod dt {
+  padding-left: 0.5rem;
+}
+
+article.pytorch-article .class .attribute dt {
+  border-top: none;
+}
+
+article.pytorch-article .class .attribute dt em.property {
+  position: relative;
+  left: 0;
+}
+
+article.pytorch-article table {
+  table-layout: fixed;
+  text-align: left;
+}
+
+div.deprecated p {
+  display: inline;
+}
+
+div.deprecated,
+div.versionchanged {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: none;
+}
+
+div.versionadded {
+  margin: 1rem 0;
+}
+
+div.deprecated p:last-child,
+div.versionchanged p:last-child,
+div.versionadded p:last-child {
+  margin-bottom: 0;
+}
+
+div.deprecated {
+  color: #b94a48;
+  background-color: #fdede9;
+}
+
+div.versionchanged {
+  background-color: #fffbe8;
+}
+
+.main-content-container {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media screen and (min-width: 1200px) {
+  .main-content-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 15px;
+  }
+}
+
+article.pytorch-article .note,
+article.pytorch-article .warning,
+article.pytorch-article .tip,
+article.pytorch-article .seealso,
+article.pytorch-article .hint,
+article.pytorch-article .important,
+article.pytorch-article .caution,
+article.pytorch-article .danger,
+article.pytorch-article .attention,
+article.pytorch-article .error {
+  background: #fff;
+  border: 1px solid #f3f4f7;
+  padding: 0px;
+  margin-top: 1.875rem;
+  margin-bottom: 1.125rem;
+}
+
+article.pytorch-article .note .admonition-title,
+article.pytorch-article .warning .admonition-title,
+article.pytorch-article .tip .admonition-title,
+article.pytorch-article .seealso .admonition-title,
+article.pytorch-article .hint .admonition-title,
+article.pytorch-article .important .admonition-title,
+article.pytorch-article .caution .admonition-title,
+article.pytorch-article .danger .admonition-title,
+article.pytorch-article .attention .admonition-title,
+article.pytorch-article .error .admonition-title {
+  letter-spacing: 1px;
+  text-transform: none;
+  margin-bottom: 1.125rem;
+  padding: 3px 3px 3px 1.375rem;
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+article.pytorch-article .note .admonition-title:before,
+article.pytorch-article .warning .admonition-title:before,
+article.pytorch-article .tip .admonition-title:before,
+article.pytorch-article .seealso .admonition-title:before,
+article.pytorch-article .hint .admonition-title:before,
+article.pytorch-article .important .admonition-title:before,
+article.pytorch-article .caution .admonition-title:before,
+article.pytorch-article .danger .admonition-title:before,
+article.pytorch-article .attention .admonition-title:before,
+article.pytorch-article .error .admonition-title:before {
+  content: "";
+  position: absolute;
+  left: 9px;
+  color: #ffffff;
+  top: 2px;
+}
+
+article.pytorch-article .note p:nth-child(n+2),
+article.pytorch-article .warning p:nth-child(n+2),
+article.pytorch-article .tip p:nth-child(n+2),
+article.pytorch-article .seealso p:nth-child(n+2),
+article.pytorch-article .hint p:nth-child(n+2),
+article.pytorch-article .important p:nth-child(n+2),
+article.pytorch-article .caution p:nth-child(n+2),
+article.pytorch-article .danger p:nth-child(n+2),
+article.pytorch-article .attention p:nth-child(n+2),
+article.pytorch-article .error p:nth-child(n+2) {
+  padding: 0 1.375rem;
+}
+
+article.pytorch-article .note table,
+article.pytorch-article .warning table,
+article.pytorch-article .tip table,
+article.pytorch-article .seealso table,
+article.pytorch-article .hint table,
+article.pytorch-article .important table,
+article.pytorch-article .caution table,
+article.pytorch-article .danger table,
+article.pytorch-article .attention table,
+article.pytorch-article .error table {
+  margin: 0 2rem;
+  width: auto;
+}
+
+article.pytorch-article .note :not(dt) > code,
+article.pytorch-article .warning :not(dt) > code,
+article.pytorch-article .tip :not(dt) > code,
+article.pytorch-article .seealso :not(dt) > code,
+article.pytorch-article .hint :not(dt) > code,
+article.pytorch-article .important :not(dt) > code,
+article.pytorch-article .caution :not(dt) > code,
+article.pytorch-article .danger :not(dt) > code,
+article.pytorch-article .attention :not(dt) > code,
+article.pytorch-article .error :not(dt) > code {
+  border-top: solid 2px #ffffff;
+  background-color: #ffffff;
+  border-bottom: solid 2px #ffffff;
+  padding: 0px 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  outline: 1px solid #e9e9e9;
+}
+
+article.pytorch-article .note :not(dt) > code .pre,
+article.pytorch-article .warning :not(dt) > code .pre,
+article.pytorch-article .tip :not(dt) > code .pre,
+article.pytorch-article .seealso :not(dt) > code .pre,
+article.pytorch-article .hint :not(dt) > code .pre,
+article.pytorch-article .important :not(dt) > code .pre,
+article.pytorch-article .caution :not(dt) > code .pre,
+article.pytorch-article .danger :not(dt) > code .pre,
+article.pytorch-article .attention :not(dt) > code .pre,
+article.pytorch-article .error :not(dt) > code .pre {
+  outline: 0px;
+  padding: 0px;
+}
+
+article.pytorch-article .note pre,
+article.pytorch-article .warning pre,
+article.pytorch-article .tip pre,
+article.pytorch-article .seealso pre,
+article.pytorch-article .hint pre,
+article.pytorch-article .important pre,
+article.pytorch-article .caution pre,
+article.pytorch-article .danger pre,
+article.pytorch-article .attention pre,
+article.pytorch-article .error pre {
+  margin-bottom: 0;
+}
+
+article.pytorch-article .note .highlight,
+article.pytorch-article .warning .highlight,
+article.pytorch-article .tip .highlight,
+article.pytorch-article .seealso .highlight,
+article.pytorch-article .hint .highlight,
+article.pytorch-article .important .highlight,
+article.pytorch-article .caution .highlight,
+article.pytorch-article .danger .highlight,
+article.pytorch-article .attention .highlight,
+article.pytorch-article .error .highlight {
+  margin: 0 2rem 1.125rem 2rem;
+}
+
+article.pytorch-article .note ul,
+article.pytorch-article .note ol,
+article.pytorch-article .warning ul,
+article.pytorch-article .warning ol,
+article.pytorch-article .tip ul,
+article.pytorch-article .tip ol,
+article.pytorch-article .seealso ul,
+article.pytorch-article .seealso ol,
+article.pytorch-article .hint ul,
+article.pytorch-article .hint ol,
+article.pytorch-article .important ul,
+article.pytorch-article .important ol,
+article.pytorch-article .caution ul,
+article.pytorch-article .caution ol,
+article.pytorch-article .danger ul,
+article.pytorch-article .danger ol,
+article.pytorch-article .attention ul,
+article.pytorch-article .attention ol,
+article.pytorch-article .error ul,
+article.pytorch-article .error ol {
+  padding-left: 3.25rem;
+}
+
+article.pytorch-article .note ul li,
+article.pytorch-article .note ol li,
+article.pytorch-article .warning ul li,
+article.pytorch-article .warning ol li,
+article.pytorch-article .tip ul li,
+article.pytorch-article .tip ol li,
+article.pytorch-article .seealso ul li,
+article.pytorch-article .seealso ol li,
+article.pytorch-article .hint ul li,
+article.pytorch-article .hint ol li,
+article.pytorch-article .important ul li,
+article.pytorch-article .important ol li,
+article.pytorch-article .caution ul li,
+article.pytorch-article .caution ol li,
+article.pytorch-article .danger ul li,
+article.pytorch-article .danger ol li,
+article.pytorch-article .attention ul li,
+article.pytorch-article .attention ol li,
+article.pytorch-article .error ul li,
+article.pytorch-article .error ol li {
+  color: #262626;
+}
+
+article.pytorch-article .note p,
+article.pytorch-article .warning p,
+article.pytorch-article .tip p,
+article.pytorch-article .seealso p,
+article.pytorch-article .hint p,
+article.pytorch-article .important p,
+article.pytorch-article .caution p,
+article.pytorch-article .danger p,
+article.pytorch-article .attention p,
+article.pytorch-article .error p {
+  margin-top: 1.125rem;
+}
+
+article.pytorch-article .note .admonition-title {
+  color: #812CE5;
+}
+
+article.pytorch-article .note {
+  border-left: 3px solid #812CE5;
+}
+
+article.pytorch-article .warning .admonition-title {
+  color: #ee4c2c;
+}
+
+article.pytorch-article .warning {
+  border-left: 3px solid #ee4c2c;
+}
+
+article.pytorch-article .tip .admonition-title {
+  color: #B932CC;
+}
+
+article.pytorch-article .tip {
+  border-left: 3px solid #B932CC;
+}
+
+article.pytorch-article .seealso .admonition-title {
+  color: #CC2FAA;
+}
+
+article.pytorch-article .seealso {
+  border-left: 3px solid #CC2FAA;
+}
+
+article.pytorch-article .hint .admonition-title {
+  color: #B932CC;
+}
+
+article.pytorch-article .hint {
+  border-left: 3px solid #B932CC;
+}
+
+article.pytorch-article .important .admonition-title {
+  color: #5890ff;
+}
+
+article.pytorch-article .important {
+  border-left: 3px solid #5890ff;
+}
+
+article.pytorch-article .caution .admonition-title {
+  color: #ee4c2c;
+}
+
+article.pytorch-article .caution {
+  border-left: 3px solid #ee4c2c;
+}
+
+article.pytorch-article .danger .admonition-title {
+  color: #ee4c2c;
+}
+
+article.pytorch-article .danger {
+  border-left: 3px solid #ee4c2c;
+}
+
+article.pytorch-article .attention .admonition-title {
+  color: #E12353;
+}
+
+article.pytorch-article .attention {
+  border-left: 3px solid #E12353;
+}
+
+article.pytorch-article .error .admonition-title {
+  color: #F4A623;
+}
+
+article.pytorch-article .error {
+  border-left: 3px solid #F4A623;
+}
+
+article.pytorch-article .sphx-glr-download-link-note.admonition.note,
+article.pytorch-article .reference.download.internal, article.pytorch-article .sphx-glr-signature {
+  display: none;
+}
+
+article.pytorch-article .admonition > p:last-of-type {
+  margin-bottom: 0;
+  padding-bottom: 1.125rem !important;
+}
+
+.pytorch-article div.sphx-glr-download a {
+  background-color: #f3f4f7;
+  background-image: url("../images/arrow-down-orange.svg");
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  background-size: 15px 15px;
+  border-radius: 0;
+  border: none;
+  display: block;
+  text-align: left;
+  padding: 0.9375rem 3.125rem;
+  position: relative;
+  margin: 1.25rem auto;
+}
+
+@media screen and (min-width: 768px) {
+  .pytorch-article div.sphx-glr-download a:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #e44c2c;
+    -webkit-transition: width 0.25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+  }
+  .pytorch-article div.sphx-glr-download a:hover:after {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .pytorch-article div.sphx-glr-download a:after {
+    background-color: #ee4c2c;
+  }
+}
+@media screen and (min-width: 768px) {
+  .pytorch-article div.sphx-glr-download a {
+    background-position: left 20px center;
+  }
+}
+.pytorch-article div.sphx-glr-download a:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-decoration: none;
+  background-image: url("../images/arrow-down-orange.svg");
+  background-color: #f3f4f7;
+}
+
+.pytorch-article div.sphx-glr-download a span.pre {
+  background-color: transparent;
+  font-size: 1.125rem;
+  padding: 0;
+  color: #262626;
+}
+
+.pytorch-article div.sphx-glr-download a code, .pytorch-article div.sphx-glr-download a kbd, .pytorch-article div.sphx-glr-download a pre, .pytorch-article div.sphx-glr-download a samp, .pytorch-article div.sphx-glr-download a span.pre {
+  font-family: FreightSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.pytorch-article p.sphx-glr-script-out {
+  margin-bottom: 1.125rem;
+}
+
+.pytorch-article div.sphx-glr-script-out {
+  margin-bottom: 2.5rem;
+}
+
+.pytorch-article div.sphx-glr-script-out .highlight {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.pytorch-article div.sphx-glr-script-out .highlight pre {
+  background-color: #fdede9;
+  padding: 1.5625rem;
+  color: #837b79;
+}
+
+.pytorch-article div.sphx-glr-script-out + p {
+  margin-top: unset;
+}
+
+article.pytorch-article .wy-table-responsive table {
+  border: none;
+  border-color: #ffffff !important;
+  table-layout: fixed;
+}
+
+article.pytorch-article .wy-table-responsive table thead tr {
+  border-bottom: 2px solid #6c6c6d;
+}
+
+article.pytorch-article .wy-table-responsive table thead th {
+  line-height: 1.75rem;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+
+article.pytorch-article .wy-table-responsive table tbody .row-odd {
+  background-color: #f3f4f7;
+}
+
+article.pytorch-article .wy-table-responsive table tbody td {
+  color: #6c6c6d;
+  white-space: normal;
+  padding: 0.9375rem;
+  font-size: 1rem;
+  line-height: 1.375rem;
+}
+
+article.pytorch-article .wy-table-responsive table tbody td .pre {
+  background: #ffffff;
+  color: #ee4c2c;
+  font-size: 87.5%;
+}
+
+article.pytorch-article .wy-table-responsive table tbody td code {
+  font-size: 87.5%;
+}
+
+a[rel~=prev], a[rel~=next] {
+  padding: 0.375rem 0 0 0;
+}
+
+img.next-page,
+img.previous-page {
+  width: 8px;
+  height: 10px;
+  position: relative;
+  top: -1px;
+}
+
+img.previous-page {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.rst-footer-buttons {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rst-footer-buttons .btn:focus,
+.rst-footer-buttons .btn.focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+article.pytorch-article blockquote {
+  margin-left: 3.75rem;
+  color: #6c6c6d;
+}
+
+article.pytorch-article .caption {
+  color: #6c6c6d;
+  letter-spacing: 0.25px;
+  line-height: 2.125rem;
+}
+
+article.pytorch-article .math {
+  color: #262626;
+  width: auto;
+  text-align: center;
+}
+
+article.pytorch-article .math img {
+  width: auto;
+}
+
+.pytorch-breadcrumbs-wrapper {
+  width: 100%;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-breadcrumbs-wrapper {
+    float: left;
+    margin-left: 3%;
+    width: 75%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-breadcrumbs-wrapper {
+    width: 850px;
+    margin-left: 1.875rem;
+  }
+}
+.pytorch-breadcrumbs-wrapper .pytorch-breadcrumbs-aside {
+  float: right;
+}
+
+.pytorch-breadcrumbs-wrapper .pytorch-breadcrumbs-aside .fa.fa-github {
+  margin-top: 5px;
+  display: block;
+}
+
+.pytorch-article .container {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+}
+
+a:link,
+a:visited,
+a:hover {
+  color: #ee4c2c;
+}
+
+::-webkit-input-placeholder {
+  color: #ee4c2c;
+}
+
+::-moz-placeholder {
+  color: #ee4c2c;
+}
+
+:-ms-input-placeholder {
+  color: #ee4c2c;
+}
+
+:-moz-placeholder {
+  color: #ee4c2c;
+}
+
+@media screen and (min-width: 768px) {
+  .site-footer a:hover {
+    color: #ee4c2c;
+  }
+}
+.docs-tutorials-resources a {
+  color: #ee4c2c;
+}
+
+.header-holder {
+  z-index: 99999;
+}
+
+.header-holder .main-menu ul li.active:after {
+  color: #ee4c2c;
+}
+
+.header-holder .main-menu ul li.active a {
+  color: #ee4c2c;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-holder .main-menu ul li a:hover {
+    color: #ee4c2c;
+  }
+}
+.mobile-main-menu.open ul li.active a {
+  color: #ee4c2c;
+}
+
+.version {
+  padding-bottom: 1rem;
+}
+
+.pytorch-call-to-action-links {
+  padding-top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .pytorch-call-to-action-links {
+    padding-top: 2.5rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  .pytorch-call-to-action-links {
+    padding-top: 0;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1239px) {
+  .pytorch-call-to-action-links {
+    padding-top: 2.5rem;
+  }
+}
+.pytorch-call-to-action-links #tutorial-type {
+  display: none;
+}
+
+.pytorch-call-to-action-links .call-to-action-img, .pytorch-call-to-action-links .call-to-action-notebook-img {
+  height: 1.375rem;
+  width: 1.375rem;
+  margin-right: 10px;
+}
+
+.pytorch-call-to-action-links .call-to-action-notebook-img {
+  height: 1rem;
+}
+
+.pytorch-call-to-action-links a {
+  padding-right: 1.25rem;
+  color: #000000;
+  cursor: pointer;
+}
+
+.pytorch-call-to-action-links a:hover {
+  color: #e44c2c;
+}
+
+.pytorch-call-to-action-links a .call-to-action-desktop-view {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .pytorch-call-to-action-links a .call-to-action-desktop-view {
+    display: block;
+  }
+}
+.pytorch-call-to-action-links a .call-to-action-mobile-view {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .pytorch-call-to-action-links a .call-to-action-mobile-view {
+    display: none;
+  }
+}
+.pytorch-call-to-action-links a #google-colab-link, .pytorch-call-to-action-links a #download-notebook-link,
+.pytorch-call-to-action-links a #github-view-link {
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid #f3f4f7;
+  padding-right: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.pytorch-call-to-action-links a #google-colab-link:hover, .pytorch-call-to-action-links a #download-notebook-link:hover,
+.pytorch-call-to-action-links a #github-view-link:hover {
+  border-bottom-color: #e44c2c;
+  color: #e44c2c;
+}
+
+#tutorial-cards-container #tutorial-cards {
+  width: 100%;
+}
+
+#tutorial-cards-container .tutorials-nav {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+#tutorial-cards-container .tutorials-hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#tutorial-cards-container .card.tutorials-card {
+  border-radius: 0;
+  border-color: #f3f4f7;
+  height: 98px;
+  margin-bottom: 1.25rem;
+  margin-bottom: 1.875rem;
+  overflow: scroll;
+  background-color: #f3f4f7;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1240px) {
+  #tutorial-cards-container .card.tutorials-card {
+    height: 200px;
+    overflow: inherit;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  #tutorial-cards-container .card.tutorials-card {
+    height: 200px;
+    overflow: scroll;
+  }
+}
+#tutorial-cards-container .card.tutorials-card .tutorials-image {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 96px;
+  width: 96px;
+  opacity: 0.5;
+}
+
+#tutorial-cards-container .card.tutorials-card .tutorials-image img {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  #tutorial-cards-container .card.tutorials-card .tutorials-image {
+    height: 100%;
+    width: 25%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  #tutorial-cards-container .card.tutorials-card .tutorials-image {
+    height: 100%;
+    width: 198px;
+  }
+}
+#tutorial-cards-container .card.tutorials-card .tutorials-image:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: #000000;
+  opacity: 0.075;
+}
+
+#tutorial-cards-container .card.tutorials-card .card-title-container {
+  width: 70%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+@media screen and (min-width: 768px) {
+  #tutorial-cards-container .card.tutorials-card .card-title-container {
+    width: 75%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  #tutorial-cards-container .card.tutorials-card .card-title-container {
+    width: 70%;
+  }
+}
+#tutorial-cards-container .card.tutorials-card .card-title-container h4 {
+  margin-bottom: 1.125rem;
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+#tutorial-cards-container .card.tutorials-card p.card-summary, #tutorial-cards-container .card.tutorials-card p.tags {
+  font-size: 0.9375rem;
+  line-height: 1.5rem;
+  margin-bottom: 0;
+  color: #6c6c6d;
+  font-weight: 400;
+  width: 70%;
+}
+
+@media screen and (min-width: 768px) {
+  #tutorial-cards-container .card.tutorials-card p.card-summary, #tutorial-cards-container .card.tutorials-card p.tags {
+    width: 75%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  #tutorial-cards-container .card.tutorials-card p.card-summary, #tutorial-cards-container .card.tutorials-card p.tags {
+    width: 70%;
+  }
+}
+#tutorial-cards-container .card.tutorials-card p.tags {
+  margin-top: 30px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#tutorial-cards-container .card.tutorials-card h4 {
+  color: #262626;
+  margin-bottom: 1.125rem;
+}
+
+#tutorial-cards-container .card.tutorials-card a {
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  #tutorial-cards-container .card.tutorials-card a {
+    min-height: 190px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  #tutorial-cards-container .card.tutorials-card a {
+    min-height: 234px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #tutorial-cards-container .card.tutorials-card:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #e44c2c;
+    -webkit-transition: width 0.25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+  }
+  #tutorial-cards-container .card.tutorials-card:hover:after {
+    width: 100%;
+  }
+}
+#tutorial-cards-container .card.tutorials-card:hover {
+  background-color: #ffffff;
+  border: 1px solid #e2e2e2;
+  border-bottom: none;
+}
+
+#tutorial-cards-container .card.tutorials-card:hover p.card-summary {
+  color: #262626;
+}
+
+#tutorial-cards-container .card.tutorials-card:hover .tutorials-image {
+  opacity: unset;
+}
+
+#tutorial-cards-container .tutorial-tags-container {
+  width: 75%;
+}
+
+#tutorial-cards-container .tutorial-tags-container.active {
+  width: 0;
+}
+
+#tutorial-cards-container .tutorial-filter-menu ul {
+  list-style-type: none;
+  padding-left: 1.25rem;
+}
+
+#tutorial-cards-container .tutorial-filter-menu ul li {
+  padding-right: 1.25rem;
+  word-break: break-all;
+}
+
+#tutorial-cards-container .tutorial-filter-menu ul li a {
+  color: #979797;
+}
+
+#tutorial-cards-container .tutorial-filter-menu ul li a:hover {
+  color: #e44c2c;
+}
+
+#tutorial-cards-container .tutorial-filter {
+  cursor: pointer;
+}
+
+#tutorial-cards-container .filter-btn {
+  color: #979797;
+  border: 1px solid #979797;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+#tutorial-cards-container .filter-btn:hover {
+  border: 1px solid #e44c2c;
+  color: #e44c2c;
+}
+
+#tutorial-cards-container .filter-btn.selected {
+  background-color: #e44c2c;
+  border: 1px solid #e44c2c;
+  color: #ffffff;
+}
+
+#tutorial-cards-container .all-tag-selected {
+  background-color: #979797;
+  color: #ffffff;
+}
+
+#tutorial-cards-container .all-tag-selected:hover {
+  border-color: #979797;
+  color: #ffffff;
+}
+
+#tutorial-cards-container .pagination .page {
+  border: 1px solid #dee2e6;
+  padding: 0.5rem 0.75rem;
+}
+
+#tutorial-cards-container .pagination .active .page {
+  background-color: #dee2e6;
+}
+
+article.pytorch-article .tutorials-callout-container {
+  padding-bottom: 50px;
+}
+
+article.pytorch-article .tutorials-callout-container .col-md-6 {
+  padding-bottom: 10px;
+}
+
+article.pytorch-article .tutorials-callout-container .text-container {
+  padding: 10px 0px 30px 0px;
+  padding-bottom: 10px;
+}
+
+article.pytorch-article .tutorials-callout-container .text-container .body-paragraph {
+  color: #666666;
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+}
+
+article.pytorch-article .tutorials-callout-container .btn.callout-button {
+  font-size: 1.125rem;
+  border-radius: 0;
+  border: none;
+  background-color: #f3f4f7;
+  color: #6c6c6d;
+  font-weight: 400;
+  position: relative;
+  letter-spacing: 0.25px;
+}
+
+@media screen and (min-width: 768px) {
+  article.pytorch-article .tutorials-callout-container .btn.callout-button:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #e44c2c;
+    -webkit-transition: width 0.25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+  }
+  article.pytorch-article .tutorials-callout-container .btn.callout-button:hover:after {
+    width: 100%;
+  }
+}
+article.pytorch-article .tutorials-callout-container .btn.callout-button a {
+  color: inherit;
+}
+
+.pytorch-container {
+  margin: 0 auto;
+  padding: 0 1.875rem;
+  width: auto;
+  position: relative;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-container {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .pytorch-container {
+    margin-left: 25%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-container {
+    margin-left: 350px;
+  }
+}
+.pytorch-container:before, .pytorch-container:after {
+  content: "";
+  display: table;
+}
+
+.pytorch-container:after {
+  clear: both;
+}
+
+.pytorch-container {
+  *zoom: 1;
+}
+
+.pytorch-content-wrap {
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  padding-top: 0;
+}
+
+.pytorch-content-wrap:before, .pytorch-content-wrap:after {
+  content: "";
+  display: table;
+}
+
+.pytorch-content-wrap:after {
+  clear: both;
+}
+
+.pytorch-content-wrap {
+  *zoom: 1;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-content-wrap {
+    padding-top: 5px;
+    float: left;
+    width: 100%;
+    display: block;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-content-wrap {
+    width: 100%;
+  }
+}
+
+.pytorch-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+}
+
+.pytorch-content-left {
+  min-height: 100vh;
+  margin-top: 2.5rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-content-left {
+    margin-top: 0;
+    margin-left: 3%;
+    width: 75%;
+    float: left;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-content-left {
+    width: 850px;
+    margin-left: 30px;
+  }
+}
+.pytorch-content-left .main-content {
+  padding-top: 0.9375rem;
+}
+
+.pytorch-content-left .main-content ul.simple {
+  padding-bottom: 1.25rem;
+}
+
+.pytorch-content-left .main-content .note:nth-child(1), .pytorch-content-left .main-content .warning:nth-child(1) {
+  margin-top: 0;
+}
+
+
+.right-nav-bar {
+  position: fixed;
+  overflow-y: auto;
+  top: 120px;
+  overflow-x: hidden;
+  height: 90vh;
+}
+
+@media (max-width: 1200px) {
+  .right-nav-bar {
+    display: none;
+  }
+}
+.pytorch-content-right {
+  display: none;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-content-right {
+    display: block;
+    margin-left: 0;
+    width: 100%;
+    float: left;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-content-right {
+    width: 280px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .pytorch-side-scroll {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+  }
+}
+.pytorch-menu-vertical {
+  padding: 1.25rem 1.875rem 2.5rem 1.875rem;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-menu-vertical {
+    display: block;
+    padding-top: 0;
+    padding-right: 13.5%;
+    padding-bottom: 5.625rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-menu-vertical {
+    padding-left: 0;
+    padding-right: 1.5625rem;
+  }
+}
+.pytorch-left-menu {
+  display: none;
+  background-color: #fff;
+  color: #262626;
+  overflow: scroll;
+  position: sticky;
+  overflow-wrap: break-word;
+  top: 140px;
+  width: 350px;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 1200px) {
+  .right-navigation {
+    display: none
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .pytorch-left-menu {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-bottom: 110px;
+    padding: 0;
+    width: 100%;
+    z-index: 200;
+    float: left;
+  }
+  .pytorch-left-menu.make-fixed {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    float: none;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-left-menu {
+    padding: 0 0 0 0;
+    width: 200px;
+  }
+}
+.expand-menu, .hide-menu {
+  color: #6c6c6d;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.collapse {
+  display: none;
+}
+
+.left-nav-top-caption {
+  padding-top: 1rem;
+}
+
+.pytorch-left-menu p.caption {
+  color: #262626;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-bottom: 0px;
+  line-height: 1.375rem;
+  text-transform: none;
+  white-space: normal;
+  margin-bottom: 5px;
+}
+
+.pytorch-left-menu-search {
+  margin-bottom: 2.5rem;
+}
+
+@media screen and (min-width: 1200px) {
+  .pytorch-left-menu-search {
+    margin: 1.25rem 0.625rem 1.875rem 0;
+  }
+}
+.pytorch-left-menu-search ::-webkit-input-placeholder {
+  color: #262626;
+}
+
+.pytorch-left-menu-search ::-moz-placeholder {
+  color: #262626;
+}
+
+.pytorch-left-menu-search :-ms-input-placeholder {
+  color: #262626;
+}
+
+.pytorch-left-menu-search ::-ms-input-placeholder {
+  color: #262626;
+}
+
+.pytorch-left-menu-search ::placeholder {
+  color: #262626;
+}
+
+.pytorch-left-menu-search :focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.pytorch-left-menu-search :focus::-moz-placeholder {
+  color: transparent;
+}
+
+.pytorch-left-menu-search :focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.pytorch-left-menu-search :focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.pytorch-left-menu-search :focus::placeholder {
+  color: transparent;
+}
+
+.pytorch-left-menu-search input[type=text] {
+  border-radius: 0;
+  padding: 0.5rem 0.75rem;
+  color: #262626;
+  border: 1px solid #E6E6E6;
+  font-size: 0.8rem;
+  width: 110%;
+  background-color: #f3f4f7;
+  background-image: url("../images/search-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+  background-position: 12px 10px;
+  padding-left: 40px;
+  background-color: #ffffff;
+}
+
+.pytorch-left-menu-search input[type=text]:focus {
+  outline: 0;
+}
+
+
+@media screen and (min-width: 1200px) {
+  .pytorch-left-menu .pytorch-side-scroll {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-left-menu .pytorch-side-scroll {
+    width: 100%;
+  }
+}
+.pytorch-left-menu .pytorch-side-scroll {
+  list-style: none;
+}
+
+.pytorch-right-menu a.reference.internal {
+  color: #262626;
+}
+
+.pytorch-right-menu a:active.reference.internal,
+.pytorch-right-menu .current.reference.internal,
+.pytorch-right-menu a:hover.reference.internal {
+  color: #ee4c2c;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-right-menu {
+    width: 100%;
+  }
+  .pytorch-right-menu.scrolling-fixed {
+    position: fixed;
+    top: 45px;
+    left: 83.5%;
+    width: 14%;
+  }
+  .pytorch-right-menu.scrolling-absolute {
+    position: absolute;
+    left: 0;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-right-menu {
+    left: 0;
+    width: 380px;
+  }
+  .pytorch-right-menu.scrolling-fixed {
+    position: fixed;
+    top: 45px;
+    left: 1230px;
+  }
+  .pytorch-right-menu.scrolling-absolute {
+    position: absolute;
+    left: 0;
+  }
+}
+.pytorch-left-menu ul,
+.pytorch-right-menu ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.pytorch-left-menu li.toctree-l1 ul {
+  display: block;
+}
+
+.pytorch-left-menu li, .pytorch-right-menu li {
+  transition: margin-left 0.3s ease, padding-left 0.3s ease;
+}
+
+.pytorch-left-menu a:link,
+.pytorch-left-menu a:visited,
+.pytorch-left-menu a:hover,
+.pytorch-right-menu a:link,
+.pytorch-right-menu a:visited,
+.pytorch-right-menu a:hover {
+  color: #262626;
+  line-height: 1rem;
+  padding: 0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.pytorch-left-menu a:link.reference.internal,
+.pytorch-left-menu a:visited.reference.internal,
+.pytorch-left-menu a:hover.reference.internal,
+.pytorch-right-menu a:link.reference.internal,
+.pytorch-right-menu a:visited.reference.internal,
+.pytorch-right-menu a:hover.reference.internal {
+  margin-bottom: 0.3125rem;
+  position: relative;
+}
+
+.pytorch-left-menu a, .pytorch-right-menu a {
+  color: #262626;
+  font-size: 16px;
+  line-height: 1rem;
+  padding: 0;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+  transition: color 0.3s ease, border-left 0.3s ease, margin-left 0.3s ease, padding-left 0.3s ease;
+}
+
+.pytorch-left-menu li code,
+.pytorch-right-menu li code {
+  border: none;
+  background: inherit;
+  color: inherit;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.pytorch-left-menu li span.toctree-expand,
+.pytorch-right-menu li span.toctree-expand {
+  display: block;
+  float: left;
+  margin-left: -1.2em;
+  font-size: 0.8em;
+  line-height: 1.6em;
+}
+
+.pytorch-left-menu li.on a, .pytorch-left-menu li.current > a,
+.pytorch-right-menu li.on a,
+.pytorch-right-menu li.current > a {
+  position: relative;
+  border: none;
+}
+
+.pytorch-left-menu li.on a span.toctree-expand, .pytorch-left-menu li.current > a span.toctree-expand,
+.pytorch-right-menu li.on a span.toctree-expand,
+.pytorch-right-menu li.current > a span.toctree-expand {
+  display: block;
+  font-size: 0.8em;
+  line-height: 1.6em;
+}
+
+.pytorch-left-menu li.toctree-l1.current > a,
+.pytorch-right-menu li.toctree-l1.current > a {
+  color: #ee4c2c;
+  padding-left: 10px;
+  list-style-type: none;
+  margin-left: -13px;
+}
+
+.pytorch-left-menu li.toctree-l1:has(.toctree-l2.current) > a,
+.pytorch-right-menu li.toctree-l1:has(.toctree-l2.current) > a {
+  color: inherit;
+  padding-left: inherit;
+  border-left: none;
+  list-style-type: inherit;
+  margin-left: 0px;
+}
+
+.pytorch-left-menu li.toctree-l2:has(.toctree-l3.current) > a {
+  color: inherit;
+  padding-left: inherit;
+  border-left: none;
+  list-style-type: inherit;
+  margin-left: 24px;
+}
+
+.pytorch-left-menu li.toctree-l1.current > a:before,
+.pytorch-right-menu li.toctree-l1.current > a:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: -15px;
+  top: -10%;
+  font-size: 1.375rem;
+  color: #ee4c2c;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-left-menu li.toctree-l1.current > a:before,
+  .pytorch-right-menu li.toctree-l1.current > a:before {
+    left: -20px;
+  }
+}
+.pytorch-left-menu li.toctree-l1.current li.toctree-l2 > ul, .pytorch-left-menu li.toctree-l2.current li.toctree-l3 > ul,
+.pytorch-right-menu li.toctree-l1.current li.toctree-l2 > ul,
+.pytorch-right-menu li.toctree-l2.current li.toctree-l3 > ul {
+  padding-left: 20px;
+}
+
+.pytorch-left-menu li.toctree-l2 > a {
+  padding-left: 23px;
+}
+
+.pytorch-left-menu li.toctree-l3 > a {
+  margin-left: 30px;
+}
+
+.pytorch-left-menu li.toctree-l2.current > a,
+.pytorch-left-menu li.toctree-l3.current > a {
+  color: #ee4c2c;
+  border-left: 3px solid #ee4c2c;
+  list-style-type: none;
+}
+
+.pytorch-left-menu li.toctree-l2.current > a {
+  margin-left: -12px;
+  padding-left: 32px;
+}
+
+.pytorch-left-menu li.toctree-l3.current > a {
+  padding-left: 58px;
+  margin-left: -32px;
+}
+
+.pytorch-left-menu li.toctree-l1.current,
+.pytorch-left-menu li.toctree-l3.current,
+.pytorch-left-menu li.toctree-l3.current {
+  padding-bottom: 5px;
+}
+
+/* Needed to only add left red border in left navigation to current item and to multiple toctree items*/
+.pytorch-left-menu li.toctree-l1:has(.toctree-l2.current) > a:before,
+.pytorch-right-menu li.toctree-l1:has(.toctree-l2.current) > a:before {
+  content: none;
+}
+
+/* Needed to only add left red border in left navigation to current item and to multiple toctree items*/
+.pytorch-left-menu li.toctree-l2:has(.toctree-l3.current) > a:before,
+.pytorch-right-menu li.toctree-l2:has(.toctree-l3.current) > a:before {
+  content: none;
+}
+
+.pytorch-left-menu li.toctree-l1.current li.toctree-l2.current > ul, .pytorch-left-menu li.toctree-l2.current li.toctree-l3.current > ul,
+.pytorch-right-menu li.toctree-l1.current li.toctree-l2.current > ul,
+.pytorch-right-menu li.toctree-l2.current li.toctree-l3.current > ul {
+  display: block;
+}
+
+.pytorch-left-menu li.toctree-l2.current li.toctree-l3 > a .pytorch-right-menu li.toctree-l2.current li.toctree-l3 > a {
+  display: block;
+  margin-left: 10px;
+}
+
+.pytorch-right-menu li.toctree-l3 > a {
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.pytorch-left-menu li.toctree-l3.current li.toctree-l4 > a,
+.pytorch-right-menu li.toctree-l3.current li.toctree-l4 > a {
+  display: block;
+  margin-left: 10px;
+}
+
+.pytorch-left-menu li.toctree-l4,
+.pytorch-right-menu li.toctree-l4 {
+  font-size: 0.9em;
+}
+
+.pytorch-left-menu li.current ul,
+.pytorch-right-menu li.current ul {
+  display: block;
+}
+
+.pytorch-left-menu li ul,
+.pytorch-right-menu li ul {
+  margin-bottom: 0;
+  display: none;
+}
+
+.pytorch-left-menu li ul li a,
+.pytorch-right-menu li ul li a {
+  margin-bottom: 0;
+}
+
+.pytorch-left-menu a,
+.pytorch-right-menu a {
+  display: inline-block;
+  position: relative;
+}
+
+.pytorch-left-menu a:hover,
+.pytorch-right-menu a:hover {
+  cursor: pointer;
+}
+
+.pytorch-left-menu a:active,
+.pytorch-right-menu a:active {
+  cursor: pointer;
+}
+
+.pytorch-left-menu ul {
+  padding-left: 0;
+}
+
+.pytorch-right-menu a:link,
+.pytorch-right-menu a:visited,
+.pytorch-right-menu a:hover {
+  color: #262626;
+}
+
+.pytorch-right-menu a:link span.pre,
+.pytorch-right-menu a:visited span.pre,
+.pytorch-right-menu a:hover span.pre {
+  color: #262626;
+  padding-left: 8px;
+}
+
+.pytorch-right-menu a.reference.internal.expanded:before {
+  content: "-";
+  font-family: monospace;
+  position: absolute;
+  left: -12px;
+}
+
+.pytorch-right-menu a.reference.internal.not-expanded:before {
+  content: "+";
+  font-family: monospace;
+  position: absolute;
+  left: -12px;
+}
+
+.pytorch-right-menu li.active > a {
+  color: #ee4c2c;
+}
+
+.pytorch-right-menu li.active > a span.pre, .pytorch-right-menu li.active > a:before {
+  color: #ee4c2c;
+}
+
+.pytorch-right-menu li.active > a:after {
+  content: "";
+  color: #e44c2c;
+  display: inline-block;
+  font-size: 1.375rem;
+  left: -17px;
+  position: absolute;
+  top: 1px;
+}
+
+.pytorch-right-menu .pytorch-side-scroll > ul > li > ul > li {
+  margin-bottom: 0;
+}
+
+.pytorch-right-menu ul ul {
+  padding-left: 0;
+}
+
+.pytorch-right-menu ul ul li {
+  padding-left: 0px;
+}
+
+.pytorch-right-menu ul ul li a.reference.internal {
+  padding-left: 0;
+}
+
+/* defines whetether to display 3 and further level nav in the right nav. Add display:none to hide */
+.pytorch-right-menu ul ul li ul {
+  padding-left: 40px;
+}
+
+.pytorch-right-menu ul ul li li a.reference.internal {
+  padding-left: 0;
+}
+
+.pytorch-right-menu li ul {
+  display: block;
+}
+
+.pytorch-right-menu .pytorch-side-scroll {
+  padding-top: 20px;
+  position: sticky;
+  font-size: 1rem;
+  order: 2;
+  overflow-y: auto;
+  padding: 2rem 1rem 1rem;
+  top: 10px;
+  padding-bottom: 60px;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-right-menu .pytorch-side-scroll {
+    width: 120%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-right-menu .pytorch-side-scroll {
+    width: 400px;
+  }
+}
+.pytorch-right-menu .pytorch-side-scroll > ul {
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 1600px) {
+  .pytorch-right-menu .pytorch-side-scroll > ul {
+    padding-left: 25px;
+  }
+}
+.pytorch-right-menu .pytorch-side-scroll > ul > li > a.reference.internal {
+  color: #262626;
+  font-weight: 500;
+}
+
+.pytorch-right-menu .pytorch-side-scroll > ul > li > a.reference.internal.active {
+  color: #ee4c2c;
+}
+
+.pytorch-right-menu .pytorch-side-scroll ul li {
+  position: relative;
+  margin-left: -12px;
+}
+
+#pytorch-right-menu .side-scroll-highlight {
+  color: #ee4c2c;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-container, .nav-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 15px;
+  }
+}
+
+
+.header-holder .container {
+  max-width: 1440px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+@media screen and (min-width: 1201px) {
+  .header-holder .container {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+.header-holder .main-menu {
+  -webkit-box-pack: unset;
+  -ms-flex-pack: unset;
+  justify-content: unset;
+  position: relative;
+}
+
+.header-holder .main-menu .github-icon {
+  background-image: url("../images/pytorch-github.svg");
+  color: white;
+  display: block;
+  width: 33px;
+  height: 33px;
+  position: relative;
+  background-size: 23px 23px;
+  background-position: 5px 4px;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+}
+
+.header-holder .main-menu .github-icon:hover {
+  background-color: rgba(136, 136, 136, 0.2);
+}
+
+@media screen and (min-width: 1201px) {
+  .header-holder .main-menu .github-icon {
+    background-image: url("../images/pytorch-github.svg");
+    color: white;
+    display: block;
+    width: 33px;
+    height: 33px;
+    position: relative;
+    background-size: 23px 23px;
+    background-position: 5px 4px;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+  }
+}
+@media screen and (min-width: 1201px) {
+  .header-holder .main-menu .github-icon:hover {
+    background-color: rgba(136, 136, 136, 0.2);
+  }
+}
+.header-holder .main-menu .search-icon {
+  background-image: url("../images/search-icon-black.svg");
+  color: transparent;
+  display: block;
+  width: 33px;
+  height: 33px;
+  position: relative;
+  background-size: 21px 21px;
+  background-position: 6px 5px;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.header-holder .main-menu .search-icon:hover {
+  background-color: rgba(136, 136, 136, 0.2);
+}
+
+@media screen and (min-width: 1200px) {
+  .header-holder .main-menu ul {
+    padding-left: 0;
+    margin-left: 15%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .header-holder .main-menu ul {
+    margin-left: 15%;
+  }
+}
+.pytorch-page-level-bar {
+  display: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e2e2;
+  width: 100%;
+  z-index: 201;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-page-level-bar {
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 45px;
+    padding-left: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+  .pytorch-page-level-bar.left-menu-is-fixed {
+    position: fixed;
+    top: 0;
+    left: 25%;
+    padding-left: 0;
+    right: 0;
+    width: 75%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-page-level-bar {
+    left: 0;
+    right: 0;
+    width: auto;
+    z-index: 1;
+  }
+  .pytorch-page-level-bar.left-menu-is-fixed {
+    left: 350px;
+    right: 0;
+    width: auto;
+  }
+}
+.pytorch-page-level-bar ul, .pytorch-page-level-bar li {
+  margin: 0;
+}
+
+.pytorch-shortcuts-wrapper {
+  display: none;
+}
+
+@media screen and (min-width: 1201px) {
+  .pytorch-shortcuts-wrapper {
+    font-size: 0.875rem;
+    float: left;
+    margin-left: 2%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .pytorch-shortcuts-wrapper {
+    margin-left: 1.875rem;
+  }
+}
+.cookie-banner-wrapper {
+  display: none;
+}
+
+.cookie-banner-wrapper .container {
+  padding-left: 1.875rem;
+  padding-right: 1.875rem;
+  max-width: 1240px;
+}
+
+.cookie-banner-wrapper.is-visible {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  background-color: #f3f4f7;
+  min-height: 100px;
+  width: 100%;
+  z-index: 401;
+  border-top: 3px solid #ededee;
+}
+
+.cookie-banner-wrapper .gdpr-notice {
+  color: #6c6c6d;
+  margin-top: 1.5625rem;
+  text-align: left;
+  max-width: 1440px;
+}
+
+@media screen and (min-width: 768px) {
+  .cookie-banner-wrapper .gdpr-notice {
+    width: 77%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  .cookie-banner-wrapper .gdpr-notice {
+    width: inherit;
+  }
+}
+.cookie-banner-wrapper .gdpr-notice .cookie-policy-link {
+  color: #343434;
+}
+
+.cookie-banner-wrapper .close-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid #f3f4f7;
+  height: 1.3125rem;
+  position: absolute;
+  bottom: 42px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .cookie-banner-wrapper .close-button {
+    right: 20%;
+    top: inherit;
+  }
+}
+@media (min-width: 768px) and (max-width: 1239px) {
+  .cookie-banner-wrapper .close-button {
+    right: 0;
+    top: 0;
+  }
+}
+.main-menu ul li .resources-dropdown a {
+  cursor: default;
+}
+
+.main-menu ul li .dropdown-menu {
+  border-radius: 0;
+  padding: 0;
+}
+
+.main-menu ul li .dropdown-menu .dropdown-item {
+  color: #6c6c6d;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.main-menu ul li .dropdown-menu .dropdown-item:last-of-type {
+  border-bottom-color: transparent;
+}
+
+.main-menu ul li .dropdown-menu .dropdown-item:hover {
+  background-color: #e44c2c;
+}
+
+.main-menu ul li .dropdown-menu .dropdown-item p {
+  font-size: 1rem;
+  color: #979797;
+}
+
+.main-menu ul li .dropdown-menu a.dropdown-item:hover {
+  color: #ffffff;
+}
+
+.main-menu ul li .dropdown-menu a.dropdown-item:hover p {
+  color: #ffffff;
+}
+
+.resources-dropdown-menu {
+  left: -75px;
+  width: 300px;
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.resources-dropdown:hover .resources-dropdown-menu {
+  display: block;
+}
+
+.main-menu ul li .resources-dropdown-menu {
+  border-radius: 0;
+  padding: 0;
+}
+
+.main-menu ul li.active:hover .resources-dropdown-menu {
+  display: block;
+}
+
+.main-menu ul li .resources-dropdown-menu .dropdown-item {
+  color: #262626;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.resources-dropdown .with-down-orange-arrow {
+  padding-right: 2rem;
+  position: relative;
+  background: url("../images/chevron-down-orange.svg");
+  background-size: 14px 18px;
+  background-position: top 7px right 10px;
+  background-repeat: no-repeat;
+}
+
+.with-down-arrow {
+  padding-right: 2rem;
+  position: relative;
+  background-image: url("../images/chevron-down-black.svg");
+  background-size: 14px 18px;
+  background-position: top 7px right 10px;
+  background-repeat: no-repeat;
+}
+
+.with-down-arrow a {
+  color: #262626;
+}
+
+.main-menu ul li a.with-down-arrow:hover {
+  color: #262626;
+}
+
+.with-down-arrow:hover {
+  background-repeat: no-repeat;
+}
+
+.header-holder .main-menu ul li .resources-dropdown .doc-dropdown-option {
+  padding-top: 1rem;
+}
+
+.header-holder .main-menu ul li a.nav-dropdown-item {
+  display: block;
+  font-family: FreightSans, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.3125rem;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #757575;
+  text-align: left;
+  background-color: transparent;
+  border-bottom: 1px solid #e2e2e2;
+  cursor: pointer;
+}
+
+.header-holder .main-menu ul li a.nav-dropdown-item p {
+  margin-bottom: 0.5rem;
+}
+
+.header-holder .main-menu ul li a.nav-dropdown-item:last-of-type {
+  border-bottom-color: transparent;
+}
+
+.header-holder .main-menu ul li a.nav-dropdown-item:hover {
+  background-color: #e44c2c;
+  color: white;
+}
+
+.header-holder .main-menu ul li a.nav-dropdown-item .dropdown-title {
+  font-size: 1.125rem;
+  color: #212529;
+  letter-spacing: 0;
+  line-height: 34px;
+}
+
+.header-holder .main-menu ul li a.nav-dropdown-item:hover .dropdown-title {
+  background-color: #e44c2c;
+  color: white;
+}
+
+/* Pytorch sphinx theme 2 styles */
+.pytorch-on-this-page-wrapper {
+  position: relative;
+  padding-left: 30px;
+}
+
+.pytorch-on-this-page {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .pytorch-on-this-page-wrapper,
+  .pytorch-on-this-page {
+    display: none;
+  }
+}
+.toggle-icon {
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-image: url("../images/chevron-down-black.svg") !important;
+}
+
+.pytorch-left-menu li.toctree-l1.expanded {
+  background-image: url("../images/chevron-up-black.svg");
+}
+
+.pytorch-left-menu li.expanded .toggle-icon {
+  background-image: url("../images/chevron-up-black.svg");
+}
+
+.pytorch-left-menu ul li ul {
+  display: none;
+}
+
+.pytorch-left-menu ul li.expanded > ul {
+  display: block;
+}
+
+.pytorch-right-menu .pytorch-side-scroll > ul > li > a[href="#"] {
+  display: none;
+}
+
+.btn,
+a.btn {
+  border-radius: 0;
+  border: none;
+  background-color: #f3f4f7;
+  color: #6c6c6d;
+  font-weight: 400;
+  position: relative;
+  letter-spacing: 0.25px;
+}
+
+.btn.btn-lg,
+a.btn.btn-lg {
+  font-size: 1.125rem;
+  padding-top: 8px;
+}
+
+.btn.btn-white,
+a.btn.btn-white {
+  background-color: #ffffff;
+}
+
+.btn.btn-orange,
+a.btn.btn-orange {
+  background-color: #ee4c2c;
+}
+
+.btn.btn-demo,
+a.btn.btn-demo {
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .btn:after,
+  a.btn:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ee4c2c;
+    transition: width 0.25s ease-in-out;
+  }
+  .btn:hover:after,
+  a.btn:hover:after {
+    width: 100%;
+  }
+  .btn:hover,
+  a.btn:hover {
+    color: #262626;
+  }
+}
+.toctree ul {
+  margin-left: 15px;
+}
+
+.toctree .chevron-icon {
+  cursor: pointer;
+  margin-left: 5px;
+  vertical-align: pointer;
+}
