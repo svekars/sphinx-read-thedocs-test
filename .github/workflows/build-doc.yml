@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Built-Docs
-          path: docs/build/html/
+          path: build/html/
 
   upload:
     needs: build-docs
@@ -45,7 +45,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Doc-Build
-          path: docs
+          path: build/html
       - name: Add no-index tag
         run: |
           REF_NAME=$(echo "${{ github.ref }}")
