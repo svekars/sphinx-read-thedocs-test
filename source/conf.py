@@ -33,7 +33,13 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "sphinx_copybutton",
     "sphinx_design",
+    "myst_parser",
 ]
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+    'torch': ('https://pytorch.org/docs/stable/', None),
+}
 
 katex_css_path = \
     'https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css'
@@ -56,6 +62,49 @@ autodoc_typehints = "description"
 
 # Add parameter types if the parameter is documented in the docstring
 autodoc_typehints_description_target = "documented_params"
+
+def process_docstring(app, what, name, obj, options, lines):
+  """Process autodoc docstrings."""
+  # Regular expressions.
+  blankline_re = re.compile(r"^\s*$")
+  prompt_re = re.compile(r"^\s*>>>")
+  tf_symbol_re = re.compile(r"`(?P<symbol>tf\.[a-zA-Z0-9_.]+)`")
+  tfft_symbol_re = re.compile(r"`(?P<symbol>tfft\.[a-zA-Z0-9_.]+)`")
+
+  # Loop initialization. `insert_lines` keeps a list of lines to be inserted
+  # as well as their positions.
+  insert_lines = []
+  in_prompt = False
+
+  # Iterate line by line.
+  for lineno, line in enumerate(lines):
+
+    # Check if we're in a prompt block.
+    if in_prompt:
+      # Check if end of prompt block.
+      if blankline_re.match(line):
+        in_prompt = False
+        insert_lines.append((lineno, "```"))
+        continue
+
+    # Check for >>> prompt, if found insert code block (unless already in
+    # prompt).
+    m = prompt_re.match(line)
+    if m and not in_prompt:
+      in_prompt = True
+      # We need to insert a new line. It's not safe to modify the list we're
+      # iterating over, so instead we store the line in `insert_lines` and we
+      # insert it after the loop.
+      insert_lines.append((lineno, "```python"))
+      continue
+
+  # Now insert the lines (in reversed order so that line numbers stay valid).
+  for lineno, line in reversed(insert_lines):
+    lines.insert(lineno, line)
+
+def setup(app):
+  app.connect('autodoc-process-docstring', process_docstring)
+
 
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3/", None),
@@ -143,54 +192,11 @@ theme_templates_path = os.path.join(html_theme_path[0], html_theme, 'templates')
 templates_path = [theme_templates_path] + ['_templates']
 
 html_theme_options = {
-    'collapse_navigation': False,
     'display_version': True,
     'navigation_with_keys': True,
     'logo_only': False,
+    'includehidden': True,
 }
-
-def process_docstring(app, what_, name, obj, options, lines):
-    """
-    Custom process to transform docstring lines Remove "Ignore" blocks
-
-    Args:
-        app (sphinx.application.Sphinx): the Sphinx application object
-
-        what (str):
-            the type of the object which the docstring belongs to (one of
-            "module", "class", "exception", "function", "method", "attribute")
-
-        name (str): the fully qualified name of the object
-
-        obj: the object itself
-
-        options: the options given to the directive: an object with
-            attributes inherited_members, undoc_members, show_inheritance
-            and noindex that are true if the flag option of same name was
-            given to the auto directive
-
-        lines (List[str]): the lines of the docstring, see above
-
-    References:
-        https://www.sphinx-doc.org/en/1.5.1/_modules/sphinx/ext/autodoc.html
-        https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html
-    """
-    import re
-
-    remove_directives = [
-        # Remove all xdoctest directives
-        re.compile(r"\s*>>>\s*#\s*x?doctest:\s*.*"),
-        re.compile(r"\s*>>>\s*#\s*x?doc:\s*.*"),
-    ]
-    filtered_lines = [
-        line for line in lines if not any(pat.match(line) for pat in remove_directives)
-    ]
-    # Modify the lines inplace
-    lines[:] = filtered_lines
-
-    # make sure there is a blank line at the end
-    if lines and lines[-1].strip():
-        lines.append("")
 
 from sphinx.writers import html, html5
 from docutils import nodes
