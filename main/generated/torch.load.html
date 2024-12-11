@@ -274,9 +274,6 @@
           
 
           
-             
-              
-            
 
             
 
@@ -296,15 +293,47 @@
           </div>
 
           
-             <div class="toctree-wrapper">
+            <div class="toctree-wrapper">
                <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test1.html">Test Page 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test2.html">Test 2 page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/subintro-page.html">Subintro page home</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page1.html">Pytorch 2.4: Getting Started on Intel GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page2.html">FSDP Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page3.html">Test Markdown Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_tensor.html">is_tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_storage.html">is_storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_complex.html">is_complex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_conj.html">is_conj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_floating_point.html">is_floating_point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_nonzero.html">is_nonzero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_dtype.html">set_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_dtype.html">get_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_device.html">set_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_device.html">get_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_tensor_type.html">set_default_tensor_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.numel.html">numel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_printoptions.html">set_printoptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_flush_denormal.html">set_flush_denormal</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial1.html">Tutorial 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial2.html">Tutorial 2</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
@@ -312,7 +341,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../nn.html">torch.nn</a></li>
 </ul>
 
-             </div>
+            </div>
           
       </div>
    </div>
@@ -443,31 +472,32 @@ to strings using <code class="docutils literal notranslate"><span class="pre">la
 as byte arrays which can be decoded later with <code class="docutils literal notranslate"><span class="pre">byte_array.decode(...)</span></code>.</p>
 </div>
 <p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;tensors.pt&quot;</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="go"># Load all tensors onto the CPU</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;tensors.pt&quot;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">),</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="go"># Load all tensors onto the CPU, using a function</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="s2">&quot;tensors.pt&quot;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="k">lambda</span> <span class="n">storage</span><span class="p">,</span> <span class="n">loc</span><span class="p">:</span> <span class="n">storage</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="go"># Load all tensors onto GPU 1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="s2">&quot;tensors.pt&quot;</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">map_location</span><span class="o">=</span><span class="k">lambda</span> <span class="n">storage</span><span class="p">,</span> <span class="n">loc</span><span class="p">:</span> <span class="n">storage</span><span class="o">.</span><span class="n">cuda</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
-<span class="gp">... </span>    <span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="gp">... </span><span class="p">)</span>  <span class="c1"># type: ignore[attr-defined]</span>
-<span class="go"># Map tensors from GPU 1 to GPU 0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;tensors.pt&quot;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;cuda:1&quot;</span><span class="p">:</span> <span class="s2">&quot;cuda:0&quot;</span><span class="p">},</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="go"># Load tensor from io.BytesIO object</span>
-<span class="go"># Loading from a buffer setting weights_only=False, warning this can be unsafe</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;tensor.pt&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="n">buffer</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="go"># Load a module with &#39;ascii&#39; encoding for unpickling</span>
-<span class="go"># Loading from a module setting weights_only=False, warning this can be unsafe</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;module.pt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ascii&quot;</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">#</span> <span class="pre">xdoctest:</span> <span class="pre">+SKIP(&quot;undefined</span> <span class="pre">filepaths&quot;)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.load(&quot;tensors.pt&quot;,</span> <span class="pre">weights_only=True)</span>
+<span class="pre">#</span> <span class="pre">Load</span> <span class="pre">all</span> <span class="pre">tensors</span> <span class="pre">onto</span> <span class="pre">the</span> <span class="pre">CPU</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.load(&quot;tensors.pt&quot;,</span> <span class="pre">map_location=torch.device(&quot;cpu&quot;),</span> <span class="pre">weights_only=True)</span>
+<span class="pre">#</span> <span class="pre">Load</span> <span class="pre">all</span> <span class="pre">tensors</span> <span class="pre">onto</span> <span class="pre">the</span> <span class="pre">CPU,</span> <span class="pre">using</span> <span class="pre">a</span> <span class="pre">function</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.load(</span>
+<span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;tensors.pt&quot;,</span> <span class="pre">map_location=lambda</span> <span class="pre">storage,</span> <span class="pre">loc:</span> <span class="pre">storage,</span> <span class="pre">weights_only=True</span>
+<span class="pre">...</span> <span class="pre">)</span>
+<span class="pre">#</span> <span class="pre">Load</span> <span class="pre">all</span> <span class="pre">tensors</span> <span class="pre">onto</span> <span class="pre">GPU</span> <span class="pre">1</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.load(</span>
+<span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;tensors.pt&quot;,</span>
+<span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">map_location=lambda</span> <span class="pre">storage,</span> <span class="pre">loc:</span> <span class="pre">storage.cuda(1),</span>
+<span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">weights_only=True,</span>
+<span class="pre">...</span> <span class="pre">)</span>&#160; <span class="pre">#</span> <span class="pre">type:</span> <span class="pre">ignore[attr-defined]</span>
+<span class="pre">#</span> <span class="pre">Map</span> <span class="pre">tensors</span> <span class="pre">from</span> <span class="pre">GPU</span> <span class="pre">1</span> <span class="pre">to</span> <span class="pre">GPU</span> <span class="pre">0</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.load(&quot;tensors.pt&quot;,</span> <span class="pre">map_location={&quot;cuda:1&quot;:</span> <span class="pre">&quot;cuda:0&quot;},</span> <span class="pre">weights_only=True)</span>
+<span class="pre">#</span> <span class="pre">Load</span> <span class="pre">tensor</span> <span class="pre">from</span> <span class="pre">io.BytesIO</span> <span class="pre">object</span>
+<span class="pre">#</span> <span class="pre">Loading</span> <span class="pre">from</span> <span class="pre">a</span> <span class="pre">buffer</span> <span class="pre">setting</span> <span class="pre">weights_only=False,</span> <span class="pre">warning</span> <span class="pre">this</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">unsafe</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">with</span> <span class="pre">open(&quot;tensor.pt&quot;,</span> <span class="pre">&quot;rb&quot;)</span> <span class="pre">as</span> <span class="pre">f:</span>
+<span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">buffer</span> <span class="pre">=</span> <span class="pre">io.BytesIO(f.read())</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.load(buffer,</span> <span class="pre">weights_only=False)</span>
+<span class="pre">#</span> <span class="pre">Load</span> <span class="pre">a</span> <span class="pre">module</span> <span class="pre">with</span> <span class="pre">'ascii'</span> <span class="pre">encoding</span> <span class="pre">for</span> <span class="pre">unpickling</span>
+<span class="pre">#</span> <span class="pre">Loading</span> <span class="pre">from</span> <span class="pre">a</span> <span class="pre">module</span> <span class="pre">setting</span> <span class="pre">weights_only=False,</span> <span class="pre">warning</span> <span class="pre">this</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">unsafe</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.load(&quot;module.pt&quot;,</span> <span class="pre">encoding=&quot;ascii&quot;,</span> <span class="pre">weights_only=False)</span>
+<span class="pre">`</span></code></p>
 </dd></dl>
 
 </section>

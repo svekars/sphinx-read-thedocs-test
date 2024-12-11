@@ -1,52 +1,71 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Select all <li> elements with the class "toctree-l1"
-  var toctreeItems = document.querySelectorAll('li.toctree-l1');
+  // Define the levels you want to make expandable
+  var levels = ['toctree-l1', 'toctree-l2', 'toctree-l3'];
 
-  toctreeItems.forEach(function(item) {
-    // Find the link within the item
-    var link = item.querySelector('a');
-    var nestedList = item.querySelector('ul');
+  levels.forEach(function(level) {
+    // Select all <li> elements with the current level class
+    var toctreeItems = document.querySelectorAll('li.' + level);
 
-    if (link && nestedList) {
-      // Create a span element for the "[+]" or "[-]" sign
-      var expandSign = document.createElement('span');
-      expandSign.style.cursor = 'pointer'; // Make it look clickable
+    toctreeItems.forEach(function(item) {
+      // Find the link within the item
+      var link = item.querySelector('a');
+      var nestedList = item.querySelector('ul');
 
-      // Use the link text as a unique key for localStorage
-      var sectionKey = 'section_' + link.textContent.trim().replace(/\s+/g, '_');
+      if (link && nestedList) {
+        // Create a wrapper span for the text and icon
+        var wrapper = document.createElement('span');
+        wrapper.className = 'no-break-chevron';
 
-      // Retrieve the saved state from localStorage
-      var isExpanded = localStorage.getItem(sectionKey);
+        // Move the link text into the wrapper
+        var linkText = document.createTextNode(link.textContent);
+        wrapper.appendChild(linkText);
+        link.textContent = '';
+        link.appendChild(wrapper);
 
-      // If no state is saved, default to expanded for "Learn the Basics" and collapsed for others
-      if (isExpanded === null) {
-        isExpanded = (link.textContent.trim() === 'Learn the Basics') ? 'true' : 'false';
-        localStorage.setItem(sectionKey, isExpanded);
-      }
+        var expandSign = document.createElement('img');
+        expandSign.className = 'chevron-icon';
+        expandSign.style.width = '12px';
+        expandSign.style.height = '12px';
+        expandSign.style.marginLeft = '5px';
+        expandSign.style.cursor = 'pointer';
 
-      if (isExpanded === 'true') {
-        nestedList.style.display = 'block'; // Expand the section
-        expandSign.textContent = '[-] '; // Show "[-]" since it's expanded
-      } else {
-        nestedList.style.display = 'none'; // Collapse the section
-        expandSign.textContent = '[+] '; // Show "[+]" since it's collapsed
-      }
+        // Append the icon to the wrapper
+        wrapper.appendChild(expandSign);
 
-      // Add a click event to toggle the nested list
-      expandSign.addEventListener('click', function() {
-        if (nestedList.style.display === 'none') {
-          nestedList.style.display = 'block';
-          expandSign.textContent = '[-] '; // Change to "[-]" when expanded
-          localStorage.setItem(sectionKey, 'true'); // Save state
-        } else {
-          nestedList.style.display = 'none';
-          expandSign.textContent = '[+] '; // Change back to "[+]" when collapsed
-          localStorage.setItem(sectionKey, 'false'); // Save state
+        // Use the link text and level as a unique key for localStorage
+        var sectionKey = level + '_section_' + link.textContent.trim().replace(/\s+/g, '_');
+
+        // Retrieve the saved state from localStorage
+        var isExpanded = localStorage.getItem(sectionKey);
+
+        // If no state is saved, default to expanded for "Learn the Basics" and collapsed for others
+        if (isExpanded === null) {
+          isExpanded = (link.textContent.trim() === 'Learn the Basics') ? 'true' : 'false';
+          localStorage.setItem(sectionKey, isExpanded);
         }
-      });
 
-      // Insert the sign before the link
-      link.parentNode.insertBefore(expandSign, link);
-    }
+        // Set the initial display state based on the saved or default state
+        if (isExpanded === 'true') {
+          nestedList.style.display = 'block'; // Expand the section
+          expandSign.src = chevronDownIconPath; // Use the down chevron icon
+        } else {
+          nestedList.style.display = 'none'; // Collapse the section
+          expandSign.src = chevronRightIconPath; // Use the right chevron icon
+        }
+
+        // Add a click event to toggle the nested list
+        expandSign.addEventListener('click', function() {
+          if (nestedList.style.display === 'none') {
+            nestedList.style.display = 'block';
+            expandSign.src = chevronDownIconPath; // Change to down chevron when expanded
+            localStorage.setItem(sectionKey, 'true'); // Save state
+          } else {
+            nestedList.style.display = 'none';
+            expandSign.src = chevronRightIconPath; // Change back to right chevron when collapsed
+            localStorage.setItem(sectionKey, 'false'); // Save state
+          }
+        });
+      }
+    });
   });
 });

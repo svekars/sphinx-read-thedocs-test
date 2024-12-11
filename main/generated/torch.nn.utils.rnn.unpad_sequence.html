@@ -274,9 +274,6 @@
           
 
           
-             
-              
-            
 
             
 
@@ -296,15 +293,47 @@
           </div>
 
           
-             <div class="toctree-wrapper">
+            <div class="toctree-wrapper">
                <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test1.html">Test Page 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test2.html">Test 2 page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/subintro-page.html">Subintro page home</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page1.html">Pytorch 2.4: Getting Started on Intel GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page2.html">FSDP Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page3.html">Test Markdown Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_tensor.html">is_tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_storage.html">is_storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_complex.html">is_complex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_conj.html">is_conj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_floating_point.html">is_floating_point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_nonzero.html">is_nonzero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_dtype.html">set_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_dtype.html">get_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_device.html">set_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_device.html">get_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_tensor_type.html">set_default_tensor_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.numel.html">numel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_printoptions.html">set_printoptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_flush_denormal.html">set_flush_denormal</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial1.html">Tutorial 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial2.html">Tutorial 2</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
@@ -312,7 +341,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../nn.html">torch.nn</a></li>
 </ul>
 
-             </div>
+            </div>
           
       </div>
    </div>
@@ -370,22 +399,22 @@
 <dd><p>Unpad padded Tensor into a list of variable length Tensors.</p>
 <p><code class="docutils literal notranslate"><span class="pre">unpad_sequence</span></code> unstacks padded Tensor into a list of variable length Tensors.</p>
 <p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">torch.nn.utils.rnn</span> <span class="kn">import</span> <span class="n">pad_sequence</span><span class="p">,</span> <span class="n">unpad_sequence</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sequences</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">padded_sequences</span> <span class="o">=</span> <span class="n">pad_sequence</span><span class="p">(</span><span class="n">sequences</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lengths</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sequences</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">unpadded_sequences</span> <span class="o">=</span> <span class="n">unpad_sequence</span><span class="p">(</span><span class="n">padded_sequences</span><span class="p">,</span> <span class="n">lengths</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">sequences</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">unpadded_sequences</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">sequences</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">unpadded_sequences</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">sequences</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">unpadded_sequences</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="go">True</span>
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">from</span> <span class="pre">torch.nn.utils.rnn</span> <span class="pre">import</span> <span class="pre">pad_sequence,</span> <span class="pre">unpad_sequence</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">torch.ones(25,</span> <span class="pre">300)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">torch.ones(22,</span> <span class="pre">300)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">c</span> <span class="pre">=</span> <span class="pre">torch.ones(15,</span> <span class="pre">300)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">sequences</span> <span class="pre">=</span> <span class="pre">[a,</span> <span class="pre">b,</span> <span class="pre">c]</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">padded_sequences</span> <span class="pre">=</span> <span class="pre">pad_sequence(sequences)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">lengths</span> <span class="pre">=</span> <span class="pre">torch.as_tensor([v.size(0)</span> <span class="pre">for</span> <span class="pre">v</span> <span class="pre">in</span> <span class="pre">sequences])</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">unpadded_sequences</span> <span class="pre">=</span> <span class="pre">unpad_sequence(padded_sequences,</span> <span class="pre">lengths)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.allclose(sequences[0],</span> <span class="pre">unpadded_sequences[0])</span>
+<span class="pre">True</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.allclose(sequences[1],</span> <span class="pre">unpadded_sequences[1])</span>
+<span class="pre">True</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">torch.allclose(sequences[2],</span> <span class="pre">unpadded_sequences[2])</span>
+<span class="pre">True</span>
+<span class="pre">`</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

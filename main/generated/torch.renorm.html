@@ -274,9 +274,6 @@
           
 
           
-             
-              
-            
 
             
 
@@ -296,15 +293,47 @@
           </div>
 
           
-             <div class="toctree-wrapper">
+            <div class="toctree-wrapper">
                <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test1.html">Test Page 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test2.html">Test 2 page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/subintro-page.html">Subintro page home</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page1.html">Pytorch 2.4: Getting Started on Intel GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page2.html">FSDP Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page3.html">Test Markdown Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_tensor.html">is_tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_storage.html">is_storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_complex.html">is_complex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_conj.html">is_conj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_floating_point.html">is_floating_point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_nonzero.html">is_nonzero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_dtype.html">set_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_dtype.html">get_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_device.html">set_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_device.html">get_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_tensor_type.html">set_default_tensor_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.numel.html">numel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_printoptions.html">set_printoptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_flush_denormal.html">set_flush_denormal</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial1.html">Tutorial 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial2.html">Tutorial 2</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
@@ -312,7 +341,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../nn.html">torch.nn</a></li>
 </ul>
 
-             </div>
+            </div>
           
       </div>
    </div>
@@ -388,7 +417,10 @@ than the value <code class="xref py py-attr docutils literal notranslate"><span 
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```python
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">tensor([ 2.,  2.,  2.])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -403,6 +435,7 @@ than the value <code class="xref py py-attr docutils literal notranslate"><span 
 <span class="go">        [ 1.6667,  1.6667,  1.6667]])</span>
 </pre></div>
 </div>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></p>
 </dd></dl>
 
 </section>

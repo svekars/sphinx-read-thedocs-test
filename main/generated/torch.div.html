@@ -274,9 +274,6 @@
           
 
           
-             
-              
-            
 
             
 
@@ -296,15 +293,47 @@
           </div>
 
           
-             <div class="toctree-wrapper">
+            <div class="toctree-wrapper">
                <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test1.html">Test Page 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test2.html">Test 2 page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/subintro-page.html">Subintro page home</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page1.html">Pytorch 2.4: Getting Started on Intel GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page2.html">FSDP Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page3.html">Test Markdown Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_tensor.html">is_tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_storage.html">is_storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_complex.html">is_complex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_conj.html">is_conj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_floating_point.html">is_floating_point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_nonzero.html">is_nonzero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_dtype.html">set_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_dtype.html">get_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_device.html">set_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_device.html">get_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_tensor_type.html">set_default_tensor_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.numel.html">numel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_printoptions.html">set_printoptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_flush_denormal.html">set_flush_denormal</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial1.html">Tutorial 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial2.html">Tutorial 2</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
@@ -312,7 +341,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../nn.html">torch.nn</a></li>
 </ul>
 
-             </div>
+            </div>
           
       </div>
    </div>
@@ -404,11 +433,17 @@ Equivalent to floor division in Python (the <code class="docutils literal notran
 </dd>
 </dl>
 <p>Examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span> <span class="mf">0.3810</span><span class="p">,</span>  <span class="mf">1.2774</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2972</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3719</span><span class="p">,</span>  <span class="mf">0.4637</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```python
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span> <span class="mf">0.3810</span><span class="p">,</span>  <span class="mf">1.2774</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2972</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3719</span><span class="p">,</span>  <span class="mf">0.4637</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="go">tensor([ 0.7620,  2.5548, -0.5944, -0.7438,  0.9274])</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.3711</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.9353</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4605</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2917</span><span class="p">],</span>
+</pre></div>
+</div>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a></p>
+<dl>
+<dt><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a>python</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.3711</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.9353</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4605</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2917</span><span class="p">],</span>
 <span class="gp">... </span>                  <span class="p">[</span> <span class="mf">0.1815</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0111</span><span class="p">,</span>  <span class="mf">0.9805</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5923</span><span class="p">],</span>
 <span class="gp">... </span>                  <span class="p">[</span> <span class="mf">0.1062</span><span class="p">,</span>  <span class="mf">1.4581</span><span class="p">,</span>  <span class="mf">0.7759</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2344</span><span class="p">],</span>
 <span class="gp">... </span>                  <span class="p">[</span><span class="o">-</span><span class="mf">0.1830</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0313</span><span class="p">,</span>  <span class="mf">1.1908</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4757</span><span class="p">]])</span>
@@ -418,20 +453,33 @@ Equivalent to floor division in Python (the <code class="docutils literal notran
 <span class="go">        [ 0.2260, -3.4509, -1.2086,  6.8990],</span>
 <span class="go">        [ 0.1322,  4.9764, -0.9564,  5.3484],</span>
 <span class="go">        [-0.2278, -0.1068, -1.4678,  6.3938]])</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rounding_mode</span><span class="o">=</span><span class="s1">&#39;trunc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a></p>
+<dl>
+<dt><a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a>python</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rounding_mode</span><span class="o">=</span><span class="s1">&#39;trunc&#39;</span><span class="p">)</span>
 <span class="go">tensor([[-0., -6.,  0.,  1.],</span>
 <span class="go">        [ 0., -3., -1.,  6.],</span>
 <span class="go">        [ 0.,  4., -0.,  5.],</span>
 <span class="go">        [-0., -0., -1.,  6.]])</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rounding_mode</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a></p>
+<dl>
+<dt><a href="#id21"><span class="problematic" id="id22">``</span></a><a href="#id23"><span class="problematic" id="id24">`</span></a>python</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">rounding_mode</span><span class="o">=</span><span class="s1">&#39;floor&#39;</span><span class="p">)</span>
 <span class="go">tensor([[-1., -7.,  0.,  1.],</span>
 <span class="go">        [ 0., -4., -2.,  6.],</span>
 <span class="go">        [ 0.,  4., -1.,  5.],</span>
 <span class="go">        [-1., -1., -2.,  6.]])</span>
 </pre></div>
 </div>
+</dd>
+</dl>
+<p><a href="#id25"><span class="problematic" id="id26">``</span></a><a href="#id27"><span class="problematic" id="id28">`</span></a></p>
 </dd></dl>
 
 </section>

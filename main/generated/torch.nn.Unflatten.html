@@ -274,9 +274,6 @@
           
 
           
-             
-              
-            
 
             
 
@@ -296,15 +293,47 @@
           </div>
 
           
-             <div class="toctree-wrapper">
+            <div class="toctree-wrapper">
                <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test1.html">Test Page 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test2.html">Test 2 page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/subintro-page.html">Subintro page home</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page1.html">Pytorch 2.4: Getting Started on Intel GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page2.html">FSDP Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page3.html">Test Markdown Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_tensor.html">is_tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_storage.html">is_storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_complex.html">is_complex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_conj.html">is_conj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_floating_point.html">is_floating_point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_nonzero.html">is_nonzero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_dtype.html">set_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_dtype.html">get_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_device.html">set_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_device.html">get_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_tensor_type.html">set_default_tensor_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.numel.html">numel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_printoptions.html">set_printoptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_flush_denormal.html">set_flush_denormal</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial1.html">Tutorial 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial2.html">Tutorial 2</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
@@ -312,7 +341,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../nn.html">torch.nn</a></li>
 </ul>
 
-             </div>
+            </div>
           
       </div>
    </div>
@@ -393,31 +422,31 @@ dimension <code class="xref py py-attr docutils literal notranslate"><span class
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">input</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># With tuple of ints</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">nn</span><span class="o">.</span><span class="n">Unflatten</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-<span class="go">torch.Size([2, 2, 5, 5])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># With torch.Size</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">nn</span><span class="o">.</span><span class="n">Unflatten</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-<span class="go">torch.Size([2, 2, 5, 5])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># With namedshape (tuple of tuples)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">input</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">unflatten</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Unflatten</span><span class="p">(</span><span class="s1">&#39;features&#39;</span><span class="p">,</span> <span class="p">((</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">unflatten</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
-<span class="go">torch.Size([2, 2, 5, 5])</span>
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">input</span> <span class="pre">=</span> <span class="pre">torch.randn(2,</span> <span class="pre">50)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">#</span> <span class="pre">With</span> <span class="pre">tuple</span> <span class="pre">of</span> <span class="pre">ints</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">m</span> <span class="pre">=</span> <span class="pre">nn.Sequential(</span>
+<span class="pre">&gt;&gt;&gt;</span>&#160;&#160;&#160;&#160; <span class="pre">nn.Linear(50,</span> <span class="pre">50),</span>
+<span class="pre">&gt;&gt;&gt;</span>&#160;&#160;&#160;&#160; <span class="pre">nn.Unflatten(1,</span> <span class="pre">(2,</span> <span class="pre">5,</span> <span class="pre">5))</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">output</span> <span class="pre">=</span> <span class="pre">m(input)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">output.size()</span>
+<span class="pre">torch.Size([2,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">5])</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">#</span> <span class="pre">With</span> <span class="pre">torch.Size</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">m</span> <span class="pre">=</span> <span class="pre">nn.Sequential(</span>
+<span class="pre">&gt;&gt;&gt;</span>&#160;&#160;&#160;&#160; <span class="pre">nn.Linear(50,</span> <span class="pre">50),</span>
+<span class="pre">&gt;&gt;&gt;</span>&#160;&#160;&#160;&#160; <span class="pre">nn.Unflatten(1,</span> <span class="pre">torch.Size([2,</span> <span class="pre">5,</span> <span class="pre">5]))</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">output</span> <span class="pre">=</span> <span class="pre">m(input)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">output.size()</span>
+<span class="pre">torch.Size([2,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">5])</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">#</span> <span class="pre">With</span> <span class="pre">namedshape</span> <span class="pre">(tuple</span> <span class="pre">of</span> <span class="pre">tuples)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">input</span> <span class="pre">=</span> <span class="pre">torch.randn(2,</span> <span class="pre">50,</span> <span class="pre">names=('N',</span> <span class="pre">'features'))</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">unflatten</span> <span class="pre">=</span> <span class="pre">nn.Unflatten('features',</span> <span class="pre">(('C',</span> <span class="pre">2),</span> <span class="pre">('H',</span> <span class="pre">5),</span> <span class="pre">('W',</span> <span class="pre">5)))</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">output</span> <span class="pre">=</span> <span class="pre">unflatten(input)</span>
+<span class="pre">&gt;&gt;&gt;</span> <span class="pre">output.size()</span>
+<span class="pre">torch.Size([2,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">5])</span>
+<span class="pre">`</span></code></p>
 </dd></dl>
 
 </section>

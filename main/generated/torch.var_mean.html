@@ -274,9 +274,6 @@
           
 
           
-             
-              
-            
 
             
 
@@ -296,15 +293,47 @@
           </div>
 
           
-             <div class="toctree-wrapper">
+            <div class="toctree-wrapper">
                <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../page1.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test1.html">Test Page 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/test2.html">Test 2 page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page2.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/subintro-page.html">Subintro page home</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page1.html">Pytorch 2.4: Getting Started on Intel GPU</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../intro/subintro/page2.html">FSDP Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../page3.html">Test Markdown Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_tensor.html">is_tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_storage.html">is_storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_complex.html">is_complex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_conj.html">is_conj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_floating_point.html">is_floating_point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.is_nonzero.html">is_nonzero</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_dtype.html">set_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_dtype.html">get_default_dtype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_device.html">set_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.get_default_device.html">get_default_device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_default_tensor_type.html">set_default_tensor_type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.numel.html">numel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_printoptions.html">set_printoptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="torch.set_flush_denormal.html">set_flush_denormal</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial1.html">Tutorial 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials/tutorial2.html">Tutorial 2</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul class="current">
@@ -312,7 +341,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../nn.html">torch.nn</a></li>
 </ul>
 
-             </div>
+            </div>
           
       </div>
    </div>
@@ -407,16 +436,18 @@ with <code class="docutils literal notranslate"><span class="pre">True</span></c
 </dd>
 </dl>
 <p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="p">[[</span> <span class="mf">0.2035</span><span class="p">,</span>  <span class="mf">1.2959</span><span class="p">,</span>  <span class="mf">1.8101</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4644</span><span class="p">],</span>
-<span class="gp">... </span>     <span class="p">[</span> <span class="mf">1.5027</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3270</span><span class="p">,</span>  <span class="mf">0.5905</span><span class="p">,</span>  <span class="mf">0.6538</span><span class="p">],</span>
-<span class="gp">... </span>     <span class="p">[</span><span class="o">-</span><span class="mf">1.5745</span><span class="p">,</span>  <span class="mf">1.3330</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5596</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6548</span><span class="p">],</span>
-<span class="gp">... </span>     <span class="p">[</span> <span class="mf">0.1264</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5080</span><span class="p">,</span>  <span class="mf">1.6420</span><span class="p">,</span>  <span class="mf">0.1992</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">var_mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="go">(tensor([[1.5926, 1.0056, 1.2005, 0.3646]]),</span>
-<span class="go"> tensor([[ 0.0645,  0.4485,  0.8707, -0.0665]]))</span>
-</pre></div>
-</div>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+&gt;&gt;&gt; a = torch.tensor(
+…     [[ 0.2035,  1.2959,  1.8101, -0.4644],
+…      [ 1.5027, -0.3270,  0.5905,  0.6538],
+…      [-1.5745,  1.3330, -0.5596, -0.6548],
+…      [ 0.1264, -0.5080,  1.6420,  0.1992]])
+&gt;&gt;&gt; torch.var_mean(a, dim=0, keepdim=True)
+(tensor([[1.5926, 1.0056, 1.2005, 0.3646]]),</p>
+<blockquote>
+<div><p>tensor([[ 0.0645,  0.4485,  0.8707, -0.0665]]))</p>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
 </dd></dl>
 
 </section>

@@ -631,10 +631,11 @@ pre {
 }
 @media (min-width: 1200px) {
   .container .row > div:first-child { /* Targeting the first child, which is the left column */
-    padding-right: 5px; /* Reduce the right padding to bring it closer to the middle column */
+    padding-right: 5px;
   }
   .container .row > div:nth-child(2) { /* Targeting the second child, which is the middle column */
-    padding-left: 5px; /* Reduce the left padding */
+    padding-left: 25px;
+    padding-right: 25px;
   }
 }
 .header-holder {
@@ -1887,6 +1888,12 @@ article.pytorch-article .sphx-glr-thumbcontainer .caption-text a {
   letter-spacing: 0;
   line-height: 1.5rem;
   text-decoration: none;
+}
+
+.caption-text {
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 2;
 }
 
 article.pytorch-article .sphx-glr-thumbcontainer:hover {
@@ -3353,7 +3360,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 @media screen and (min-width: 1600px) {
   .pytorch-left-menu {
     padding: 0 0 0 0;
-    width: 200px;
+    width: 195px;
   }
 }
 .expand-menu, .hide-menu {
@@ -3516,10 +3523,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   display: block;
 }
 
-.pytorch-left-menu li, .pytorch-right-menu li {
-  transition: margin-left 0.3s ease, padding-left 0.3s ease;
-}
-
 .pytorch-left-menu a:link,
 .pytorch-left-menu a:visited,
 .pytorch-left-menu a:hover,
@@ -3591,9 +3594,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-left-menu li.toctree-l1.current > a,
 .pytorch-right-menu li.toctree-l1.current > a {
   color: #ee4c2c;
-  padding-left: 10px;
   list-style-type: none;
-  margin-left: -13px;
 }
 
 .pytorch-left-menu li.toctree-l1:has(.toctree-l2.current) > a,
@@ -3630,41 +3631,18 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     left: -20px;
   }
 }
-.pytorch-left-menu li.toctree-l1.current li.toctree-l2 > ul, .pytorch-left-menu li.toctree-l2.current li.toctree-l3 > ul,
-.pytorch-right-menu li.toctree-l1.current li.toctree-l2 > ul,
-.pytorch-right-menu li.toctree-l2.current li.toctree-l3 > ul {
-  padding-left: 20px;
-}
-
 .pytorch-left-menu li.toctree-l2 > a {
   padding-left: 23px;
 }
 
 .pytorch-left-menu li.toctree-l3 > a {
-  margin-left: 30px;
+  margin-left: 48px;
 }
 
 .pytorch-left-menu li.toctree-l2.current > a,
 .pytorch-left-menu li.toctree-l3.current > a {
   color: #ee4c2c;
-  border-left: 3px solid #ee4c2c;
   list-style-type: none;
-}
-
-.pytorch-left-menu li.toctree-l2.current > a {
-  margin-left: -12px;
-  padding-left: 32px;
-}
-
-.pytorch-left-menu li.toctree-l3.current > a {
-  padding-left: 58px;
-  margin-left: -32px;
-}
-
-.pytorch-left-menu li.toctree-l1.current,
-.pytorch-left-menu li.toctree-l3.current,
-.pytorch-left-menu li.toctree-l3.current {
-  padding-bottom: 5px;
 }
 
 /* Needed to only add left red border in left navigation to current item and to multiple toctree items*/
@@ -4348,6 +4326,10 @@ a.btn.btn-demo {
   cursor: pointer;
   margin-left: 5px;
   vertical-align: pointer;
+}
+
+.no-break-chevron {
+  white-space: nowrap;
 }
 
 /*!
