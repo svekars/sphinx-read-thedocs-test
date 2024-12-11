@@ -34,7 +34,6 @@ Here's my admonition content
 
 ```{eval-rst}
 .. autosummary::
-   :toctree: generated
    :nosignatures:
 
     is_tensor
@@ -51,3 +50,4 @@ Here's my admonition content
     numel
     set_printoptions
     set_flush_denormal
+```
