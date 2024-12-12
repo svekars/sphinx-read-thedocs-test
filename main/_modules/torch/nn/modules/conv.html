@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../../../_static/js/jquery.min.js"></script>
     <script type="text/javascript" src="../../../../_static/js/popper.min.js"></script>
     <script type="text/javascript" src="../../../../_static/js/send-feedback.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/fetch-version.js"></script>
     <link rel="preload" href="../../../../_static/fonts/FreightSans/freight-sans-book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="../../../../_static/fonts/FreightSans/freight-sans-medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="../../../../_static/fonts/IBMPlexMono/IBMPlexMono-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -235,10 +236,12 @@
              </div>
              <div class="nav-right-right">
                 <!-- Content here will be aligned to the right within the right half -->
-                <select id="version-dropdown" class="version-dropdown">
-                    <option value="v1.0">v1.0</option>
-                    <option value="v2.0">v2.0</option>
-                </select>
+                <div class="custom-version-dropdown">
+                    <button class="dropdown-toggle">Loading...</button> <!-- Initial text while loading -->
+                <ul class="dropdown-menu">
+                   <!-- Options will be populated by JavaScript -->
+                </ul>
+                </div>
                 <button id="dark-mode-toggle" class="btn btn-sm btn-outline-secondary">
                   <i id="toggle-icon" class="fas fa-moon" aria-hidden="true"></i>
                 </button>

@@ -882,6 +882,7 @@ pre {
     margin-bottom: 10px;
   }
 }
+
 #dark-mode-toggle {
   padding: 5px 5px;
   border: none;
@@ -931,7 +932,6 @@ pre {
 
 .top-navigation-bar li {
   display: inline;
-  margin-right: 20px;
 }
 
 .top-navigation-bar a {
@@ -956,8 +956,12 @@ pre {
 .version-dropdown {
   margin-right: 10px;
   padding: 5px 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  border: none;
+  appearance: none; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
 }
 
 .github-icon-link, #dark-mode-toggle {
@@ -4324,4 +4328,66 @@ a.btn.btn-demo {
 
 .no-break-chevron {
   white-space: nowrap;
+}
+
+.custom-version-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-version-dropdown .dropdown-toggle {
+  width: 130px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.custom-version-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+  width: 130px;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.custom-version-dropdown .dropdown-menu ul {
+  width: 130px;
+}
+
+.custom-version-dropdown .dropdown-menu li {
+  display: block;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.custom-version-dropdown .dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.custom-version-dropdown .dropdown-menu li:hover {
+  background-color: #ee4c2c;
+  color: #fff;
+}
+
+.custom-version-dropdown .dropdown-menu::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-version-dropdown .dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #6c6c6d;
+  border-radius: 4px;
+}
+.custom-version-dropdown .dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background-color: #262626;
 }
