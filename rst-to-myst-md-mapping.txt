@@ -15,3 +15,13 @@
 
 :cpp:class:	Reference a C++ class	{cpp:class}`MyCppClass`
 :cpp:func:	Reference a C++ function	{cpp:func}`my_function`
+
+.. automodule::	{eval-rst}\n.. automodule:: module_name\n :members:\n```	Document a Python module.
+.. autoclass::	{eval-rst}\n.. autoclass:: class_name\n :members:\n```	Document a Python class.
+.. autofunction::	{eval-rst}\n.. autofunction:: function_name\n```	Document a Python function.
+.. automethod::	{eval-rst}\n.. automethod:: class.method_name\n```	Document a method of a class.
+.. autoattribute::	{eval-rst}\n.. autoattribute:: class.attribute_name\n```	Document an attribute of a class.
+.. autodata::	{eval-rst}\n.. autodata:: module.variable_name\n```	Document a module-level variable or constant.
+.. autoexception::	{eval-rst}\n.. autoexception:: exception_name\n```	Document an exception class.
+.. autoproperty::	{eval-rst}\n.. autoproperty:: class.property_name\n```	Document a property of a class.
+.. autosummary::	{eval-rst}\n.. autosummary::\n :toctree: directory_name\n mymodule.MyClass\n```	Create summary tables for specified objects.
