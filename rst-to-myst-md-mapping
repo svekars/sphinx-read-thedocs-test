@@ -1,0 +1,17 @@
+:py:class:	Reference a class	{py:class}`MyClass`
+:py:func:	Reference a function	{py:func}`my_module.my_function`
+:py:meth:	Reference a method	{py:meth}`MyClass.my_method`
+:py:mod:	Reference a module	{py:mod}`my_module`
+:py:attr:	Reference an attribute	{py:attr}`MyClass.my_attribute`
+:py:data:	Reference a data attribute or value	{py:data}`MY_CONSTANT`
+:py:exc:	Reference an exception	{py:exc}`MyException`
+:py:obj:	Reference any Python object	{py:obj}`my_module.MyClass.my_function`
+
+:doc:	Reference another document	{doc}`path/to/document`
+:ref:	Reference a labeled section or target	{ref}`section-label`
+:title:	Reference a document’s title	{title}`Page Title`
+:numref:	Reference numbered items (e.g., figures)	{numref}`figure-label`
+
+
+:cpp:class:	Reference a C++ class	{cpp:class}`MyCppClass`
+:cpp:func:	Reference a C++ function	{cpp:func}`my_function`
