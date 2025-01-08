@@ -389,14 +389,14 @@
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;svd_lowrank&quot;</span><span class="p">,</span> <span class="s2">&quot;pca_lowrank&quot;</span><span class="p">]</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">_linalg_utils</span> <span class="k">as</span> <span class="n">_utils</span><span class="p">,</span> <span class="n">Tensor</span>
-<span class="kn">from</span> <span class="nn">torch.overrides</span> <span class="kn">import</span> <span class="n">handle_torch_function</span><span class="p">,</span> <span class="n">has_torch_function</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">_linalg_utils</span> <span class="k">as</span> <span class="n">_utils</span><span class="p">,</span> <span class="n">Tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.overrides</span><span class="w"> </span><span class="kn">import</span> <span class="n">handle_torch_function</span><span class="p">,</span> <span class="n">has_torch_function</span>
 
 
-<span class="k">def</span> <span class="nf">get_approximate_basis</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_approximate_basis</span><span class="p">(</span>
     <span class="n">A</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">q</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">niter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
@@ -472,7 +472,7 @@
 
 <div class="viewcode-block" id="svd_lowrank">
 <a class="viewcode-back" href="../../generated/torch.svd_lowrank.html#torch.svd_lowrank">[docs]</a>
-<span class="k">def</span> <span class="nf">svd_lowrank</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">svd_lowrank</span><span class="p">(</span>
     <span class="n">A</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
     <span class="n">niter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
@@ -537,7 +537,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">_svd_lowrank</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_svd_lowrank</span><span class="p">(</span>
     <span class="n">A</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span><span class="p">,</span>
     <span class="n">niter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
@@ -573,7 +573,7 @@
 
 <div class="viewcode-block" id="pca_lowrank">
 <a class="viewcode-back" href="../../generated/torch.pca_lowrank.html#torch.pca_lowrank">[docs]</a>
-<span class="k">def</span> <span class="nf">pca_lowrank</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pca_lowrank</span><span class="p">(</span>
     <span class="n">A</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>

@@ -386,14 +386,14 @@
                   <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
                     <h1>Source code for torch.nn.utils.init</h1><div class="highlight"><pre>
 <span></span><span class="c1"># mypy: allow-untyped-defs</span>
-<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
 
 <div class="viewcode-block" id="skip_init">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.skip_init.html#torch.nn.utils.skip_init">[docs]</a>
-<span class="k">def</span> <span class="nf">skip_init</span><span class="p">(</span><span class="n">module_cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">skip_init</span><span class="p">(</span><span class="n">module_cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Given a module class object and args / kwargs, instantiate the module without initializing parameters / buffers.</span>
 

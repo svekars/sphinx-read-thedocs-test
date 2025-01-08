@@ -390,17 +390,17 @@
 <span class="c1"># Author: Pearu Peterson</span>
 <span class="c1"># Created: February 2020</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">_linalg_utils</span> <span class="k">as</span> <span class="n">_utils</span><span class="p">,</span> <span class="n">Tensor</span>
-<span class="kn">from</span> <span class="nn">torch.overrides</span> <span class="kn">import</span> <span class="n">handle_torch_function</span><span class="p">,</span> <span class="n">has_torch_function</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">_linalg_utils</span> <span class="k">as</span> <span class="n">_utils</span><span class="p">,</span> <span class="n">Tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.overrides</span><span class="w"> </span><span class="kn">import</span> <span class="n">handle_torch_function</span><span class="p">,</span> <span class="n">has_torch_function</span>
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;lobpcg&quot;</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">_symeig_backward_complete_eigenspace</span><span class="p">(</span><span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_symeig_backward_complete_eigenspace</span><span class="p">(</span><span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span><span class="p">):</span>
     <span class="c1"># compute F, such that F_ij = (d_j - d_i)^{-1} for i != j, F_ii = 0</span>
     <span class="n">F</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">D</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">F</span><span class="o">.</span><span class="n">diagonal</span><span class="p">(</span><span class="n">dim1</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim2</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">))</span>
@@ -415,7 +415,7 @@
     <span class="k">return</span> <span class="n">res</span>
 
 
-<span class="k">def</span> <span class="nf">_polynomial_coefficients_given_roots</span><span class="p">(</span><span class="n">roots</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_polynomial_coefficients_given_roots</span><span class="p">(</span><span class="n">roots</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Given the `roots` of a polynomial, find the polynomial&#39;s coefficients.</span>
 
@@ -457,7 +457,7 @@
     <span class="k">return</span> <span class="n">poly_coeffs</span><span class="o">.</span><span class="n">narrow</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">poly_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_polynomial_value</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zero_power</span><span class="p">,</span> <span class="n">transition</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_polynomial_value</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zero_power</span><span class="p">,</span> <span class="n">transition</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A generic method for computing poly(x) using the Horner&#39;s rule.</span>
 
@@ -488,14 +488,14 @@
     <span class="k">return</span> <span class="n">res</span>
 
 
-<span class="k">def</span> <span class="nf">_matrix_polynomial_value</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zero_power</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_matrix_polynomial_value</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zero_power</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Evaluates `poly(x)` for the (batched) matrix input `x`.</span>
 <span class="sd">    Check out `_polynomial_value` function for more details.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># matrix-aware Horner&#39;s rule iteration</span>
-    <span class="k">def</span> <span class="nf">transition</span><span class="p">(</span><span class="n">curr_poly_val</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">poly_coeff</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transition</span><span class="p">(</span><span class="n">curr_poly_val</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">poly_coeff</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">curr_poly_val</span><span class="p">)</span>
         <span class="n">res</span><span class="o">.</span><span class="n">diagonal</span><span class="p">(</span><span class="n">dim1</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim2</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">poly_coeff</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">res</span>
@@ -508,14 +508,14 @@
     <span class="k">return</span> <span class="n">_polynomial_value</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zero_power</span><span class="p">,</span> <span class="n">transition</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_vector_polynomial_value</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zero_power</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_vector_polynomial_value</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zero_power</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Evaluates `poly(x)` for the (batched) vector input `x`.</span>
 <span class="sd">    Check out `_polynomial_value` function for more details.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># vector-aware Horner&#39;s rule iteration</span>
-    <span class="k">def</span> <span class="nf">transition</span><span class="p">(</span><span class="n">curr_poly_val</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">poly_coeff</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transition</span><span class="p">(</span><span class="n">curr_poly_val</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">poly_coeff</span><span class="p">):</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">addcmul</span><span class="p">(</span><span class="n">poly_coeff</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">curr_poly_val</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">res</span>
 
@@ -525,7 +525,7 @@
     <span class="k">return</span> <span class="n">_polynomial_value</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">zero_power</span><span class="p">,</span> <span class="n">transition</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_symeig_backward_partial_eigenspace</span><span class="p">(</span><span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">largest</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_symeig_backward_partial_eigenspace</span><span class="p">(</span><span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">largest</span><span class="p">):</span>
     <span class="c1"># compute a projection operator onto an orthogonal subspace spanned by the</span>
     <span class="c1"># columns of U defined as (I - UU^T)</span>
     <span class="n">Ut</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">mT</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>
@@ -632,7 +632,7 @@
     <span class="k">return</span> <span class="n">res</span>
 
 
-<span class="k">def</span> <span class="nf">_symeig_backward</span><span class="p">(</span><span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">largest</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_symeig_backward</span><span class="p">(</span><span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">largest</span><span class="p">):</span>
     <span class="c1"># if `U` is square, then the columns of `U` is a complete eigenspace</span>
     <span class="k">if</span> <span class="n">U</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">U</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_symeig_backward_complete_eigenspace</span><span class="p">(</span><span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
@@ -640,9 +640,9 @@
         <span class="k">return</span> <span class="n">_symeig_backward_partial_eigenspace</span><span class="p">(</span><span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">largest</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">LOBPCGAutogradFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LOBPCGAutogradFunction</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>  <span class="c1"># type: ignore[override]</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>  <span class="c1"># type: ignore[override]</span>
         <span class="n">ctx</span><span class="p">,</span>
         <span class="n">A</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
         <span class="n">k</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -688,7 +688,7 @@
         <span class="k">return</span> <span class="n">D</span><span class="p">,</span> <span class="n">U</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">D_grad</span><span class="p">,</span> <span class="n">U_grad</span><span class="p">):</span>
         <span class="n">A_grad</span> <span class="o">=</span> <span class="n">B_grad</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">grads</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">14</span>
 
@@ -731,7 +731,7 @@
 
 <div class="viewcode-block" id="lobpcg">
 <a class="viewcode-back" href="../../generated/torch.lobpcg.html#torch.lobpcg">[docs]</a>
-<span class="k">def</span> <span class="nf">lobpcg</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lobpcg</span><span class="p">(</span>
     <span class="n">A</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">k</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">B</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -969,7 +969,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">_lobpcg</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_lobpcg</span><span class="p">(</span>
     <span class="n">A</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">k</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">B</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1078,10 +1078,10 @@
     <span class="k">return</span> <span class="n">worker</span><span class="o">.</span><span class="n">E</span><span class="p">[:</span><span class="n">k</span><span class="p">],</span> <span class="n">worker</span><span class="o">.</span><span class="n">X</span><span class="p">[:,</span> <span class="p">:</span><span class="n">k</span><span class="p">]</span>
 
 
-<span class="k">class</span> <span class="nc">LOBPCG</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LOBPCG</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Worker class of LOBPCG methods.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">A</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span>
         <span class="n">B</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span>
@@ -1115,7 +1115,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fvars</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bvars</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;_&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;LOPBCG:&quot;</span><span class="p">]</span>
         <span class="n">lines</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;  iparams=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">iparams</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
         <span class="n">lines</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;  fparams=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fparams</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
@@ -1134,7 +1134,7 @@
             <span class="n">r</span> <span class="o">+=</span> <span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">r</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set and update iteration variables.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ivars</span><span class="p">[</span><span class="s2">&quot;istep&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">X_norm</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">))</span>
@@ -1156,12 +1156,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">ivars</span><span class="p">[</span><span class="s2">&quot;iterations_left&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ivars</span><span class="p">[</span><span class="s2">&quot;iterations_left&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ivars</span><span class="p">[</span><span class="s2">&quot;istep&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ivars</span><span class="p">[</span><span class="s2">&quot;istep&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">update_residual</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_residual</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Update residual R from A, B, X, E.&quot;&quot;&quot;</span>
         <span class="n">mm</span> <span class="o">=</span> <span class="n">_utils</span><span class="o">.</span><span class="n">matmul</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">mm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">)</span> <span class="o">-</span> <span class="n">mm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">B</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">E</span>
 
-    <span class="k">def</span> <span class="nf">update_converged_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_converged_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Determine the number of converged eigenpairs using backward stable</span>
 <span class="sd">        convergence criterion, see discussion in Sec 4.3 of [DuerschEtal2018].</span>
 
@@ -1192,7 +1192,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">tvars</span><span class="p">[</span><span class="s2">&quot;rerr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rerr</span>
         <span class="k">return</span> <span class="n">count</span>
 
-    <span class="k">def</span> <span class="nf">stop_iteration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop_iteration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return True to stop iterations.</span>
 
 <span class="sd">        Note that tracker (if defined) can force-stop iterations by</span>
@@ -1204,7 +1204,7 @@
             <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">ivars</span><span class="p">[</span><span class="s2">&quot;converged_count&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iparams</span><span class="p">[</span><span class="s2">&quot;k&quot;</span><span class="p">]</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Run LOBPCG iterations.</span>
 
 <span class="sd">        Use this method as a template for implementing LOBPCG</span>
@@ -1223,7 +1223,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">call_tracker</span><span class="p">()</span>
 
     <span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">unused</span>
-    <span class="k">def</span> <span class="nf">call_tracker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">call_tracker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Interface for tracking iteration process in Python mode.</span>
 
 <span class="sd">        Tracking the iteration process is disabled in TorchScript</span>
@@ -1234,7 +1234,7 @@
 
     <span class="c1"># Internal methods</span>
 
-    <span class="k">def</span> <span class="nf">_update_basic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_basic</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update or initialize iteration variables when `method == &quot;basic&quot;`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1277,7 +1277,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">ivars</span><span class="p">[</span><span class="s2">&quot;converged_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ns</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">np</span> <span class="o">+</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">[:,</span> <span class="n">n</span> <span class="o">+</span> <span class="n">np</span> <span class="p">:</span> <span class="n">ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span>
 
-    <span class="k">def</span> <span class="nf">_update_ortho</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_update_ortho</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update or initialize iteration variables when `method == &quot;ortho&quot;`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1322,7 +1322,7 @@
             <span class="n">ns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ivars</span><span class="p">[</span><span class="s2">&quot;converged_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">np</span> <span class="o">+</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">S</span><span class="p">[:,</span> <span class="n">n</span> <span class="o">+</span> <span class="n">np</span> <span class="p">:</span> <span class="n">ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span>
 
-    <span class="k">def</span> <span class="nf">_get_rayleigh_ritz_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_rayleigh_ritz_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">S</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a transformation matrix that is used in Rayleigh-Ritz</span>
 <span class="sd">        procedure for reducing a general eigenvalue problem :math:`(S^TAS)</span>
 <span class="sd">        C = (S^TBS) C E` to a standard eigenvalue problem :math: `(Ri^T</span>
@@ -1378,7 +1378,7 @@
             <span class="n">R</span><span class="p">,</span> <span class="n">d_row</span><span class="o">.</span><span class="n">diag_embed</span><span class="p">(),</span> <span class="n">upper</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="kc">False</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_get_svqb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">U</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">drop</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">tau</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_svqb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">U</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">drop</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">tau</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return B-orthonormal U.</span>
 
 <span class="sd">        .. note:: When `drop` is `False` then `svqb` is based on the</span>
@@ -1439,7 +1439,7 @@
 
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">U</span> <span class="o">*</span> <span class="n">d_col</span><span class="o">.</span><span class="n">mT</span><span class="p">,</span> <span class="n">Z</span> <span class="o">*</span> <span class="n">E</span><span class="o">**-</span><span class="mf">0.5</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_get_ortho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_ortho</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return B-orthonormal U with columns are B-orthogonal to V.</span>
 
 <span class="sd">        .. note:: When `bparams[&quot;ortho_use_drop&quot;] == False` then</span>
@@ -1543,7 +1543,7 @@
 <span class="n">LOBPCG_call_tracker_orig</span> <span class="o">=</span> <span class="n">LOBPCG</span><span class="o">.</span><span class="n">call_tracker</span>
 
 
-<span class="k">def</span> <span class="nf">LOBPCG_call_tracker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">LOBPCG_call_tracker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">tracker</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </pre></div>
                   </article>

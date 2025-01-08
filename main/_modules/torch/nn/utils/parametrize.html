@@ -387,18 +387,18 @@
                     <h1>Source code for torch.nn.utils.parametrize</h1><div class="highlight"><pre>
 <span></span><span class="c1"># mypy: allow-untyped-decorators</span>
 <span class="c1"># mypy: allow-untyped-defs</span>
-<span class="kn">import</span> <span class="nn">collections</span>
-<span class="kn">import</span> <span class="nn">copyreg</span>
-<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copyreg</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span>
-<span class="kn">from</span> <span class="nn">torch.__future__</span> <span class="kn">import</span> <span class="n">get_swap_module_params_on_conversion</span>
-<span class="kn">from</span> <span class="nn">torch.nn.modules.container</span> <span class="kn">import</span> <span class="n">Module</span><span class="p">,</span> <span class="n">ModuleDict</span><span class="p">,</span> <span class="n">ModuleList</span>
-<span class="kn">from</span> <span class="nn">torch.nn.parameter</span> <span class="kn">import</span> <span class="n">Parameter</span>
-<span class="kn">from</span> <span class="nn">torch.utils._python_dispatch</span> <span class="kn">import</span> <span class="n">is_traceable_wrapper_subclass</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_swap_module_params_on_conversion</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn.modules.container</span><span class="w"> </span><span class="kn">import</span> <span class="n">Module</span><span class="p">,</span> <span class="n">ModuleDict</span><span class="p">,</span> <span class="n">ModuleList</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn.parameter</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parameter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils._python_dispatch</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_traceable_wrapper_subclass</span>
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
@@ -418,7 +418,7 @@
 <div class="viewcode-block" id="cached">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.parametrize.cached.html#torch.nn.utils.parametrize.cached">[docs]</a>
 <span class="nd">@contextmanager</span>
-<span class="k">def</span> <span class="nf">cached</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cached</span><span class="p">():</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Context manager that enables the caching system within parametrizations registered with :func:`register_parametrization`.</span>
 
 <span class="sd">    The value of the parametrized objects is computed and cached the first time</span>
@@ -460,14 +460,14 @@
 
 
 
-<span class="k">def</span> <span class="nf">_register_parameter_or_buffer</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_register_parameter_or_buffer</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">):</span>
         <span class="n">module</span><span class="o">.</span><span class="n">register_parameter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">module</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_maybe_set</span><span class="p">(</span><span class="n">dest</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_maybe_set</span><span class="p">(</span><span class="n">dest</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">src</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">should_swap</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">get_swap_module_params_on_conversion</span><span class="p">()</span> <span class="ow">or</span> <span class="n">is_traceable_wrapper_subclass</span><span class="p">(</span><span class="n">dest</span><span class="p">)</span>
     <span class="p">)</span>
@@ -481,7 +481,7 @@
 
 <div class="viewcode-block" id="ParametrizationList">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.parametrize.ParametrizationList.html#torch.nn.utils.parametrize.ParametrizationList">[docs]</a>
-<span class="k">class</span> <span class="nc">ParametrizationList</span><span class="p">(</span><span class="n">ModuleList</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ParametrizationList</span><span class="p">(</span><span class="n">ModuleList</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;A sequential container that holds and manages the original parameters or buffers of a parametrized :class:`torch.nn.Module`.</span>
 
 <span class="sd">    It is the type of ``module.parametrizations[tensor_name]`` when ``module[tensor_name]``</span>
@@ -509,7 +509,7 @@
     <span class="n">original</span><span class="p">:</span> <span class="n">Tensor</span>
     <span class="n">unsafe</span><span class="p">:</span> <span class="nb">bool</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">modules</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Module</span><span class="p">],</span>
         <span class="n">original</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Parameter</span><span class="p">],</span>
@@ -621,7 +621,7 @@
                     <span class="sa">f</span><span class="s2">&quot;parametrized shape: </span><span class="si">{</span><span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
                 <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">right_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">right_inverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Call the ``right_inverse`` methods of the parametrizations in the inverse registration order.</span>
 
 <span class="sd">        Then, it stores the result in ``self.original`` if ``right_inverse`` outputs one tensor</span>
@@ -684,7 +684,7 @@
                         <span class="p">)</span>
                     <span class="n">_maybe_set</span><span class="p">(</span><span class="n">original_i</span><span class="p">,</span> <span class="n">tensor</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">is_scripting</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Parametrization is not working with scripting.&quot;</span><span class="p">)</span>
         <span class="c1"># Unpack the originals for the first parametrization</span>
@@ -703,7 +703,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">_inject_new_class</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_inject_new_class</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Set up a module to be parametrized.</span>
 
 <span class="sd">    This works by substituting the class of the module by a class</span>
@@ -714,7 +714,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">cls</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="vm">__class__</span>
 
-    <span class="k">def</span> <span class="nf">default_deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">default_deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
         <span class="c1"># Just emulate a standard deepcopy procedure when __deepcopy__ doesn&#39;t exist in the current class.</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="n">memo</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -729,7 +729,7 @@
                 <span class="nb">setattr</span><span class="p">(</span><span class="n">replica</span><span class="p">,</span> <span class="n">slot</span><span class="p">,</span> <span class="n">deepcopy</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">slot</span><span class="p">),</span> <span class="n">memo</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">replica</span>
 
-    <span class="k">def</span> <span class="nf">getstate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">getstate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
             <span class="s2">&quot;Serialization of parametrized modules is only &quot;</span>
             <span class="s2">&quot;supported through state_dict(). See:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -752,7 +752,7 @@
     <span class="n">module</span><span class="o">.</span><span class="vm">__class__</span> <span class="o">=</span> <span class="n">param_cls</span>
 
 
-<span class="k">def</span> <span class="nf">_inject_property</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span> <span class="n">tensor_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_inject_property</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span> <span class="n">tensor_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Injects a property into module[tensor_name].</span>
 
 <span class="sd">    It assumes that the class in the module has already been modified from its</span>
@@ -768,7 +768,7 @@
     <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">tensor_name</span><span class="p">)</span>
 
     <span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">unused</span>
-    <span class="k">def</span> <span class="nf">get_cached_parametrization</span><span class="p">(</span><span class="n">parametrization</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_cached_parametrization</span><span class="p">(</span><span class="n">parametrization</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="k">global</span> <span class="n">_cache</span>
         <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">module</span><span class="p">),</span> <span class="n">tensor_name</span><span class="p">)</span>
         <span class="n">tensor</span> <span class="o">=</span> <span class="n">_cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -777,7 +777,7 @@
             <span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">tensor</span>
         <span class="k">return</span> <span class="n">tensor</span>
 
-    <span class="k">def</span> <span class="nf">get_parametrized</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_parametrized</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">is_scripting</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Parametrization is not working with scripting.&quot;</span><span class="p">)</span>
         <span class="n">parametrization</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">parametrizations</span><span class="p">[</span><span class="n">tensor_name</span><span class="p">]</span>
@@ -799,7 +799,7 @@
             <span class="c1"># If caching is not active, this function just evaluates the parametrization</span>
             <span class="k">return</span> <span class="n">parametrization</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">set_original</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_original</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">is_scripting</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Parametrization is not working with scripting.&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parametrizations</span><span class="p">[</span><span class="n">tensor_name</span><span class="p">]</span><span class="o">.</span><span class="n">right_inverse</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -809,7 +809,7 @@
 
 <div class="viewcode-block" id="register_parametrization">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.parametrize.register_parametrization.html#torch.nn.utils.parametrize.register_parametrization">[docs]</a>
-<span class="k">def</span> <span class="nf">register_parametrization</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register_parametrization</span><span class="p">(</span>
     <span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
     <span class="n">tensor_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">parametrization</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
@@ -1026,7 +1026,7 @@
 
 <div class="viewcode-block" id="is_parametrized">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.parametrize.is_parametrized.html#torch.nn.utils.parametrize.is_parametrized">[docs]</a>
-<span class="k">def</span> <span class="nf">is_parametrized</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span> <span class="n">tensor_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_parametrized</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span> <span class="n">tensor_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Determine if a module has a parametrization.</span>
 
 <span class="sd">    Args:</span>
@@ -1051,7 +1051,7 @@
 
 <div class="viewcode-block" id="remove_parametrizations">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.parametrize.remove_parametrizations.html#torch.nn.utils.parametrize.remove_parametrizations">[docs]</a>
-<span class="k">def</span> <span class="nf">remove_parametrizations</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">remove_parametrizations</span><span class="p">(</span>
     <span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
     <span class="n">tensor_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">leave_parametrized</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -1112,7 +1112,7 @@
                             <span class="s2">&quot;Either set leave_parametrized=False or provide a working implementation&quot;</span>
                             <span class="s2">&quot;for set_() in the tensor subclass or set &quot;</span>
                             <span class="s2">&quot;torch.__future__.set_swap_module_params_on_conversion(True).&quot;</span>
-                        <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+                        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">leave_parametrized</span><span class="p">:</span>
             <span class="c1"># We cannot use no_grad because we need to know whether one or more</span>
@@ -1145,7 +1145,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">type_before_parametrizations</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">type_before_parametrizations</span><span class="p">(</span><span class="n">module</span><span class="p">:</span> <span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Return the module type before parametrizations were applied and if not, then it returns the module type.</span>
 
 <span class="sd">    Args:</span>
@@ -1157,7 +1157,7 @@
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">transfer_parametrizations_and_params</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">transfer_parametrizations_and_params</span><span class="p">(</span>
     <span class="n">from_module</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
     <span class="n">to_module</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
     <span class="n">tensor_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>

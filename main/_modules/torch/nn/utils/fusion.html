@@ -385,12 +385,12 @@
                <div class="row"></div>
                   <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
                     <h1>Source code for torch.nn.utils.fusion</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
-<span class="kn">import</span> <span class="nn">copy</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">TypeVar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">TypeVar</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
@@ -406,7 +406,7 @@
 
 <div class="viewcode-block" id="fuse_conv_bn_eval">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.fuse_conv_bn_eval.html#torch.nn.utils.fuse_conv_bn_eval">[docs]</a>
-<span class="k">def</span> <span class="nf">fuse_conv_bn_eval</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fuse_conv_bn_eval</span><span class="p">(</span>
     <span class="n">conv</span><span class="p">:</span> <span class="n">ConvT</span><span class="p">,</span>
     <span class="n">bn</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">batchnorm</span><span class="o">.</span><span class="n">_BatchNorm</span><span class="p">,</span>
     <span class="n">transpose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -445,7 +445,7 @@
 
 <div class="viewcode-block" id="fuse_conv_bn_weights">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.fuse_conv_bn_weights.html#torch.nn.utils.fuse_conv_bn_weights">[docs]</a>
-<span class="k">def</span> <span class="nf">fuse_conv_bn_weights</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fuse_conv_bn_weights</span><span class="p">(</span>
     <span class="n">conv_w</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
     <span class="n">conv_b</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
     <span class="n">bn_rm</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
@@ -501,7 +501,7 @@
 
 <div class="viewcode-block" id="fuse_linear_bn_eval">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.fuse_linear_bn_eval.html#torch.nn.utils.fuse_linear_bn_eval">[docs]</a>
-<span class="k">def</span> <span class="nf">fuse_linear_bn_eval</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fuse_linear_bn_eval</span><span class="p">(</span>
     <span class="n">linear</span><span class="p">:</span> <span class="n">LinearT</span><span class="p">,</span>
     <span class="n">bn</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">batchnorm</span><span class="o">.</span><span class="n">_BatchNorm</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LinearT</span><span class="p">:</span>
@@ -551,7 +551,7 @@
 
 <div class="viewcode-block" id="fuse_linear_bn_weights">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.fuse_linear_bn_weights.html#torch.nn.utils.fuse_linear_bn_weights">[docs]</a>
-<span class="k">def</span> <span class="nf">fuse_linear_bn_weights</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fuse_linear_bn_weights</span><span class="p">(</span>
     <span class="n">linear_w</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
     <span class="n">linear_b</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
     <span class="n">bn_rm</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>

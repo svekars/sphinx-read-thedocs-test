@@ -394,7 +394,7 @@ Read more about feature classification at: <a class="reference external" href="h
 but has restrictions on <cite>true_fn</cite>, <cite>false_fn</cite>, and <cite>operands</cite> that enable it to be
 capturable using torch.compile and torch.export.</p>
 <p>Assuming the constraints on <cite>cond</cite>’s arguments are met, <cite>cond</cite> is equivalent to the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cond</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">true_branch</span><span class="p">,</span> <span class="n">false_branch</span><span class="p">,</span> <span class="n">operands</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cond</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">true_branch</span><span class="p">,</span> <span class="n">false_branch</span><span class="p">,</span> <span class="n">operands</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">pred</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">true_branch</span><span class="p">(</span><span class="o">*</span><span class="n">operands</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -417,9 +417,9 @@ the same, and the outputs have to be the same type and shape.</p></li>
 </dd>
 </dl>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">true_fn</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">true_fn</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">cos</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">false_fn</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">false_fn</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">sin</span><span class="p">()</span>
 <span class="k">return</span> <span class="n">cond</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">,</span> <span class="n">true_fn</span><span class="p">,</span> <span class="n">false_fn</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,))</span>
 </pre></div>

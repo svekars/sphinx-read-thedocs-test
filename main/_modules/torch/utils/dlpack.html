@@ -385,16 +385,16 @@
                <div class="row"></div>
                   <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
                     <h1>Source code for torch.utils.dlpack</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">enum</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">enum</span>
 
-<span class="kn">from</span> <span class="nn">torch._C</span> <span class="kn">import</span> <span class="n">_from_dlpack</span>
-<span class="kn">from</span> <span class="nn">torch._C</span> <span class="kn">import</span> <span class="n">_to_dlpack</span> <span class="k">as</span> <span class="n">to_dlpack</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch._C</span><span class="w"> </span><span class="kn">import</span> <span class="n">_from_dlpack</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch._C</span><span class="w"> </span><span class="kn">import</span> <span class="n">_to_dlpack</span> <span class="k">as</span> <span class="n">to_dlpack</span>
 
 
-<span class="k">class</span> <span class="nc">DLDeviceType</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DLDeviceType</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">):</span>
     <span class="c1"># Enums as in DLPack specification (aten/src/ATen/dlpack.h)</span>
     <span class="n">kDLCPU</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
     <span class="n">kDLGPU</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
@@ -435,7 +435,7 @@
 <span class="c1"># __dlpack__ and __dlpack_device__ methods are accepted.</span>
 <div class="viewcode-block" id="from_dlpack">
 <a class="viewcode-back" href="../../../generated/torch.from_dlpack.html#torch.from_dlpack">[docs]</a>
-<span class="k">def</span> <span class="nf">from_dlpack</span><span class="p">(</span><span class="n">ext_tensor</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;torch.Tensor&#39;</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">from_dlpack</span><span class="p">(</span><span class="n">ext_tensor</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;torch.Tensor&#39;</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;from_dlpack(ext_tensor) -&gt; Tensor</span>
 
 <span class="sd">    Converts a tensor from an external library into a ``torch.Tensor``.</span>

@@ -386,18 +386,18 @@
                   <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
                     <h1>Source code for torch._tensor_str</h1><div class="highlight"><pre>
 <span></span><span class="c1"># mypy: allow-untyped-defs</span>
-<span class="kn">import</span> <span class="nn">contextlib</span>
-<span class="kn">import</span> <span class="nn">dataclasses</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">textwrap</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">dataclasses</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">textwrap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">inf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">inf</span>
 
 
 <span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
-<span class="k">class</span> <span class="nc">__PrinterOptions</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">__PrinterOptions</span><span class="p">:</span>
     <span class="n">precision</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span>
     <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1000</span>
     <span class="n">edgeitems</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
@@ -411,7 +411,7 @@
 <span class="c1"># We could use **kwargs, but this will give better docs</span>
 <div class="viewcode-block" id="set_printoptions">
 <a class="viewcode-back" href="../../generated/torch.set_printoptions.html#torch.set_printoptions">[docs]</a>
-<span class="k">def</span> <span class="nf">set_printoptions</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_printoptions</span><span class="p">(</span>
     <span class="n">precision</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">edgeitems</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -485,7 +485,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">get_printoptions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_printoptions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Gets the current options for printing, as a dictionary that</span>
 <span class="sd">    can be passed as ``**kwargs`` to set_printoptions().</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -493,7 +493,7 @@
 
 
 <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="k">def</span> <span class="nf">printoptions</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">printoptions</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Context manager that temporarily changes the print options.  Accepted</span>
 <span class="sd">    arguments are same as :func:`set_printoptions`.&quot;&quot;&quot;</span>
     <span class="n">old_kwargs</span> <span class="o">=</span> <span class="n">get_printoptions</span><span class="p">()</span>
@@ -504,7 +504,7 @@
         <span class="n">set_printoptions</span><span class="p">(</span><span class="o">**</span><span class="n">old_kwargs</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">tensor_totype</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tensor_totype</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">float</span>
         <span class="k">if</span> <span class="p">(</span>
@@ -516,8 +516,8 @@
     <span class="k">return</span> <span class="n">t</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
 
 
-<span class="k">class</span> <span class="nc">_Formatter</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">_Formatter</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">floating_dtype</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">is_floating_point</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">int_mode</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sci_mode</span> <span class="o">=</span> <span class="kc">False</span>
@@ -584,10 +584,10 @@
         <span class="k">if</span> <span class="n">PRINT_OPTS</span><span class="o">.</span><span class="n">sci_mode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">sci_mode</span> <span class="o">=</span> <span class="n">PRINT_OPTS</span><span class="o">.</span><span class="n">sci_mode</span>
 
-    <span class="k">def</span> <span class="nf">width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_width</span>
 
-    <span class="k">def</span> <span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">floating_dtype</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sci_mode</span><span class="p">:</span>
                 <span class="n">ret</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">{{</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">max_width</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">PRINT_OPTS</span><span class="o">.</span><span class="n">precision</span><span class="si">}</span><span class="s2">e</span><span class="se">}}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -602,7 +602,7 @@
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_width</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">ret</span><span class="p">))</span> <span class="o">*</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">ret</span>
 
 
-<span class="k">def</span> <span class="nf">_scalar_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formatter1</span><span class="p">,</span> <span class="n">formatter2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_scalar_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">formatter1</span><span class="p">,</span> <span class="n">formatter2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">formatter2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">real_str</span> <span class="o">=</span> <span class="n">_scalar_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">formatter1</span><span class="p">)</span>
         <span class="n">imag_str</span> <span class="o">=</span> <span class="p">(</span><span class="n">_scalar_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">formatter2</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;j&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
@@ -615,7 +615,7 @@
         <span class="k">return</span> <span class="n">formatter1</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
 
 
-<span class="k">def</span> <span class="nf">_vector_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">,</span> <span class="n">summarize</span><span class="p">,</span> <span class="n">formatter1</span><span class="p">,</span> <span class="n">formatter2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_vector_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">,</span> <span class="n">summarize</span><span class="p">,</span> <span class="n">formatter1</span><span class="p">,</span> <span class="n">formatter2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="c1"># length includes spaces and comma between elements</span>
     <span class="n">element_length</span> <span class="o">=</span> <span class="n">formatter1</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2</span>
     <span class="k">if</span> <span class="n">formatter2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -626,7 +626,7 @@
         <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">PRINT_OPTS</span><span class="o">.</span><span class="n">linewidth</span> <span class="o">-</span> <span class="n">indent</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">element_length</span><span class="p">)))</span>
     <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_val_formatter</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">formatter1</span><span class="o">=</span><span class="n">formatter1</span><span class="p">,</span> <span class="n">formatter2</span><span class="o">=</span><span class="n">formatter2</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_val_formatter</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">formatter1</span><span class="o">=</span><span class="n">formatter1</span><span class="p">,</span> <span class="n">formatter2</span><span class="o">=</span><span class="n">formatter2</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">formatter2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">real_str</span> <span class="o">=</span> <span class="n">formatter1</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
             <span class="n">imag_str</span> <span class="o">=</span> <span class="p">(</span><span class="n">formatter2</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">val</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;j&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
@@ -660,7 +660,7 @@
 <span class="c1"># formatter2 is only used for printing complex tensors.</span>
 <span class="c1"># For complex tensors, formatter1 and formatter2 are the formatters for tensor.real</span>
 <span class="c1"># and tensor.imag respesectively</span>
-<span class="k">def</span> <span class="nf">_tensor_str_with_formatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">,</span> <span class="n">summarize</span><span class="p">,</span> <span class="n">formatter1</span><span class="p">,</span> <span class="n">formatter2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_tensor_str_with_formatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">,</span> <span class="n">summarize</span><span class="p">,</span> <span class="n">formatter1</span><span class="p">,</span> <span class="n">formatter2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">dim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -697,7 +697,7 @@
     <span class="k">return</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">tensor_str</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span>
 
 
-<span class="k">def</span> <span class="nf">_tensor_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_tensor_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;[]&quot;</span>
 
@@ -748,7 +748,7 @@
         <span class="k">return</span> <span class="n">_tensor_str_with_formatter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">indent</span><span class="p">,</span> <span class="n">summarize</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_add_suffixes</span><span class="p">(</span><span class="n">tensor_str</span><span class="p">,</span> <span class="n">suffixes</span><span class="p">,</span> <span class="n">indent</span><span class="p">,</span> <span class="n">force_newline</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_add_suffixes</span><span class="p">(</span><span class="n">tensor_str</span><span class="p">,</span> <span class="n">suffixes</span><span class="p">,</span> <span class="n">indent</span><span class="p">,</span> <span class="n">force_newline</span><span class="p">):</span>
     <span class="n">tensor_strs</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor_str</span><span class="p">]</span>
     <span class="n">last_line_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tensor_str</span><span class="p">)</span> <span class="o">-</span> <span class="n">tensor_str</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">suffixes</span><span class="p">:</span>
@@ -764,7 +764,7 @@
     <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tensor_strs</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">get_summarized_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_summarized_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="n">dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">dim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span>
@@ -785,7 +785,7 @@
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">get_summarized_data</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
 
 
-<span class="k">def</span> <span class="nf">_str_intern</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">tensor_contents</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_str_intern</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">tensor_contents</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_functorch</span><span class="o">.</span><span class="n">is_functorch_wrapped_tensor</span><span class="p">(</span><span class="n">inp</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">_functorch_wrapper_str_intern</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">tensor_contents</span><span class="o">=</span><span class="n">tensor_contents</span><span class="p">)</span>
     <span class="n">is_plain_tensor</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span> <span class="ow">is</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span> <span class="ow">is</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span>
@@ -841,7 +841,7 @@
     <span class="p">)</span>
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_sparse</span><span class="p">:</span>
         <span class="n">suffixes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;size=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
-        <span class="kn">from</span> <span class="nn">torch._subclasses.fake_tensor</span> <span class="kn">import</span> <span class="n">FakeTensor</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">torch._subclasses.fake_tensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeTensor</span>
 
         <span class="n">is_meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_meta</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">FakeTensor</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_meta</span><span class="p">:</span>
@@ -880,7 +880,7 @@
         <span class="n">torch</span><span class="o">.</span><span class="n">sparse_bsr</span><span class="p">,</span>
         <span class="n">torch</span><span class="o">.</span><span class="n">sparse_bsc</span><span class="p">,</span>
     <span class="p">}:</span>
-        <span class="kn">from</span> <span class="nn">torch._subclasses.fake_tensor</span> <span class="kn">import</span> <span class="n">FakeTensor</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">torch._subclasses.fake_tensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeTensor</span>
 
         <span class="n">suffixes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;size=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
         <span class="n">is_meta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_meta</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">FakeTensor</span><span class="p">)</span>
@@ -966,7 +966,7 @@
     <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_nested</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">custom_contents_provided</span><span class="p">:</span>
 
-            <span class="k">def</span> <span class="nf">indented_str</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
+            <span class="k">def</span><span class="w"> </span><span class="nf">indented_str</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">indent</span><span class="p">):</span>
                 <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">line</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
 
             <span class="n">strs</span> <span class="o">=</span> <span class="s2">&quot;,</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
@@ -979,7 +979,7 @@
         <span class="n">tensor_str</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">_from_functional_tensor</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Circular import problem, so we import it here</span>
-        <span class="kn">from</span> <span class="nn">torch._subclasses.fake_tensor</span> <span class="kn">import</span> <span class="n">FakeTensor</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">torch._subclasses.fake_tensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">FakeTensor</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_meta</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">FakeTensor</span><span class="p">):</span>
             <span class="n">suffixes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;size=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
@@ -1061,7 +1061,7 @@
     <span class="k">return</span> <span class="n">string_repr</span>
 
 
-<span class="k">def</span> <span class="nf">_functorch_wrapper_str_intern</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">tensor_contents</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_functorch_wrapper_str_intern</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">tensor_contents</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">level</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_functorch</span><span class="o">.</span><span class="n">maybe_get_level</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
     <span class="k">assert</span> <span class="n">level</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
 
@@ -1092,7 +1092,7 @@
     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;We don&#39;t know how to print this, please file us an issue&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">tensor_contents</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_str</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">tensor_contents</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">_python_dispatch</span><span class="o">.</span><span class="n">_disable_current_modes</span><span class="p">():</span>
         <span class="n">guard</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">_C</span><span class="o">.</span><span class="n">_DisableFuncTorch</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">_str_intern</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_contents</span><span class="o">=</span><span class="n">tensor_contents</span><span class="p">)</span>

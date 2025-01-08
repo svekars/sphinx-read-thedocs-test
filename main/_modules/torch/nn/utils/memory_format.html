@@ -386,12 +386,12 @@
                   <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
                     <h1>Source code for torch.nn.utils.memory_format</h1><div class="highlight"><pre>
 <span></span><span class="c1"># mypy: allow-untyped-defs</span>
-<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
 
 <div class="viewcode-block" id="convert_conv2d_weight_memory_format">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.convert_conv2d_weight_memory_format.html#torch.nn.utils.convert_conv2d_weight_memory_format">[docs]</a>
-<span class="k">def</span> <span class="nf">convert_conv2d_weight_memory_format</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">memory_format</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_conv2d_weight_memory_format</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">memory_format</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Convert ``memory_format`` of ``nn.Conv2d.weight`` to ``memory_format``.</span>
 
 <span class="sd">    The conversion recursively applies to nested ``nn.Module``, including ``module``.</span>
@@ -469,7 +469,7 @@
 
 <div class="viewcode-block" id="convert_conv3d_weight_memory_format">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.convert_conv3d_weight_memory_format.html#torch.nn.utils.convert_conv3d_weight_memory_format">[docs]</a>
-<span class="k">def</span> <span class="nf">convert_conv3d_weight_memory_format</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">memory_format</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_conv3d_weight_memory_format</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">memory_format</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Convert ``memory_format`` of ``nn.Conv3d.weight`` to ``memory_format``</span>
 <span class="sd">    The conversion recursively applies to nested ``nn.Module``, including ``module``.</span>
 <span class="sd">    Note that it only changes the memory_format, but not the semantics of each dimensions.</span>

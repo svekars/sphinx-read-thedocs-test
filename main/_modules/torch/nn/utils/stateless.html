@@ -386,18 +386,18 @@
                   <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
                     <h1>Source code for torch.nn.utils.stateless</h1><div class="highlight"><pre>
 <span></span><span class="c1"># mypy: allow-untyped-defs</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
-<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">deprecated</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span>
-<span class="kn">from</span> <span class="nn">torch.nn.utils._named_member_accessor</span> <span class="kn">import</span> <span class="n">NamedMemberAccessor</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn.utils._named_member_accessor</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedMemberAccessor</span>
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;functional_call&quot;</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">_untie_named_tensors_map</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_untie_named_tensors_map</span><span class="p">(</span>
     <span class="n">module</span><span class="p">:</span> <span class="s2">&quot;torch.nn.Module&quot;</span><span class="p">,</span>
     <span class="n">parameters_and_buffers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
@@ -481,8 +481,8 @@
     <span class="k">return</span> <span class="n">untied_parameters_and_buffers</span>
 
 
-<span class="k">class</span> <span class="nc">_ReparametrizeModule</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">_ReparametrizeModule</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">module</span><span class="p">:</span> <span class="s2">&quot;torch.nn.Module&quot;</span><span class="p">,</span>
         <span class="n">parameters_and_buffers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
@@ -521,12 +521,12 @@
                     <span class="p">)</span>
                 <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">orig_parameters_and_buffers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">accessor</span><span class="o">.</span><span class="n">swap_tensors_dict</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">untied_parameters_and_buffers</span><span class="p">,</span> <span class="n">allow_missing</span><span class="o">=</span><span class="kc">True</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception_type</span><span class="p">,</span> <span class="n">exception_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception_type</span><span class="p">,</span> <span class="n">exception_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stack_weights</span><span class="p">:</span>
             <span class="c1"># When stacking is enabled, we will restore the weights in LIFO order.</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">orig_parameters_and_buffers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
@@ -547,7 +547,7 @@
         <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_reparametrize_module</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_reparametrize_module</span><span class="p">(</span>
     <span class="n">module</span><span class="p">:</span> <span class="s2">&quot;torch.nn.Module&quot;</span><span class="p">,</span>
     <span class="n">parameters_and_buffers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
     <span class="o">*</span><span class="p">,</span>
@@ -572,7 +572,7 @@
     <span class="s2">&quot;Please use `torch.func.functional_call` instead which is a drop-in replacement.&quot;</span><span class="p">,</span>
     <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="k">def</span> <span class="nf">functional_call</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">functional_call</span><span class="p">(</span>
     <span class="n">module</span><span class="p">:</span> <span class="s2">&quot;torch.nn.Module&quot;</span><span class="p">,</span>
     <span class="n">parameters_and_buffers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">],</span>
@@ -651,7 +651,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">_functional_call</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_functional_call</span><span class="p">(</span>
     <span class="n">module</span><span class="p">:</span> <span class="s2">&quot;torch.nn.Module&quot;</span><span class="p">,</span>
     <span class="n">parameters_and_buffers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
     <span class="n">args</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">],</span>

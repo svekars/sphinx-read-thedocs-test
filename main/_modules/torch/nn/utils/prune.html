@@ -387,17 +387,17 @@
                     <h1>Source code for torch.nn.utils.prune</h1><div class="highlight"><pre>
 <span></span><span class="c1"># mypy: allow-untyped-defs</span>
 <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Pruning methods.&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">numbers</span>
-<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numbers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tuple</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
 
 <div class="viewcode-block" id="BasePruningMethod">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.BasePruningMethod.html#torch.nn.utils.prune.BasePruningMethod">[docs]</a>
-<span class="k">class</span> <span class="nc">BasePruningMethod</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">BasePruningMethod</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Abstract base class for creation of new pruning techniques.</span>
 
 <span class="sd">    Provides a skeleton for customization requiring the overriding of methods</span>
@@ -406,7 +406,7 @@
 
     <span class="n">_tensor_name</span><span class="p">:</span> <span class="nb">str</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Multiply the mask into original tensor and store the result.</span>
 
 <span class="sd">        Multiplies the mask (stored in ``module[name + &#39;_mask&#39;]``)</span>
@@ -422,7 +422,7 @@
 <div class="viewcode-block" id="BasePruningMethod.compute_mask">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.BasePruningMethod.html#torch.nn.utils.prune.BasePruningMethod.compute_mask">[docs]</a>
     <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute and returns a mask for the input tensor ``t``.</span>
 
 <span class="sd">        Starting from a base ``default_mask`` (which should be a mask of ones</span>
@@ -444,7 +444,7 @@
 
 <div class="viewcode-block" id="BasePruningMethod.apply_mask">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.BasePruningMethod.html#torch.nn.utils.prune.BasePruningMethod.apply_mask">[docs]</a>
-    <span class="k">def</span> <span class="nf">apply_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Simply handles the multiplication between the parameter being pruned and the generated mask.</span>
 
 <span class="sd">        Fetches the mask and the original tensor from the module</span>
@@ -470,7 +470,7 @@
 <div class="viewcode-block" id="BasePruningMethod.apply">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.BasePruningMethod.html#torch.nn.utils.prune.BasePruningMethod.apply">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add pruning on the fly and reparametrization of a tensor.</span>
 
 <span class="sd">        Adds the forward pre-hook that enables pruning on the fly and</span>
@@ -492,7 +492,7 @@
 <span class="sd">                :class:`BasePruningMethod`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">def</span> <span class="nf">_get_composite_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_get_composite_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="c1"># Check if a pruning method has already been applied to</span>
             <span class="c1"># `module[name]`. If so, store that in `old_method`.</span>
             <span class="n">old_method</span> <span class="o">=</span> <span class="kc">None</span>
@@ -601,7 +601,7 @@
 
 <div class="viewcode-block" id="BasePruningMethod.prune">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.BasePruningMethod.html#torch.nn.utils.prune.BasePruningMethod.prune">[docs]</a>
-    <span class="k">def</span> <span class="nf">prune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">prune</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute and returns a pruned version of input tensor ``t``.</span>
 
 <span class="sd">        According to the pruning rule specified in :meth:`compute_mask`.</span>
@@ -634,7 +634,7 @@
 
 <div class="viewcode-block" id="BasePruningMethod.remove">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.BasePruningMethod.html#torch.nn.utils.prune.BasePruningMethod.remove">[docs]</a>
-    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Remove the pruning reparameterization from a module.</span>
 
 <span class="sd">        The pruned parameter named ``name`` remains permanently pruned,</span>
@@ -666,7 +666,7 @@
 
 <div class="viewcode-block" id="PruningContainer">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.PruningContainer.html#torch.nn.utils.prune.PruningContainer">[docs]</a>
-<span class="k">class</span> <span class="nc">PruningContainer</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PruningContainer</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Container holding a sequence of pruning methods for iterative pruning.</span>
 
 <span class="sd">    Keeps track of the order in which pruning methods are applied and handles</span>
@@ -676,7 +676,7 @@
 <span class="sd">    them.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pruning_methods</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">BasePruningMethod</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>  <span class="c1"># only 1 item</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_tensor_name</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">_tensor_name</span>
@@ -690,7 +690,7 @@
 
 <div class="viewcode-block" id="PruningContainer.add_pruning_method">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.PruningContainer.html#torch.nn.utils.prune.PruningContainer.add_pruning_method">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_pruning_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_pruning_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add a child pruning ``method`` to the container.</span>
 
 <span class="sd">        Args:</span>
@@ -710,18 +710,18 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_pruning_methods</span> <span class="o">+=</span> <span class="p">(</span><span class="n">method</span><span class="p">,)</span>  <span class="c1"># type: ignore[operator]</span></div>
 
 
-    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pruning_methods</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pruning_methods</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pruning_methods</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 
 <div class="viewcode-block" id="PruningContainer.compute_mask">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.PruningContainer.html#torch.nn.utils.prune.PruningContainer.compute_mask">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Apply the latest ``method`` by computing the new partial masks and returning its combination with the ``default_mask``.</span>
 
 <span class="sd">        The new partial mask should be computed on the entries or channels</span>
@@ -749,7 +749,7 @@
 <span class="sd">            ``t``).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">def</span> <span class="nf">_combine_masks</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_combine_masks</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
 <span class="w">            </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Combine the masks from all pruning methods and returns a new mask.</span>
 
 <span class="sd">            Args:</span>
@@ -821,19 +821,19 @@
 
 <div class="viewcode-block" id="Identity">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.Identity.html#torch.nn.utils.prune.Identity">[docs]</a>
-<span class="k">class</span> <span class="nc">Identity</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Identity</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Utility pruning method that does not prune any units but generates the pruning parametrization with a mask of ones.&quot;&quot;&quot;</span>
 
     <span class="n">PRUNING_TYPE</span> <span class="o">=</span> <span class="s2">&quot;unstructured&quot;</span>
 
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">default_mask</span>
         <span class="k">return</span> <span class="n">mask</span>
 
 <div class="viewcode-block" id="Identity.apply">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.Identity.html#torch.nn.utils.prune.Identity.apply">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add pruning on the fly and reparametrization of a tensor.</span>
 
 <span class="sd">        Adds the forward pre-hook that enables pruning on the fly and</span>
@@ -852,7 +852,7 @@
 
 <div class="viewcode-block" id="RandomUnstructured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.RandomUnstructured.html#torch.nn.utils.prune.RandomUnstructured">[docs]</a>
-<span class="k">class</span> <span class="nc">RandomUnstructured</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RandomUnstructured</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune (currently unpruned) units in a tensor at random.</span>
 
 <span class="sd">    Args:</span>
@@ -866,12 +866,12 @@
 
     <span class="n">PRUNING_TYPE</span> <span class="o">=</span> <span class="s2">&quot;unstructured&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="c1"># Check range of validity of pruning amount</span>
         <span class="n">_validate_pruning_amount_init</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
 
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
         <span class="c1"># Check that the amount of units to prune is not &gt; than the number of</span>
         <span class="c1"># parameters in t</span>
         <span class="n">tensor_size</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">nelement</span><span class="p">()</span>
@@ -894,7 +894,7 @@
 <div class="viewcode-block" id="RandomUnstructured.apply">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.RandomUnstructured.html#torch.nn.utils.prune.RandomUnstructured.apply">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add pruning on the fly and reparametrization of a tensor.</span>
 
 <span class="sd">        Adds the forward pre-hook that enables pruning on the fly and</span>
@@ -917,7 +917,7 @@
 
 <div class="viewcode-block" id="L1Unstructured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.L1Unstructured.html#torch.nn.utils.prune.L1Unstructured">[docs]</a>
-<span class="k">class</span> <span class="nc">L1Unstructured</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">L1Unstructured</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune (currently unpruned) units in a tensor by zeroing out the ones with the lowest L1-norm.</span>
 
 <span class="sd">    Args:</span>
@@ -929,12 +929,12 @@
 
     <span class="n">PRUNING_TYPE</span> <span class="o">=</span> <span class="s2">&quot;unstructured&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
         <span class="c1"># Check range of validity of pruning amount</span>
         <span class="n">_validate_pruning_amount_init</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
 
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
         <span class="c1"># Check that the amount of units to prune is not &gt; than the number of</span>
         <span class="c1"># parameters in t</span>
         <span class="n">tensor_size</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">nelement</span><span class="p">()</span>
@@ -959,7 +959,7 @@
 <div class="viewcode-block" id="L1Unstructured.apply">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.L1Unstructured.html#torch.nn.utils.prune.L1Unstructured.apply">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add pruning on the fly and reparametrization of a tensor.</span>
 
 <span class="sd">        Adds the forward pre-hook that enables pruning on the fly and</span>
@@ -989,7 +989,7 @@
 
 <div class="viewcode-block" id="RandomStructured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.RandomStructured.html#torch.nn.utils.prune.RandomStructured">[docs]</a>
-<span class="k">class</span> <span class="nc">RandomStructured</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RandomStructured</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune entire (currently unpruned) channels in a tensor at random.</span>
 
 <span class="sd">    Args:</span>
@@ -1003,7 +1003,7 @@
 
     <span class="n">PRUNING_TYPE</span> <span class="o">=</span> <span class="s2">&quot;structured&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
         <span class="c1"># Check range of validity of amount</span>
         <span class="n">_validate_pruning_amount_init</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
@@ -1011,7 +1011,7 @@
 
 <div class="viewcode-block" id="RandomStructured.compute_mask">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.RandomStructured.html#torch.nn.utils.prune.RandomStructured.compute_mask">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute and returns a mask for the input tensor ``t``.</span>
 
 <span class="sd">        Starting from a base ``default_mask`` (which should be a mask of ones</span>
@@ -1051,7 +1051,7 @@
         <span class="c1"># Compute binary mask by initializing it to all 0s and then filling in</span>
         <span class="c1"># 1s wherever topk.indices indicates, along self.dim.</span>
         <span class="c1"># mask has the same shape as tensor t</span>
-        <span class="k">def</span> <span class="nf">make_mask</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">nchannels</span><span class="p">,</span> <span class="n">nchannels_toprune</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">make_mask</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">nchannels</span><span class="p">,</span> <span class="n">nchannels_toprune</span><span class="p">):</span>
             <span class="c1"># generate a random number in [0, 1] to associate to each channel</span>
             <span class="n">prob</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nchannels</span><span class="p">)</span>
             <span class="c1"># generate mask for each channel by 0ing out the channels that</span>
@@ -1078,7 +1078,7 @@
 <div class="viewcode-block" id="RandomStructured.apply">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.RandomStructured.html#torch.nn.utils.prune.RandomStructured.apply">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add pruning on the fly and reparametrization of a tensor.</span>
 
 <span class="sd">        Adds the forward pre-hook that enables pruning on the fly and</span>
@@ -1103,7 +1103,7 @@
 
 <div class="viewcode-block" id="LnStructured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.LnStructured.html#torch.nn.utils.prune.LnStructured">[docs]</a>
-<span class="k">class</span> <span class="nc">LnStructured</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LnStructured</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune entire (currently unpruned) channels in a tensor based on their L\ ``n``-norm.</span>
 
 <span class="sd">    Args:</span>
@@ -1119,7 +1119,7 @@
 
     <span class="n">PRUNING_TYPE</span> <span class="o">=</span> <span class="s2">&quot;structured&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
         <span class="c1"># Check range of validity of amount</span>
         <span class="n">_validate_pruning_amount_init</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
@@ -1128,7 +1128,7 @@
 
 <div class="viewcode-block" id="LnStructured.compute_mask">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.LnStructured.html#torch.nn.utils.prune.LnStructured.compute_mask">[docs]</a>
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute and returns a mask for the input tensor ``t``.</span>
 
 <span class="sd">        Starting from a base ``default_mask`` (which should be a mask of ones</span>
@@ -1177,7 +1177,7 @@
         <span class="c1"># Compute binary mask by initializing it to all 0s and then filling in</span>
         <span class="c1"># 1s wherever topk.indices indicates, along self.dim.</span>
         <span class="c1"># mask has the same shape as tensor t</span>
-        <span class="k">def</span> <span class="nf">make_mask</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">make_mask</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
             <span class="c1"># init mask to 0</span>
             <span class="n">mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
             <span class="c1"># e.g.: slc = [None, None, None], if len(t.shape) = 3</span>
@@ -1202,7 +1202,7 @@
 <div class="viewcode-block" id="LnStructured.apply">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.LnStructured.html#torch.nn.utils.prune.LnStructured.apply">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add pruning on the fly and reparametrization of a tensor.</span>
 
 <span class="sd">        Adds the forward pre-hook that enables pruning on the fly and</span>
@@ -1241,13 +1241,13 @@
 
 <div class="viewcode-block" id="CustomFromMask">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.CustomFromMask.html#torch.nn.utils.prune.CustomFromMask">[docs]</a>
-<span class="k">class</span> <span class="nc">CustomFromMask</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomFromMask</span><span class="p">(</span><span class="n">BasePruningMethod</span><span class="p">):</span>
     <span class="n">PRUNING_TYPE</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span>
 
-    <span class="k">def</span> <span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compute_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">default_mask</span><span class="p">):</span>
         <span class="k">assert</span> <span class="n">default_mask</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">default_mask</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">default_mask</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">mask</span>
@@ -1255,7 +1255,7 @@
 <div class="viewcode-block" id="CustomFromMask.apply">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.CustomFromMask.html#torch.nn.utils.prune.CustomFromMask.apply">[docs]</a>
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
 <span class="w">        </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Add pruning on the fly and reparametrization of a tensor.</span>
 
 <span class="sd">        Adds the forward pre-hook that enables pruning on the fly and</span>
@@ -1274,7 +1274,7 @@
 
 <div class="viewcode-block" id="identity">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.identity.html#torch.nn.utils.prune.identity">[docs]</a>
-<span class="k">def</span> <span class="nf">identity</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">identity</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Apply pruning reparametrization without pruning any units.</span>
 
 <span class="sd">    Applies pruning reparametrization to the tensor corresponding to the</span>
@@ -1312,7 +1312,7 @@
 
 <div class="viewcode-block" id="random_unstructured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.random_unstructured.html#torch.nn.utils.prune.random_unstructured">[docs]</a>
-<span class="k">def</span> <span class="nf">random_unstructured</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">random_unstructured</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune tensor by removing random (currently unpruned) units.</span>
 
 <span class="sd">    Prunes tensor corresponding to parameter called ``name`` in ``module``</span>
@@ -1352,7 +1352,7 @@
 
 <div class="viewcode-block" id="l1_unstructured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.l1_unstructured.html#torch.nn.utils.prune.l1_unstructured">[docs]</a>
-<span class="k">def</span> <span class="nf">l1_unstructured</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">l1_unstructured</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune tensor by removing units with the lowest L1-norm.</span>
 
 <span class="sd">    Prunes tensor corresponding to parameter called ``name`` in ``module``</span>
@@ -1399,7 +1399,7 @@
 
 <div class="viewcode-block" id="random_structured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.random_structured.html#torch.nn.utils.prune.random_structured">[docs]</a>
-<span class="k">def</span> <span class="nf">random_structured</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">random_structured</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune tensor by removing random channels along the specified dimension.</span>
 
 <span class="sd">    Prunes tensor corresponding to parameter called ``name`` in ``module``</span>
@@ -1443,7 +1443,7 @@
 
 <div class="viewcode-block" id="ln_structured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.ln_structured.html#torch.nn.utils.prune.ln_structured">[docs]</a>
-<span class="k">def</span> <span class="nf">ln_structured</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ln_structured</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune tensor by removing channels with the lowest L\ ``n``-norm along the specified dimension.</span>
 
 <span class="sd">    Prunes tensor corresponding to parameter called ``name`` in ``module``</span>
@@ -1493,7 +1493,7 @@
 
 <div class="viewcode-block" id="global_unstructured">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.global_unstructured.html#torch.nn.utils.prune.global_unstructured">[docs]</a>
-<span class="k">def</span> <span class="nf">global_unstructured</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">pruning_method</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">global_unstructured</span><span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">pruning_method</span><span class="p">,</span> <span class="n">importance_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Globally prunes tensors corresponding to all parameters in ``parameters`` by applying the specified ``pruning_method``.</span>
 
@@ -1615,7 +1615,7 @@
 
 <div class="viewcode-block" id="custom_from_mask">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.custom_from_mask.html#torch.nn.utils.prune.custom_from_mask">[docs]</a>
-<span class="k">def</span> <span class="nf">custom_from_mask</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">custom_from_mask</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Prune tensor corresponding to parameter called ``name`` in ``module`` by applying the pre-computed mask in ``mask``.</span>
 
 <span class="sd">    Modifies module in place (and also return the modified module) by:</span>
@@ -1651,7 +1651,7 @@
 
 <div class="viewcode-block" id="remove">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.remove.html#torch.nn.utils.prune.remove">[docs]</a>
-<span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Remove the pruning reparameterization from a module and the pruning method from the forward hook.</span>
 
 <span class="sd">    The pruned parameter named ``name`` remains permanently pruned, and the parameter</span>
@@ -1684,7 +1684,7 @@
 
 <div class="viewcode-block" id="is_pruned">
 <a class="viewcode-back" href="../../../../generated/torch.nn.utils.prune.is_pruned.html#torch.nn.utils.prune.is_pruned">[docs]</a>
-<span class="k">def</span> <span class="nf">is_pruned</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_pruned</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Check if a module is pruned by looking for pruning pre-hooks.</span>
 
 <span class="sd">    Check whether ``module`` is pruned by looking for</span>
@@ -1714,7 +1714,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">_validate_pruning_amount_init</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_pruning_amount_init</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Validate helper to check the range of amount at init.</span>
 
 <span class="sd">    Args:</span>
@@ -1744,7 +1744,7 @@
         <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_validate_pruning_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">tensor_size</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_pruning_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">tensor_size</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Validate that the pruning amount is meaningful wrt to the size of the data.</span>
 
 <span class="sd">    Validation helper to check that the amount of parameters to prune</span>
@@ -1768,7 +1768,7 @@
         <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_validate_structured_pruning</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_structured_pruning</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Validate that the tensor to be pruned is at least 2-Dimensional.</span>
 
 <span class="sd">    Validation helper to check that the tensor to be pruned is multi-</span>
@@ -1789,7 +1789,7 @@
         <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_compute_nparams_toprune</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">tensor_size</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_nparams_toprune</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">tensor_size</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Convert the pruning amount from a percentage to absolute value.</span>
 
 <span class="sd">    Since amount can be expressed either in absolute value or as a</span>
@@ -1815,7 +1815,7 @@
         <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">amount</span> <span class="o">*</span> <span class="n">tensor_size</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_validate_pruning_dim</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_validate_pruning_dim</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Validate that the pruning dimension is within the bounds of the tensor dimension.</span>
 
 <span class="sd">    Args:</span>
@@ -1826,7 +1826,7 @@
         <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid index </span><span class="si">{</span><span class="n">dim</span><span class="si">}</span><span class="s2"> for tensor of size </span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_compute_norm</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_norm</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Compute the L_n-norm of a tensor along all dimensions except for the specified dimension.</span>
 
 <span class="sd">    The L_n-norm will be computed across all entries in tensor `t` along all dimension</span>
