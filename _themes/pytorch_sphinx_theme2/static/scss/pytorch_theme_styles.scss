@@ -571,6 +571,7 @@ pre {
 
 .primary-sidebar-border {
   border-right: 2px solid #F6F6F6; /* Border for the left nav */
+  width: 20%;
 }
 
 @media screen and (max-width: 1200px) {
@@ -593,6 +594,7 @@ pre {
 
 .right-sidebar-border {
   border-left: 2px solid #F6F6F6; /* Border for the right nav bar */
+  width: 20%;
 }
 
 @media (min-width: 1200px) {
@@ -603,10 +605,18 @@ pre {
 }
 
 @media screen and (max-width: 1200px){
-  .col-md-2 .right-sidebar-border {
-    display: none;
+   .primary-sidebar-border {
+      width: 30%; /* Adjust as needed */
+   }
+   .main-content-container {
+      width: 70%; /* Take up the remaining space */
+   }
+   .right-sidebar-border {
+     display: none;
   }
 }
+
+
 
 @media (min-width: 1200px) {
   .container .row > div:first-child { /* Targeting the first child, which is the left column */
@@ -618,6 +628,15 @@ pre {
   }
 }
 
+@media (max-width: 767px) {
+    .main-content-container {
+       width: 100%;
+    }
+    .primary-sidebar-border,
+    .right-sidebar-border {
+        display: none;
+    }
+}
 
 .header-holder {
   height: 68px;
@@ -1405,6 +1424,7 @@ pre {
 article.pytorch-article {
   width: 100%;
   margin: 0 auto;
+  min-height: 70vh;
 }
 
 @media (min-width: 1200px) {
@@ -1704,6 +1724,30 @@ li.breadcrumb-item.active {
   justify-content: flex-end;
 }
 
+@media screen and (max-width: 780px) {
+  .rating-container {
+    font-size: 10px 
+  }
+}
+
+@media screen and (max-width: 780px) {
+   .rating-flex-container {
+     width: 40%;
+   }
+}
+
+@media screen and (max-width: 780px) {
+   .breadcrumbs-flex-container {
+      width: 60%;
+   }
+}
+
+@media screen and (max-width: 780px) {
+   .breadcrumb-item {
+      font-size: 10px;
+   }
+}
+
 .rating-container .was-helpful-thank-you {
   display: none;
 }
@@ -1717,6 +1761,8 @@ li.breadcrumb-item.active {
   background-color: #e44c2c;
   color: #ffffff;
 }
+
+
 
 .stars-outer {
   font-family: FontAwesomeRegular;
@@ -2196,6 +2242,7 @@ div.versionchanged {
 .main-content-container {
   padding-left: 30px;
   padding-right: 30px;
+  width: 60%;
 }
 
 @media screen and (min-width: 1200px) {
@@ -3292,9 +3339,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     height: 100%;
   }
 }
-.pytorch-menu-vertical {
-  padding: 1.25rem 1.875rem 2.5rem 1.875rem;
-}
 
 @media screen and (min-width: 1201px) {
   .pytorch-menu-vertical {
@@ -3330,7 +3374,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
   .pytorch-left-menu {
     display: block;
     overflow-x: hidden;
@@ -3515,7 +3559,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-left-menu li.toctree-l1 ul {
   display: block;
 }
-
 
 .pytorch-left-menu a:link,
 .pytorch-left-menu a:visited,
@@ -4390,4 +4433,9 @@ a.btn.btn-demo {
 }
 .custom-version-dropdown .dropdown-menu::-webkit-scrollbar-thumb:hover {
   background-color: #262626;
+}
+
+.toctree-wrapper {
+   white-space: normal;
+   word-wrap: break-word; 
 }

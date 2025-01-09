@@ -36,7 +36,9 @@ documentation for details.
    :caption: Python API
 
    torch
+   torch-md
    nn
+   nn-md
 
 Heading 2
 ~~~~~~~~~~
