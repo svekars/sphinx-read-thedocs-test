@@ -264,7 +264,6 @@
 
 <body class="pytorch-body" data-feedback-url="https://github.com/pytorch/pytorch/">
   <div class="container-xxl">
-    <div class="container">
      <div class="row">
         <div class="col-md-2 primary-sidebar-border">
           <div class="primary-sidebar-flex-container">
@@ -325,7 +324,9 @@
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../torch.html">torch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../torch-md.html">torch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nn.html">torch.nn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nn-md.html">torch.nn</a></li>
 </ul>
 
             </div>
@@ -336,12 +337,12 @@
             </nav>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 main-content-container">
           <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
             <!-- Middle column for main content -->
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <div class="row">
-               <div class="col-md-8">
+               <div class="col-md-8 breadcrumbs-flex-container">
                      <ol class="breadcrumb">
     <li class="breadcrumb-item">
         <a href="../index.html">
@@ -937,7 +938,7 @@
 
 
 <div class="viewcode-block" id="SymFloat">
-<a class="viewcode-back" href="../torch.html#torch.SymFloat">[docs]</a>
+<a class="viewcode-back" href="../torch-md.html#torch.SymFloat">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SymFloat</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Like an float (including magic methods), but redirects all operations on the</span>
@@ -1032,14 +1033,14 @@
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;type stub not overridden&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SymFloat.is_integer">
-<a class="viewcode-back" href="../torch.html#torch.SymFloat.is_integer">[docs]</a>
+<a class="viewcode-back" href="../torch-md.html#torch.SymFloat.is_integer">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">is_integer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return True if the float is an integer.&quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;type stub not overridden&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="SymFloat.as_integer_ratio">
-<a class="viewcode-back" href="../torch.html#torch.SymFloat.as_integer_ratio">[docs]</a>
+<a class="viewcode-back" href="../torch-md.html#torch.SymFloat.as_integer_ratio">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">as_integer_ratio</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Tuple</span><span class="p">[</span><span class="n">builtins</span><span class="o">.</span><span class="n">int</span><span class="p">,</span> <span class="n">builtins</span><span class="o">.</span><span class="n">int</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Represent this float as an exact integer ratio&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">builtins</span><span class="o">.</span><span class="n">float</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span></div>
@@ -1057,7 +1058,7 @@
 
 
 <div class="viewcode-block" id="SymBool">
-<a class="viewcode-back" href="../torch.html#torch.SymBool">[docs]</a>
+<a class="viewcode-back" href="../torch-md.html#torch.SymBool">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SymBool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Like an bool (including magic methods), but redirects all operations on the</span>
@@ -3186,7 +3187,6 @@
             </div>
           </div>
       </section>
-     </div>
   </div>
 </div>
 </body>

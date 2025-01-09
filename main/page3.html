@@ -264,7 +264,6 @@
 
 <body class="pytorch-body" data-feedback-url="https://github.com/pytorch/pytorch/">
   <div class="container-xxl">
-    <div class="container">
      <div class="row">
         <div class="col-md-2 primary-sidebar-border">
           <div class="primary-sidebar-flex-container">
@@ -325,7 +324,9 @@
 <p class="caption" role="heading"><span class="caption-text">Python API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="torch.html">torch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="torch-md.html">torch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nn.html">torch.nn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nn-md.html">torch.nn</a></li>
 </ul>
 
             </div>
@@ -336,12 +337,12 @@
             </nav>
           </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 main-content-container">
           <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
             <!-- Middle column for main content -->
             <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
              <div class="row">
-               <div class="col-md-8">
+               <div class="col-md-8 breadcrumbs-flex-container">
                      <ol class="breadcrumb">
     <li class="breadcrumb-item">
         <a href="index.html">
@@ -380,6 +381,19 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">tensor_1d</span><span class="p">)</span>
 </pre></div>
 </div>
+<section id="testing-intersphinx">
+<h2>Testing intersphinx:<a class="headerlink" href="#testing-intersphinx" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Here is test one <code class="docutils literal notranslate"><span class="pre">:func:</span></code>: <a class="reference internal" href="generated/torch.rand.html#torch.rand" title="torch.rand"><code class="xref py py-func docutils literal notranslate"><span class="pre">torch.rand()</span></code></a>, <a class="reference internal" href="generated/torch.rand_like.html#torch.rand_like" title="torch.rand_like"><code class="xref py py-func docutils literal notranslate"><span class="pre">torch.rand_like()</span></code></a></p></li>
+<li><p>Here is test two <code class="docutils literal notranslate"><span class="pre">:class:</span></code>: <code class="xref py py-class docutils literal notranslate"><span class="pre">torch.amp</span></code></p></li>
+<li><p>Here is test three <code class="docutils literal notranslate"><span class="pre">:py:class:</span></code> : <code class="xref py py-class docutils literal notranslate"><span class="pre">DynamicRendezvousHandler</span></code>, <a class="reference external" href="https://pytorch.org/docs/stable/elastic/rendezvous.html#torch.distributed.elastic.rendezvous.etcd_rendezvous_backend.EtcdRendezvousBackend" title="(in PyTorch v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">torch.distributed.elastic.rendezvous.etcd_rendezvous_backend.EtcdRendezvousBackend</span></code></a>, :py:class:<code class="docutils literal notranslate"><span class="pre">RendezvousInfo</span></code>. Truncated version like <code class="docutils literal notranslate"><span class="pre">{py:class:}.EtcdRendezvousBackend</span></code> won’t generate a link.</p></li>
+<li><p>Here is test four: <code class="docutils literal notranslate"><span class="pre">:py:mod:</span></code>: <a class="reference external" href="https://pytorch.org/docs/stable/distributed.html#module-torch.distributed.checkpoint.storage" title="(in PyTorch v2.5)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">torch.distributed.checkpoint.storage</span></code></a></p></li>
+<li><p>Here is test five <code class="docutils literal notranslate"><span class="pre">:py:meth:</span></code>: <code class="xref py py-meth docutils literal notranslate"><span class="pre">torch.distributed.state_dict_saver.save()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">torch.distributed.state_dict_loader.load()</span></code> - these two examples are not valid because those functions are not part of a class, so the link is not generated. For functions like that <code class="docutils literal notranslate"><span class="pre">{func}</span></code> role should be used.</p></li>
+<li><p>Here is test six: <code class="docutils literal notranslate"><span class="pre">:py:obj:</span></code>: <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module.apply" title="(in PyTorch v2.5)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">torch.nn.Module.apply</span></code></a></p></li>
+<li><p>Here is test sever <code class="docutils literal notranslate"><span class="pre">:py:module:</span></code>:  not valid</p></li>
+<li><p>Here is another testi <code class="docutils literal notranslate"><span class="pre">:py:attr:</span></code>: <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.nn.LazyConvTranspose3d.html#torch.nn.LazyConvTranspose3d.cls_to_become" title="(in PyTorch v2.5)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">torch.nn.LazyConvTranspose3d.cls_to_become</span></code></a></p></li>
+</ul>
+</section>
 <section id="testing-warning">
 <h2>Testing warning:<a class="headerlink" href="#testing-warning" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
@@ -498,6 +512,7 @@ on an NVIDIA GPU with compute capability &gt;= 3.0.</p>
     <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
        <ul>
 <li><a class="reference internal" href="#">Test Markdown Page</a><ul>
+<li><a class="reference internal" href="#testing-intersphinx">Testing intersphinx:</a></li>
 <li><a class="reference internal" href="#testing-warning">Testing warning:</a></li>
 <li><a class="reference internal" href="#api-test">API test</a></li>
 <li><a class="reference internal" href="#module-torch">Torch</a><ul>
@@ -513,7 +528,6 @@ on an NVIDIA GPU with compute capability &gt;= 3.0.</p>
             </div>
           </div>
       </section>
-     </div>
   </div>
 </div>
 </body>
