@@ -113,7 +113,7 @@ jobs:
             dictionary:
               encoding: utf-8
               wordlists:
-              - .wordlist.txt
+              - en-wordlist.txt
             pipeline:
             - pyspelling.filters.text
             sources:
