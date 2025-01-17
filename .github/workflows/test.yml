@@ -108,3 +108,4 @@ jobs:
             FILES="${{ steps.push-files.outputs.files }}"
           fi
           pyspelling --source "$FILES"
+
