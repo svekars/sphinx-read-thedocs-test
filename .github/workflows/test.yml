@@ -110,34 +110,33 @@ jobs:
           else
             mapfile -t FILES <<< "${{ steps.push-files.outputs.files }}"
           fi
-
+          
           # Check each file individually
           FINAL_EXIT_CODE=0
           for file in "${FILES[@]}"; do
             if [ -n "$file" ]; then
               echo "Checking spelling in $file"
               # Create a temporary config file based on the existing one
-              awk -v file="$file" '
-              /sources:/ {
-                print $0;
-                print "    - " file;
-                in_sources=1;
-                next;
-              }
-              in_sources && /^[[:space:]]*-/ {
-                next;
-              }
-              {
-                if ($0 !~ /^[[:space:]]*$/) in_sources=0;
-                print $0;
-              }' .pyspelling.yml > temp_config.yml
-
+              python3 - <<EOF > temp_config.yml
+          import yaml
+          
+          with open('.pyspelling.yml', 'r') as f:
+              config = yaml.safe_load(f)
+          
+          # Modify only the sources in each matrix entry
+          for matrix in config['matrix']:
+              matrix['sources'] = ['$file']
+          
+          with open('temp_config.yml', 'w') as f:
+              yaml.dump(config, f, default_flow_style=False)
+          EOF
+              
               if ! pyspelling -c temp_config.yml; then
                 FINAL_EXIT_CODE=1
               fi
             fi
           done
-
+          
           if [ $FINAL_EXIT_CODE -ne 0 ]; then
             echo "Spell check failed!"
             exit 1
