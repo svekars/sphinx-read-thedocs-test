@@ -45,7 +45,7 @@ jobs:
             }
             
             core.setOutput('skip', skipCheck.toString());
-            core.setOutput('files', changedFiles.join(' '));
+            core.setOutput('files', changedFiles.join('\n'));
             core.setOutput('is-pr', (context.eventName === 'pull_request').toString());
 
       - uses: actions/checkout@v4
@@ -60,7 +60,9 @@ jobs:
         id: push-files
         run: |
           CHANGED_FILES=$(git diff --name-only HEAD^..HEAD -- '*.py' '*.rst' '*.md')
-          echo "files=$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Check if relevant files changed
         if: steps.check-files.outputs.skip != 'true'
@@ -97,15 +99,43 @@ jobs:
           pip install pyspelling
           sudo apt-get install aspell aspell-en
 
-      - name: Run pyspelling
+      - name: Run spell check on each file
         if: |
           steps.check-files.outputs.skip != 'true' &&
           steps.check.outputs.skip != 'true'
         run: |
+          # Create a basic configuration template
+          cat > .spellcheck.yml << EOF
+          matrix:
+          - name: Python/RST/MD
+            aspell:
+              lang: en
+            dictionary:
+              encoding: utf-8
+              wordlists:
+              - .wordlist.txt
+            pipeline:
+            - pyspelling.filters.text
+            sources:
+            - '{{file}}'
+          EOF
+          
+          # Get the list of files
           if [ "${{ steps.check-files.outputs.is-pr }}" == "true" ]; then
             FILES="${{ steps.check-files.outputs.files }}"
           else
             FILES="${{ steps.push-files.outputs.files }}"
           fi
-          pyspelling --source "$FILES"
-
+          
+          # Check each file individually
+          EXIT_CODE=0
+          echo "$FILES" | while read -r file; do
+            if [ -n "$file" ]; then
+              echo "Checking spelling in $file"
+              sed "s|{{file}}|$file|g" .spellcheck.yml > temp_config.yml
+              if ! pyspelling -c temp_config.yml; then
+                EXIT_CODE=1
+              fi
+            fi
+          done
+          exit $EXIT_CODE
