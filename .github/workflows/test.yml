@@ -98,6 +98,7 @@ jobs:
         run: |
           pip install pyspelling
           sudo apt-get install aspell aspell-en
+
       - name: Run spell check on each file
         if: |
           steps.check-files.outputs.skip != 'true' &&
@@ -116,9 +117,20 @@ jobs:
             if [ -n "$file" ]; then
               echo "Checking spelling in $file"
               # Create a temporary config file based on the existing one
-              cp .pyspelling.yml temp_config.yml
-              # Replace the sources section with just the current file
-              sed -i '/sources:/,+10 c\    sources:\n    - '"$file" temp_config.yml
+              awk -v file="$file" '
+              /sources:/ {
+                print $0;
+                print "    - " file;
+                in_sources=1;
+                next;
+              }
+              in_sources && /^[[:space:]]*-/ {
+                next;
+              }
+              {
+                if ($0 !~ /^[[:space:]]*$/) in_sources=0;
+                print $0;
+              }' .pyspelling.yml > temp_config.yml
 
               if ! pyspelling -c temp_config.yml; then
                 FINAL_EXIT_CODE=1
