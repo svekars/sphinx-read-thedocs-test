@@ -98,47 +98,29 @@ jobs:
         run: |
           pip install pyspelling
           sudo apt-get install aspell aspell-en
-      
       - name: Run spell check on each file
         if: |
           steps.check-files.outputs.skip != 'true' &&
           steps.check.outputs.skip != 'true'
         run: |
-          # Create a basic configuration template
-          cat > .spellcheck.yml << EOF
-          matrix:
-          - name: Python/RST/MD
-            aspell:
-              lang: en
-            dictionary:
-              encoding: utf-8
-              wordlists:
-              - en-wordlist.txt
-            pipeline:
-            - pyspelling.filters.text
-            sources:
-            - '{{file}}'
-          EOF
-
           # Get the list of files into an array
           if [ "${{ steps.check-files.outputs.is-pr }}" == "true" ]; then
             mapfile -t FILES <<< "${{ steps.check-files.outputs.files }}"
           else
             mapfile -t FILES <<< "${{ steps.push-files.outputs.files }}"
           fi
-
+          
           # Check each file individually
           FINAL_EXIT_CODE=0
           for file in "${FILES[@]}"; do
             if [ -n "$file" ]; then
               echo "Checking spelling in $file"
-              sed "s|{{file}}|$file|g" .spellcheck.yml > temp_config.yml
-              if ! pyspelling -c temp_config.yml; then
+              if ! pyspelling --source "$file"; then
                 FINAL_EXIT_CODE=1
               fi
             fi
           done
-
+          
           if [ $FINAL_EXIT_CODE -ne 0 ]; then
             echo "Spell check failed!"
             exit 1
