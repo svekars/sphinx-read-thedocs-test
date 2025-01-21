@@ -75,7 +75,7 @@ jobs:
           while IFS= read -r file; do
             if [ -n "$file" ]; then
               echo "Checking $file"
-              python -c "import yaml, os; config = yaml.safe_load(open('.pyspelling.yml')); ext = os.path.splitext('$file')[1][1:]; matrix_type = 'markdown' if ext == 'md' else 'reST' if ext == 'rst' else 'python' if ext == 'py' else None; config['matrix'] = [m for m in config['matrix'] if m['name'].lower() == matrix_type]; [m.update({'sources': ['$file']}) for m in config['matrix']]; yaml.dump(config, open('temp_config.yml', 'w'), default_flow_style=False, allow_unicode=True, sort_keys=False)"
+              python -c "import yaml, os; config = yaml.safe_load(open('.pyspelling.yml')); ext = os.path.splitext('$file')[1][1:]; matrix_type = 'markdown' if ext == 'md' else 'reST' if ext == 'rst' else 'python' if ext == 'py' else None; [m.update({'sources': ['$file'] if m['name'].lower() == matrix_type else []}) for m in config['matrix']]; yaml.dump(config, open('temp_config.yml', 'w'), default_flow_style=False, allow_unicode=True, sort_keys=False)"
               pyspelling -c temp_config.yml -v || exit 1
             fi
           done <<< "${{ steps.check.outputs.files }}"
