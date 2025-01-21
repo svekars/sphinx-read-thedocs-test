@@ -39,9 +39,9 @@ jobs:
         id: check
         run: |
           if [[ ${{ github.event_name }} == 'pull_request' ]]; then
-            FILES=$(gh pr view ${{ github.event.pull_request.number }} --json files --jq '.files[].path' | grep -E '\.(py|rst|md)$' || true)
+            FILES=$(gh pr view ${{ github.event.pull_request.number }} --json files --jq '.files[].path' | grep -E '\.(md|rst|py)$' || true)
           else
-            FILES=$(git diff --name-only HEAD^..HEAD | grep -E '\.(py|rst|md)$' || true)
+            FILES=$(git diff --name-only HEAD^..HEAD | grep -E '\.(md|rst|py)$' || true)
           fi
           
           if [ -z "$FILES" ]; then
@@ -57,7 +57,6 @@ jobs:
           fi
         env:
           GH_TOKEN: ${{ github.token }}
-
       - uses: actions/setup-python@v4
         if: steps.files.outputs.skip != 'true' && steps.check.outputs.skip != 'true'
         with:
